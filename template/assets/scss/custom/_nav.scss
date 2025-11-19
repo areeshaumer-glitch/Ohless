@@ -1,0 +1,190 @@
+// 
+// nav.scss
+// Extended from Bootstrap
+// 
+
+// 
+// Additional style for theme
+// 
+
+// Pills
+.nav-pills {
+  .nav-link {
+    cursor: pointer;
+    // margin-bottom: 15px;
+    padding: 0.5rem 1rem;
+    color: var(--#{$prefix}primary);
+    white-space: nowrap;
+  }
+}
+
+// Nav link padding left 0
+.nav.flex-column:not(.nav-pills) .nav-link {
+  padding-left: 0;
+  padding-top: 0.30rem;
+  padding-bottom: 0.30rem;
+}
+
+// Nav responsive
+@include media-breakpoint-down(lg){
+  .nav-responsive{
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+  }
+} 
+
+// Nav underline
+.nav-underline .nav-link{
+  &:hover, &:focus{
+    color: var(--#{$prefix}gray-900);
+  }
+}
+
+// nav divider
+.nav.nav-divider{
+  a:not(.dropdown-item){
+    color: inherit;
+  }
+  .nav-item+.nav-item:before{
+    content: "\2022";
+    color: inherit;
+    padding-left: .65rem;
+    padding-right: .75rem;
+    opacity: 0.8;
+  }
+  .nav-item{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .nav-link{
+    padding: 0;
+    color: inherit;
+  }
+}
+
+// nav hover underline
+.nav.nav-link-hover-underline{
+  .nav-link .nav-link-text{
+    color: var(--#{$prefix}gray-800) !important;
+    line-height: 1.8;
+    opacity: 50%;
+    transition: $transition-base;
+    transition-duration: .5s;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(to right,  var(--#{$prefix}primary) 0%,  var(--#{$prefix}primary) 100%);
+    background-size: 0px 6%;
+    background-repeat: no-repeat;
+    background-position: left 100%;
+  }
+  .nav-link:hover .nav-link-text{
+    opacity: 100%;
+    background-size: 100% 6%;
+  }
+
+  .nav-link .nav-link-icon{
+    color: var(--#{$prefix}gray-800) !important;
+    opacity: 0;
+    transition: $transition-base;
+    transition-duration: .5s;
+  }
+  .nav-link:hover .nav-link-icon{
+    opacity: 100%;
+  }
+}
+
+// Nav pills secondary
+.nav-pills-secondary{
+  .nav-item{
+    padding: 0 !important;
+    border-bottom: 0 !important;
+  }
+  .nav-link{
+    padding: 0.5rem 0.8rem;
+    color: var(--#{$prefix}gray-900);
+    font-weight: 500;
+    border-radius: $border-radius;
+    border: $border-width $border-style var(--#{$prefix}gray-200);
+    .price-text{
+      display: inline-block;
+      color: var(--#{$prefix}gray-900);
+    }
+
+    &.active , &:hover{
+      color: var(--#{$prefix}gray-900);
+      background-color: var(--#{$prefix}secondary);
+
+      .price-text{
+        background: linear-gradient(90deg, $grad-primary-start 0%, $grad-primary-end 100%);
+        background-clip: text;
+        -WebKit-text-fill-color: transparent;
+      }
+    }
+  }
+}
+
+// Nav pills primary gradient
+.nav-pills-primary-grad{
+  .nav-item{
+    padding: 0 !important;
+    border-bottom: 0 !important;
+  }
+  .nav-link{
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    align-items: center;
+    justify-content: center; 
+    display: flex;
+    flex-direction: column;
+    padding: 1rem !important;
+    color: var(--#{$prefix}gray-900);
+    background-color: rgba(var(--bs-body-bg-rgb), 0.5);
+    font-weight: 500;
+    transition: $transition-base;
+
+    .nav-link-content{
+      z-index: 9;
+      position: relative;
+    }
+    .nav-bg-primary-grad{
+      background: linear-gradient(180deg, $grad-primary-start 0%, $grad-primary-end 100%);
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: $transition-base;
+    }
+
+      &:hover, &.active {
+        color: var(--#{$prefix}white);
+        .nav-bg-primary-grad{
+        opacity: 100% !important;
+      }
+    }
+    &.disabled{
+      opacity: 50%;
+    }
+  }
+}
+
+// Nav pill dark
+.nav-pills-dark .nav-link {
+  background-color: var(--#{$prefix}gray-200);
+  color: var(--#{$prefix}gray-900);
+  border: none;
+  font-weight: 600;
+  &:hover{
+    color: var(--#{$prefix}body-bg);
+    background-color: var(--#{$prefix}gray-900);
+  }
+  &:disabled{
+    opacity: 50%;
+  }
+}
+.nav-pills-dark .nav-link.active, .nav-pills-dark .show > .nav-link {
+  color: var(--#{$prefix}body-bg);
+  background-color: var(--#{$prefix}gray-900);
+}

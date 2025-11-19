@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<title>Ohless</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="webestica.com">
+	<meta name="description" content="multipurpose bootstrap theme">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+			var el = document.querySelector('.theme-icon-active');
+			if (el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+					const activeThemeIcon = document.querySelector('.theme-icon-active use')
+					const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+					const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+					document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+						element.classList.remove('active')
+					})
+
+					btnToActive.classList.add('active')
+					activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+				}
+
+				window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+					if (storedTheme !== 'light' || storedTheme !== 'dark') {
+						setTheme(getPreferredTheme())
+					}
+				})
+
+				showActiveTheme(getPreferredTheme())
+
+				document.querySelectorAll('[data-bs-theme-value]')
+					.forEach(toggle => {
+						toggle.addEventListener('click', () => {
+							const theme = toggle.getAttribute('data-bs-theme-value')
+							localStorage.setItem('theme', theme)
+							setTheme(theme)
+							showActiveTheme(theme)
+						})
+					})
+
+			}
+		})
+function matchFeatureHeight() {
+  const sections = document.querySelectorAll('.feature-section');
+
+  sections.forEach(section => {
+    const left = section.querySelector('.left-features');
+    const right = section.querySelector('.right-features');
+    const image = section.querySelector('.feature-image img');
+
+    if (!left || !right || !image) return;
+
+    const maxHeight = Math.max(left.offsetHeight, right.offsetHeight);
+    image.style.height = maxHeight + 'px';
+  });
+}
+
+function matchStepsHeight() {
+  const section = document.querySelector('.steps-section');
+  if (!section) return;
+
+  const content = section.querySelector('.steps-content');
+  const mediaColumn = section.querySelector('.steps-media');
+  const swiper = section.querySelector('.steps-media .swiper');
+
+  if (!content || !mediaColumn || !swiper) return;
+
+  const targetHeight = content.offsetHeight;
+  mediaColumn.style.height = targetHeight + 'px';
+  swiper.style.height = targetHeight + 'px';
+
+  swiper.querySelectorAll('.swiper-slide > div').forEach(div => {
+    div.style.height = '100%';
+  });
+
+  swiper.querySelectorAll('img').forEach(img => {
+    img.style.width = '100%';
+    img.style.height = 'auto';
+    img.style.maxHeight = '100%';
+    img.style.objectFit = 'contain';
+  });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  matchFeatureHeight();
+  matchStepsHeight();
+  window.addEventListener('resize', matchFeatureHeight);
+  window.addEventListener('resize', matchStepsHeight);
+});
+
+window.addEventListener('load', () => {
+  matchFeatureHeight();
+  matchStepsHeight();
+});
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="./assets/images/favicon.svg">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+		rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/aos/aos.css">
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<style>
+		.hero-section {
+			display: flex;
+			align-items: stretch;
+			flex-wrap: wrap;
+		}
+
+		.hero-content {
+			flex: 1 1 50%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 4rem;
+		}
+
+		.hero-image {
+			flex: 1 1 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.hero-image img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.section-wave-top {
+			position: relative;
+			margin-top: -50px;
+			z-index: 3;
+		}
+
+		.section-wave-top svg {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100px;
+			fill: #f8f9fa;
+		}
+
+		#calm-features .inner-container-small h2 {
+			font-size: clamp(1.75rem, 3vw, 2.4rem);
+			line-height: 1.25;
+		}
+
+		#calm-features .feature-item h6 {
+			font-size: 1rem;
+			line-height: 1.3;
+		}
+
+		#calm-features .feature-item p {
+			font-size: 0.92rem;
+			line-height: 1.45;
+		}
+
+		#calm-features .feature-item {
+			gap: 0.75rem;
+		}
+
+		.feature-section {
+			display: flex;
+			align-items: stretch !important;
+			flex-wrap: wrap;
+		}
+
+		.left-features,
+		.right-features,
+		.feature-image {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		#calm-features .feature-image {
+			display: flex;
+			align-items: stretch;
+			height: 100%;
+		}
+
+		.feature-image img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			flex: 1;
+		}
+
+		.steps-section {
+			align-items: stretch !important;
+		}
+
+		.steps-media {
+			display: flex;
+		}
+
+		.steps-media .swiper,
+		.steps-media .swiper-wrapper,
+		.steps-media .swiper-slide {
+			height: 100%;
+		}
+
+		.steps-media .swiper-slide > div {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			max-width: 90%;
+			max-height: 95%;
+			margin: 0 auto;
+			padding: 1.5rem;
+			border-radius: 1.5rem;
+			background: linear-gradient(135deg, #eef2ff 0%, #dde5ff 100%);
+			/* box-shadow: 0 25px 50px rgba(15, 23, 42, 0.15); */
+		}
+
+		.steps-media .swiper-slide .bg-secondary-grad {
+			padding: 0 !important;
+			background: rgb(244, 230, 239)		;
+		}
+
+		.steps-media .swiper-slide .bg-secondary-grad img,
+		.steps-media img {
+			display: block;
+			width: 100%;
+			height: auto;
+			max-height: 430px;
+			object-fit: contain;
+			border-radius: 1rem;
+			margin: 0;
+		}
+
+		@media (max-width: 992px) {
+			.hero-section {
+				flex-direction: column;
+			}
+
+			.hero-image,
+			.hero-content {
+				flex: 1 1 100%;
+			}
+
+			.hero-image img {
+				height: auto;
+			}
+		}
+
+		@media (max-width: 768px) {
+			.steps-media .swiper-slide > div {
+				max-width: 100%;
+				padding: 1rem;
+			}
+
+			.steps-media img {
+				max-height: 360px;
+			}
+		}
+	</style>
+	  
+
+</head>
+
+<body>
+
+	<!-- Header START -->
+	<div class="header-absolute">
+		<!-- Header START -->
+		<header class="header-sticky bg-transparent">
+			<!-- Logo Nav START -->
+			<nav class="navbar navbar-expand-xl">
+				<div class="container">
+					<!-- Logo START -->
+					<a class="navbar-brand me-0" href="index.html">
+						<img class="light-mode-item navbar-brand-item" src="assets/images/hero/logo.svg" alt="logo">
+						<img class="dark-mode-item navbar-brand-item" src="assets/images/hero/darklogo.svg" alt="logo">
+					</a>
+					<!-- Logo END -->
+
+					<!-- Main navbar START -->
+					<div class="navbar-collapse collapse" id="navbarCollapse">
+						<ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
+
+							<!-- Nav item -->
+							<!-- <li class="nav-item dropdown">
+						<a class="nav-link dropdown" href="index.html"  >Demos</a>
+						
+					</li> -->
+
+							<!-- Nav item -->
+							<!-- <li class="nav-item dropdown">
+						<a class="nav-link "  href="about-v1.html"  >About us</a>
+						
+					</li> -->
+
+
+
+							<!-- <li class="nav-item dropdown">
+  <a class="nav-link" href="blog-minimal.html">Blogs</a>
+ 
+</li> -->
+
+							<!-- Nav item -->
+							<!-- <li class="nav-item"> <a class="nav-link" href="contact-us-v1.html">Contact us</a> </li> -->
+						</ul>
+					</div>
+					<!-- Main navbar END -->
+
+					<!-- Buttons -->
+					<ul class="nav align-items-center dropdown-hover ms-sm-2">
+						<!-- Dark mode option START -->
+						<li class="nav-item dropdown dropdown-animation">
+							<button class="btn btn-link mb-0 px-2 lh-1" id="bd-theme" type="button"
+								aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static">
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+									class="bi bi-circle-half theme-icon-active fill-mode fa-fw" viewBox="0 0 16 16">
+									<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+									<use href="#"></use>
+								</svg>
+							</button>
+
+							<ul class="dropdown-menu min-w-auto dropdown-menu-end" aria-labelledby="bd-theme">
+								<li class="mb-1">
+									<button type="button" class="dropdown-item d-flex align-items-center"
+										data-bs-theme-value="light">
+										<svg width="16" height="16" fill="currentColor"
+											class="bi bi-brightness-high-fill fa-fw mode-switch me-1"
+											viewBox="0 0 16 16">
+											<path
+												d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+											<use href="#"></use>
+										</svg>Light
+									</button>
+								</li>
+								<li class="mb-1">
+									<button type="button" class="dropdown-item d-flex align-items-center"
+										data-bs-theme-value="dark">
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+											fill="currentColor" class="bi bi-moon-stars-fill fa-fw mode-switch me-1"
+											viewBox="0 0 16 16">
+											<path
+												d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+											<path
+												d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+											<use href="#"></use>
+										</svg>Dark
+									</button>
+								</li>
+								<li>
+									<button type="button" class="dropdown-item d-flex align-items-center active"
+										data-bs-theme-value="auto">
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+											fill="currentColor" class="bi bi-circle-half fa-fw mode-switch me-1"
+											viewBox="0 0 16 16">
+											<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+											<use href="#"></use>
+										</svg>Auto
+									</button>
+								</li>
+							</ul>
+						</li>
+						<!-- Dark mode option END -->
+
+						<!-- Responsive navbar toggler -->
+						<li class="nav-item">
+							<button class="navbar-toggler ms-sm-3 p-2" type="button" data-bs-toggle="collapse"
+								data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+								aria-label="Toggle navigation">
+								<span class="navbar-toggler-animation">
+									<span></span>
+									<span></span>
+									<span></span>
+								</span>
+							</button>
+						</li>
+					</ul>
+
+				</div>
+			</nav>
+			<!-- Logo Nav END -->
+		</header>
+		<!-- Header END -->
+	</div>
+	<!-- Header END -->
+
+	<!-- **************** MAIN CONTENT START **************** -->
+	<main>
+
+		<!-- =======================
+Hero START -->
+<section class="hero-section pt-sm-8 pt-lg-9 pb-0">
+  <div class="hero-content">
+    <h1 class="fw-bold mb-3 mb-md-4">See Every Debt. Clear Every Balance.</h1>
+    <p class="lead mb-3 mb-md-4">
+      See everything you owe in one clear dashboard and make one unified monthly payment. Every payment, every plan, and every next step is finally in one place.
+    </p>
+   <form id="emailForm" style="position: relative; width: 300px; margin-bottom: 20px;">
+          <input type="email" id="emailInput" placeholder="Enter your email" required style="
+            width: 100%;
+            padding: 12px 80px 12px 20px; 
+            border-radius: 50px;
+            border: 2px solid #ccc;
+            font-size: 16px;
+            outline: none;
+            box-sizing: border-box;
+          ">
+          <button type="submit" style="
+            position: absolute;
+            right: 4px;
+            top: 4px;
+            bottom: 4px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            padding: 0 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          ">
+            SEND →
+          </button>
+        </form>
+
+        <!-- Thank You Message -->
+        <div id="thankYou" style="
+          display: none;
+          width: 300px;
+          padding: 10px;
+          background-color: #e0f0ff;
+          color: #007BFF;
+          border-radius: 8px;
+          font-size: 14px;
+          text-align: center;
+          margin-bottom: 20px;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        ">Thank you!</div>
+      </div>
+  </div>
+
+  <div class="hero-image">
+    <img src="assets/images/hero/hero1.svg" alt="hero image">
+  </div>
+
+</section>
+
+<!-- =======================
+Hero END -->
+
+		<!-- =======================
+Features and rating START -->
+		<section id="calm-features" class="bg-secondary position-relative z-index-2 section-wave-top">
+			<div class="container">
+  <!-- Title -->
+  <div class="inner-container-small text-center mb-4 mb-md-6">
+    <h2 class="mb-0">
+      Financial Clarity Built  to <span class="text-primary-grad">Calmness</span> the Mind
+    </h2>
+  </div>
+
+  <!-- Features and Image -->
+  <div class="row g-4 g-lg-5 align-items-start feature-section">
+    <!-- Left side features -->
+    <div class="col-md-6 col-lg-4 order-1 pe-5 d-flex flex-column justify-content-between left-features">
+      <div class="aos feature-item d-flex justify-content-lg-end mb-4 mb-md-6" data-aos="fade-right">
+        <div class="text-sm-end order-1 ms-3 ms-lg-0 me-lg-3">
+          <h6 class="mb-2">One Platform, Every Debt</h6>
+          <p class="mb-0">
+			Get full-picture clarity without juggling tabs.
+			 Ohless will connect every credit card, loan, and payment plan into one organised dashboard.</p>
+        </div>
+        <div class="icon-lg bg-body text-success rounded-circle flex-shrink-0 order-lg-2">
+          <i class="bi bi-cash-stack fa-lg"></i>
+        </div>
+      </div>
+
+      <div class="aos feature-item d-flex justify-content-lg-end mb-4 mb-md-6" data-aos="fade-right">
+        <div class="text-sm-end order-1 ms-3 ms-lg-0 me-lg-3">
+          <h6 class="mb-2">Pay Once, Progress Everywhere</h6>
+          <p class="mb-0">One monthly payment automatically divided across every debt, visualised in a clear pie chart that shows exactly where your money goes.</p>
+        </div>
+        <div class="icon-lg bg-body text-purple rounded-circle flex-shrink-0 order-lg-2">
+          <i class="bi bi-receipt fa-lg"></i>
+        </div>
+      </div>
+
+      <div class="aos feature-item d-flex justify-content-lg-end" data-aos="fade-right">
+        <div class="text-sm-end order-1 ms-3 ms-lg-0 me-lg-3">
+          <h6 class="mb-2">Guidance That Learns From You</h6>
+          <p class="mb-0">Automatic reminders, personalised payment plans, and progress updates built around how you manage money.</p>
+        </div>
+        <div class="icon-lg bg-body text-warning rounded-circle flex-shrink-0 order-lg-2">
+          <i class="bi bi-bell fa-lg"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image -->
+    <div class="col-md-8 col-lg-4 mx-auto order-3 order-lg-2 d-flex justify-content-center" id="feature-image-container">
+  <img src="assets/images/hero/hero2.svg" class="aos feature-image img-fluid" alt="feature mobile" data-aos="fade-up">
+</div>
+
+
+    <!-- Right side features -->
+    <div class="col-md-6 col-lg-4 order-2 order-lg-3 d-flex flex-column justify-content-between right-features">
+      <div class="aos feature-item d-flex mb-4 mb-md-6" data-aos="fade-left">
+        <div class="icon-lg bg-body text-info rounded-circle flex-shrink-0"><i class="bi bi-person-vcard fa-lg"></i></div>
+        <div class="ms-2">
+          <h6 class="mb-2">Built for Peace of Mind</h6>
+          <p class="mb-0">Unified payments, smart reminders, and mental-health check-ins bring calm structure to your finances. See all your debts, plans, and next steps clearly in one simple dashboard.</p>
+        </div>
+      </div>
+
+      <div class="aos feature-item d-flex mb-4 mb-md-6" data-aos="fade-left">
+        <div class="icon-lg bg-body text-primary rounded-circle flex-shrink-0"><i class="bi bi-gear fa-lg"></i></div>
+        <div class="ms-3">
+          <h6 class="mb-2">Goal Setting & Milestones</h6>
+          <p class="mb-0">Tailored goals, live progress tracking, and milestone alerts that keep momentum visible and motivation steady. Achieve every target with clarity, confidence, and a clear roadmap.</p>
+        </div>
+      </div>
+
+      <div class="aos feature-item d-flex" data-aos="fade-left">
+        <div class="icon-lg bg-body text-pink rounded-circle flex-shrink-0"><i class="bi bi-headset fa-lg"></i></div>
+        <div class="ms-3">
+          <h6 class="mb-2">Built on Trust</h6>
+          <p class="mb-0">Your data stays private, encrypted, and respected. Security is more than a promise; it’s the architectural foundation of calm.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+		</section>
+		<!-- =======================
+Features and rating END -->
+
+		<!-- =======================
+Steps START -->
+		<section>
+			<div class="container">
+				<div class="row g-4 align-items-lg-center steps-section">
+					<!-- Images -->
+					<div class="col-md-6 col-xl-5 order-2 order-md-1 steps-media">
+						<div class="swiper" data-swiper-options='{
+					"spaceBetween": 30,
+					"effect": "fade",
+					"autoplay":false,
+					"simulateTouch":false,
+					"navigation":{
+						"nextEl":".swiper-button-next-steps",
+						"prevEl":".swiper-button-prev-steps"
+					}}'>
+
+							<div class="swiper-wrapper">
+								<!-- Testimonials item -->
+								<div class="swiper-slide bg-body">
+									<div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100">
+										<img src="assets/images/hero/hero3.svg" class="rounded-5 "
+											alt="step image">
+									</div>
+								</div>
+
+								<!-- Testimonials item -->
+								<div class="swiper-slide bg-body">
+									<div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100">
+										<img src="assets/images/hero/hero3.svg" class="rounded-5 "
+											alt="step image">
+									</div>
+								</div>
+
+								<!-- Testimonials item -->
+								<div class="swiper-slide bg-body">
+									<div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100">
+										<img src="assets/images/hero/hero3.svg" class="rounded-5 "
+											alt="step image">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Steps Content START -->
+					<div class="col-md-6 order-1 ms-auto steps-content">
+						<!-- Slider START -->
+						<div class="swiper" data-swiper-options='{
+					"spaceBetween": 30,
+					"autoplay":false,
+					"simulateTouch":false,
+					"navigation":{
+						"nextEl":".swiper-button-next-steps",
+						"prevEl":".swiper-button-prev-steps"
+					}}'>
+
+							<div class="swiper-wrapper mb-lg-5">
+								<div class="swiper-slide">
+
+									<h2 class="my-3">Why Ohless Exists
+
+									</h2>
+									<p class="mb-0">Ohless was created by someone who’s been there: I was suddenly out
+										of work, facing mounting bills, and the quiet weight of debt.
+										It was born from the need for structure when everything felt uncertain, and for
+										compassion when pressure was already high.
+										Every detail reflects that purpose, turning numbers into a visual story of
+										momentum that keeps you focused on progress over pressure, because managing
+										money shouldn’t drain the mind that earns it.
+
+									</p>
+								</div>
+								<!-- Testimonials item -->
+								<div class="swiper-slide">
+									<span class="fw-semibold text-primary">Step 1</span>
+									<h2 class="my-3">Sign Up and Start Smart
+									</h2>
+									<p class="mb-0">Ohless is the first platform to combine debt tracking, payment
+										coordination, and predictive insight in one reassuring experience. Simply
+										download and open the app, and within minutes get ready to watch structure
+										replace stress.
+									</p>
+								</div>
+
+								<!-- Testimonials item -->
+								<div class="swiper-slide">
+									<span class="fw-semibold text-primary">Step 2</span>
+									<h2 class="my-3">Bring Order to Chaos
+									</h2>
+									<p class="mb-0"> Link your accounts once and let Ohless bring order to the details.
+										In seconds, the scattered pieces become a clear, living map of where you stand
+										and how to move forward.
+									</p>
+								</div>
+
+								<!-- Testimonials item -->
+								<div class="swiper-slide">
+									<span class="fw-semibold text-primary">Step 3</span>
+									<h2 class="my-3">Feel Life Open Again</h2>
+									<p class="mb-0">As Ohless organizes your finances, your mind follows suit. The
+										constant hum of worry quiets as every detail finds its place. You start moving
+										through the app – and your day – with more ease, focus, and steadiness. Ohless
+										continues to guide each step until financial survival transforms into financial
+										arrival.</p>
+								</div>
+							</div>
+						</div>
+						<!-- Slider END -->
+
+						<!-- Slider arrow -->
+						<div class="d-flex gap-3 position-relative mt-3">
+							<a href="#"
+								class="btn btn-lg btn-secondary btn-icon rounded-circle mb-0 swiper-button-prev-steps rtl-flip"><i
+									class="bi bi-arrow-left"></i></a>
+							<a href="#"
+								class="btn btn-lg btn-secondary btn-icon rounded-circle mb-0 swiper-button-next-steps rtl-flip"><i
+									class="bi bi-arrow-right"></i></a>
+						</div>
+					</div>
+					<!-- Steps Content END -->
+				</div>
+			</div>
+		</section>
+		<!-- =======================
+Steps END -->
+
+		<!-- =======================
+Left right feature START -->
+		<section class="overflow-hidden pt-0">
+			<div class="container">
+				<div class="row align-items-lg-center">
+					<!-- Content -->
+					<div class="col-md-6">
+						<!-- Title -->
+						<h2 class="mb-lg-3" style="font-size: 40px;">The Future of Debt Clarity
+						</h2>
+						<!-- List -->
+						<ul class="list-group list-group-borderless mb-0">
+							<li class="list-group-item d-flex fw-semibold pb-0"><i
+									class="bi bi-check-circle text-primary me-2"></i>Collaboration-first connections -
+								Direct partnerships with creditors to make communication, negotiation, and repayment
+								simpler and more transparent.
+							</li>
+							<li class="list-group-item d-flex fw-semibold pb-0"><i
+									class="bi bi-check-circle text-primary me-2"></i>AI-Generated Payoff Plans –
+								Automated Intelligence analyzes your full debt picture and builds a payoff plan designed
+								around your income, habits, and priorities.
+
+
+							</li>
+							<!-- <li class="list-group-item d-flex fw-semibold pb-0"><i
+									class="bi bi-check-circle text-primary me-2"></i>Smart prevention tools - Subtle
+								reminders that anticipate when payments may fall behind, protecting users before
+								problems arise.
+							</li> -->
+							<!-- <li class="list-group-item d-flex fw-semibold pb-0"><i
+									class="bi bi-check-circle text-primary me-2"></i>Negotiation support - Guided
+								options to help reduce rates, restructure terms, and create repayment plans that fit
+								your life.
+							</li> -->
+							<li class="list-group-item d-flex fw-semibold pb-0"><i
+									class="bi bi-check-circle text-primary me-2"></i>Predictive insight -
+								Forward-looking forecasts that show exactly when freedom from debt becomes possible, and
+								how to get there faster.
+
+
+
+						</ul>
+
+						<hr class="my-4"> <!-- Divider -->
+
+					</div>
+
+					<!-- Image -->
+					<div class="col-md-6 col-lg-5 position-relative ms-auto">
+						<img src="assets/images/mobile-app/01.jpg" class="rounded-4" alt="feature image">
+						<!-- Rocket image -->
+						<div class="position-absolute start-0 top-0 ms-n6 d-none d-lg-block">
+							<img src="assets/images/elements/rocket-03.png" class="h-150px" alt="rocket image">
+						</div>
+						<!-- Decoration -->
+						<div class="position-absolute bottom-0 end-0 me-lg-n5 mb-lg-n3">
+							<img src="assets/images/mobile-app/deocration.jpg" class="shadow rounded-3 h-lg-70px"
+								alt="decoration image">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- =======================
+Left right feature END -->
+
+		<!-- =======================
+Screen gallery and feature START -->
+		<section class="position-relative z-index-2 py-0" data-bs-theme="dark">
+			<div class="container-fluid position-relative">
+				<div class="max-width-1550 bg-dark position-relative rounded-4 overflow-hidden py-6 py-lg-8">
+					<!-- Grad blur -->
+					<div class="position-absolute top-0 end-0 mt-n6">
+						<img src="assets/images/elements/grad-shape/blur-decoration.svg"
+							class="rotate-270 blur-8 opacity-2" alt="Grad shape">
+					</div>
+
+					<!-- Title and content -->
+					<div class="container inner-container-small text-center mb-7">
+						<h2 class="mb-4">Experience Ohless
+						</h2>
+						<p class="mb-4"> Browse the experience that makes managing debt feel simple, organized, and
+							under control.
+						</p>
+						<!-- <div class="d-sm-flex justify-content-center">
+					<a href="#"> <img src="assets/images/elements/google-play.svg" class="btn-transition me-sm-4 mb-2 mb-sm-0" width="180" alt="play store"> </a>
+					<a href="#"> <img src="assets/images/elements/app-store.svg" class="btn-transition" width="180" alt="app-store"> </a>
+				</div> -->
+					</div>
+
+					<!-- Slider START -->
+					<div class="swiper swiper-outside-n5 pb-6 mx-3 mx-sm-0" data-swiper-options='{
+				"slidesPerView": 1, 
+				"spaceBetween": 50,
+				"autoplay":{
+					"delay": 2000, 
+					"disableOnInteraction": false,
+					"pauseOnMouseEnter": true
+				},
+				"breakpoints": { 
+					"576": {"slidesPerView": 3}, 
+					"992": {"slidesPerView": 5},
+					"1300": {"slidesPerView": 7}
+				},
+				"pagination":{
+					"el":".swiper-pagination",
+					"clickable":"true"
+				}}'>
+
+						<!-- Slider items -->
+						<div class="swiper-wrapper align-items-center">
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/hero/1st.svg" class="rounded-4 border border-secondary border-3"
+									alt="mobile screen">
+							</div>
+
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/hero/2nd.svg" class="rounded-4 border border-secondary border-3"
+									alt="mobile screen">
+							</div>
+
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/hero/3rd.svg" class="rounded-4 border border-secondary border-3"
+									alt="mobile screen">
+							</div>
+
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/hero/4th.svg" class="rounded-4 border border-secondary border-3"
+									alt="mobile screen">
+							</div>
+
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/hero/5th.svg" class="rounded-4 border border-secondary border-3"
+									alt="mobile screen">
+							</div>
+
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/hero/6th.svg" class="rounded-4 border border-secondary border-3"
+									alt="mobile screen">
+							</div>
+
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/hero/7th.svg" class="rounded-4 border border-secondary border-3"
+									alt="mobile screen">
+							</div>
+
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/hero/8th.svg" class="rounded-4 border border-secondary border-3"
+									alt="mobile screen">
+							</div>
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/hero/9th.svg" class="rounded-4 border border-secondary border-3"
+									alt="mobile screen">
+							</div>
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/hero/10th.svg"
+									class="rounded-4 border border-secondary border-3" alt="mobile screen">
+							</div>
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/hero/11th.svg"
+									class="rounded-4 border border-secondary border-3" alt="mobile screen">
+							</div>
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/hero/12th.svg"
+									class="rounded-4 border border-secondary border-3" alt="mobile screen">
+							</div>
+						</div>
+
+						<!-- Slider Pagination -->
+						<div class="swiper-pagination swiper-pagination-primary position-absolute bottom-0 mb-4"></div>
+					</div>
+					<!-- Slider END	 -->
+				</div>
+			</div>
+		</section>
+		<!-- =======================
+Screen gallery and feature END -->
+
+		<!-- =======================
+Testimonials START -->
+		<section>
+			<div class="container">
+				<div class="row align-items-center">
+					<!-- Title and slider button -->
+					<div class="col-lg-4 text-center text-lg-start">
+						<h2 class="mb-1 mb-lg-2">Hear from our satisfied users</h2>
+						
+					</div>
+
+					<div class="col-lg-8 col-xl-7 ms-auto">
+						<!-- Slider START -->
+						<div class="swiper mt-2 mt-md-4" data-swiper-options='{
+					"spaceBetween": 30,
+					"autoplay":{
+						"delay": 4000, 
+						"disableOnInteraction": false,
+						"pauseOnMouseEnter": true
+					},
+					"navigation":{
+						"nextEl":".swiper-button-next-test",
+						"prevEl":".swiper-button-prev-test"
+					}}'>
+
+							<div class="swiper-wrapper">
+								<!-- Testimonial item -->
+								<div class="swiper-slide">
+									<div class="card bg-secondary bg-opacity-50 rounded-4 overflow-hidden">
+										<div class="row g-0">
+											<div class="col-md-5">
+												<!-- Image -->
+												<img src="assets/images/team/01.jpg" class="rounded-start mb-3 mb-md-0"
+													alt="...">
+											</div>
+											<div class="col-md-7 col-xl-6">
+												<!-- Content -->
+												<div class="card-body d-flex flex-column h-100 p-xl-4">
+													<!-- Rating star -->
+													<ul class="list-inline mb-2">
+														<li class="list-inline-item me-0"><i
+																class="bi bi-star-fill text-primary"></i></li>
+														<li class="list-inline-item me-0"><i
+																class="bi bi-star-fill text-primary"></i></li>
+														<li class="list-inline-item me-0"><i
+																class="bi bi-star-fill text-primary"></i></li>
+														<li class="list-inline-item me-0"><i
+																class="bi bi-star-fill text-primary"></i></li>
+														<li class="list-inline-item me-0"><i
+																class="bi bi-star-half text-primary"></i></li>
+													</ul>
+													<p class="heading-color">I've been using this app for over a year
+														now, and it has made managing my finances so much easier. The
+														user interface is incredibly intuitive.</p>
+
+													<!-- Info -->
+													<div class="mt-auto">
+														<p class="lead heading-color fw-semibold mb-0">Emma Watson</p>
+														<small>UI/UX Designer</small>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Testimonial item -->
+								<div class="swiper-slide">
+									<div class="card bg-secondary bg-opacity-50 rounded-4 overflow-hidden">
+										<div class="row g-0">
+											<div class="col-md-5">
+												<!-- Image -->
+												<img src="assets/images/team/04.jpg" class="rounded-start mb-3 mb-md-0"
+													alt="...">
+											</div>
+											<div class="col-md-7 col-xl-6">
+												<!-- Content -->
+												<div class="card-body d-flex flex-column h-100 p-xl-4">
+													<!-- Rating star -->
+													<ul class="list-inline mb-2">
+														<li class="list-inline-item me-0"><i
+																class="bi bi-star-fill text-primary"></i></li>
+														<li class="list-inline-item me-0"><i
+																class="bi bi-star-fill text-primary"></i></li>
+														<li class="list-inline-item me-0"><i
+																class="bi bi-star-fill text-primary"></i></li>
+														<li class="list-inline-item me-0"><i
+																class="bi bi-star-fill text-primary"></i></li>
+														<li class="list-inline-item me-0"><i
+																class="bi bi-star-half text-primary"></i></li>
+													</ul>
+													<p class="heading-color">The app is fast, reliable, and customer
+														support is always there when I need help. Highly recommended!
+													</p>
+
+													<!-- Info -->
+													<div class="mt-auto">
+														<p class="lead heading-color fw-semibold mb-0">Louis Ferguson
+														</p>
+														<small>Web Developer</small>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- Testimonial item -->
+								<div class="swiper-slide">
+									<div class="card bg-secondary bg-opacity-50 rounded-4 overflow-hidden">
+										<div class="row g-0">
+											<div class="col-md-5">
+												<!-- Image -->
+												<img src="assets/images/team/03.jpg" class="rounded-start mb-3 mb-md-0"
+													alt="...">
+											</div>
+											<div class="col-md-7 col-xl-6">
+												<!-- Content -->
+												<div class="card-body d-flex flex-column h-100 p-xl-4">
+													<!-- Rating star -->
+													<ul class="list-inline mb-2">
+														<li class="list-inline-item me-0"><i
+																class="bi bi-star-fill text-primary"></i></li>
+														<li class="list-inline-item me-0"><i
+																class="bi bi-star-fill text-primary"></i></li>
+														<li class="list-inline-item me-0"><i
+																class="bi bi-star-fill text-primary"></i></li>
+														<li class="list-inline-item me-0"><i
+																class="bi bi-star-fill text-primary"></i></li>
+														<li class="list-inline-item me-0"><i
+																class="bi bi-star-fill text-primary"></i></li>
+													</ul>
+													<p class="heading-color">The budgeting tools in this app have helped
+														me save more and spend wisely.</p>
+
+													<!-- Info -->
+													<div class="mt-auto">
+														<p class="lead heading-color fw-semibold mb-0">Jacqueline Miller
+														</p>
+														<small>Product designer</small>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Slider arrow -->
+							<div
+								class="d-flex justify-content-between position-absolute top-50 start-50 translate-middle w-100 z-index-2">
+								<a href="#"
+									class="btn btn-dark btn-icon btn-lg rounded-circle mb-0 swiper-button-prev-test rtl-flip ms-2"><i
+										class="bi bi-arrow-left"></i></a>
+								<a href="#"
+									class="btn btn-dark btn-icon btn-lg rounded-circle mb-0 swiper-button-next-test rtl-flip me-2"><i
+										class="bi bi-arrow-right"></i></a>
+							</div>
+						</div>
+						<!-- Slider END -->
+					</div>
+				</div> <!-- Row END -->
+			</div>
+		</section>
+
+
+
+		</div>
+
+
+		<!-- =======================
+CTA START -->
+		<section class="bg-secondary-grad position-relative overflow-hidden py-1">
+			<div class="container">
+				<div class="row g-4 align-items-center">
+					<!-- Content -->
+					<div class="col-md-6">
+						<!-- Title -->
+						<h2 class="mb-4">Find Your Financial Calm</h2>
+						<p class="mb-4">Join early access today and take the first step toward a calmer, more organised
+							financial life.
+
+							Join early access and experience what debt clarity really feels like.
+						</p>
+						<form id="emailForm" style="position: relative; width: 300px; margin-bottom: 20px;">
+							<input type="email" id="emailInput" placeholder="Enter your email" required style="
+      width: 100%;
+      padding: 12px 80px 12px 20px; 
+      border-radius: 50px;
+      border: 2px solid #ccc;
+      font-size: 16px;
+      outline: none;
+      box-sizing: border-box;
+    ">
+							<button type="submit" style="
+      position: absolute;
+      right: 4px;
+      top: 4px;
+      bottom: 4px;
+      border: none;
+      background-color: #007BFF;
+      color: white;
+      padding: 0 20px;
+      border-radius: 50px;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    ">
+								SEND →
+							</button>
+						</form>
+
+						<!-- Popup message -->
+						<div id="thankYou" style="
+  display: none;
+  width: 300px;
+  padding: 10px;
+  background-color: #e0f0ff;
+  color: #007BFF;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+">Thank you!</div>
+						<!-- Buttons -->
+						<!-- <div class="d-sm-flex">
+					<a href="#"> <img src="assets/images/elements/google-play.svg" class="btn-transition me-4 mb-2 mb-sm-0" width="150" alt="play store"> </a>
+					<a href="#"> <img src="assets/images/elements/app-store.svg" class="btn-transition" width="150" alt="app-store"> </a>
+				</div> -->
+					</div>
+
+					<!-- Image -->
+					<div class="col-sm-9 col-md-6 mx-auto mb-n9">
+						<img src="assets/images/hero/8th.svg" class="aos mb-n5 mb-lg-n9 ms-lg-5 w-75" data-aos="fade-up"
+							data-aos-delay="200" data-aos-duration="500" data-aos-easing="ease-in-out" alt="cta image">
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- =======================
+CTA END -->
+
+	</main>
+	<!-- **************** MAIN CONTENT END **************** -->
+
+	<!-- =======================
+Footer START -->
+	<footer class="bg-dark pt-6 pt-md-8 position-relative" data-bs-theme="dark">
+
+		<div class="container">
+			<div class="row g-4 justify-content-between">
+				<!-- Widget 1 START -->
+				<div class="col-lg-4">
+					<!-- logo -->
+					<a href="index.html">
+						<img class="h-40px" src="assets/images/hero/footerlogo.svg" alt="logo">
+					</a>
+
+					<p class="my-3 my-lg-4"> See everything you owe in one clear dashboard and make one unified monthly
+						payment. Every payment, every plan, and every next step is finally in one place</p>
+					<!-- Social icon -->
+					<ul class="list-inline mb-0">
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-secondary" href="#"><i
+									class="bi bi-facebook lh-base"></i></a> </li>
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-secondary" href="#"><i
+									class="bi bi-instagram lh-base"></i></a> </li>
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-secondary" href="#"><i
+									class="bi bi-twitter-x lh-base"></i></a> </li>
+						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-secondary" href="#"><i
+									class="bi bi-linkedin lh-base"></i></a> </li>
+					</ul>
+				</div>
+				<!-- Widget 1 END -->
+
+				<!-- Widget 2 START -->
+				<div class="col-lg-6 col-xxl-4">
+					<div class="row g-4">
+						<!-- Link block -->
+						<div class="col-6">
+							<!-- <h6 class="mb-3 mb-sm-4">Company</h6> -->
+							<!-- Links -->
+							<ul class="nav flex-column gap-1">
+								<!-- <li class="nav-item"><a class="nav-link pt-0" href="about-v1.html">About us</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-us-v1.html">Contact us</a></li> -->
+
+							</ul>
+						</div>
+
+						<!-- Link block -->
+						<div class="col-6">
+							<!-- <h6 class="mb-3 mb-sm-4">Resources</h6> -->
+							<!-- Links -->
+							<ul class="nav flex-column gap-1">
+
+								<!-- <li class="nav-item"><a class="nav-link" href="blog-minimal.html">Blogs</a></li> -->
+
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- Widget 2 END -->
+			</div>
+
+			<!-- Divider -->
+			<hr class="mt-xl-5 mb-0 opacity-1">
+
+			<!-- Bottom footer -->
+			<div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4">
+				<!-- copyright text -->
+				<div class="text-body small mb-3 mb-md-0"> Copyrights ©2025 Ohless. </div>
+
+				<!-- Policy link -->
+				<ul class="nav d-flex justify-content-center gap-1 mb-0">
+					<li class="nav-item"><a class="nav-link small py-0" href="#">Privacy policy</a></li>
+					<li class="nav-item"><a class="nav-link small py-0 pe-0" href="#">Terms & conditions</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+	<!-- =======================
+Footer END -->
+
+	<!-- Back to top -->
+	<div class="back-top"></div>
+
+	<!-- Bootstrap JS -->
+	<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!--Vendors-->
+	<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+	<script src="assets/vendor/purecounterjs/dist/purecounter_vanilla.js"></script>
+	<script src="assets/vendor/aos/aos.js"></script>
+
+	<!-- Theme Functions -->
+	<script src="assets/js/functions.js"></script>
+	<script>
+		const form = document.getElementById('emailForm');
+		const input = document.getElementById('emailInput');
+		const popup = document.getElementById('thankYou');
+
+		form.onsubmit = function (e) {
+			e.preventDefault(); // prevent actual form submission
+
+			const email = input.value.trim();
+			// Simple email validation regex
+			const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+			if (emailPattern.test(email)) {
+				popup.style.display = 'block';
+				// Hide popup after 2.5 seconds
+				setTimeout(() => { popup.style.display = 'none'; }, 2500);
+				input.value = ''; // clear input
+			} else {
+				alert('Please enter a valid email!');
+			}
+		}
+	</script>
+
+</body>
+
+</html>

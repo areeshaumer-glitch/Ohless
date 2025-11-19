@@ -1,0 +1,53 @@
+// 
+// form-control.scss
+// Theme Component
+
+.form-border-transparent .form-control{
+  border: 1px solid transparent;
+  &:focus{
+    border: 1px solid $input-focus-border-color;
+  }
+}
+
+// Form control border bottom
+.form-border-bottom .form-control {
+  border: none;
+  border-bottom: 1px solid $input-border-color;
+  padding-left: 0;
+  border-radius: 0;
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: var(--bs-primary);
+    display: block;
+  }
+  &:focus {
+    background-color: transparent;
+    border-color: var(--bs-gray-300);
+  }
+
+  .input-group {
+    display: block;
+    position: relative;
+  }
+}
+.form-border-bottom .form-control ~ .focus-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--bs-primary);
+  -webkit-transition: all 0.6s cubic-bezier(0.42, 0, 0, 0.97);
+  transition: all 0.6s cubic-bezier(0.42, 0, 0, 0.97);
+}
+
+.form-border-bottom input.form-control:focus ~ .focus-border,
+.form-border-bottom textarea.form-control:focus ~ .focus-border {
+  width: 100%;
+}

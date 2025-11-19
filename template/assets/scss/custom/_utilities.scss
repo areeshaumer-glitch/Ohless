@@ -1,0 +1,173 @@
+// 
+// utilities.scss
+// Extended from Bootstrap
+// 
+
+
+$utilities: ();
+
+$utilities: map-merge(
+  (
+    // Sizing utilities
+    "min-width": (
+      property: min-width,
+      class: min-w,
+      values: (
+        auto: auto
+      )
+    ),
+
+    // Sizing utilities
+    "viewport-height": (
+      property: height,
+      class: vh,
+      responsive: true,
+      values: (
+        100: 100vh
+      )
+    ),
+
+    // Height pixels
+    "height-px": (
+      property: height,
+      class: h,
+      responsive: true,
+      values: (
+        20px: 20px,
+        30px: 30px,
+        40px: 40px,
+        50px: 50px,
+        60px: 60px,
+        70px: 70px,
+        100px: 100px,
+        150px: 150px,
+        200px: 200px,
+        250px: 250px,
+        300px: 300px,
+        400px: 400px,
+        500px: 500px,
+        600px: 600px,
+        700px: 700px,
+        750px: 750px
+      )
+    ),
+
+    // Width pixels
+    "width-px": (
+      property: width,
+      class: w,
+      responsive: true,
+      values: (
+        50vw: 50vw,
+        20px: 20px,
+        30px: 30px,
+        40px: 40px,
+        50px: 50px,
+        80px: 80px,
+        150px: 150px,
+        200px: 200px,
+        250px: 250px,
+        300px: 300px
+      )
+    ),
+
+    // Background opacity
+    "bg-opacity": (
+      css-var: true,
+      class: bg-opacity,
+      values: (
+        15: .15
+      )
+    ),
+    
+    // Fill color for SVG
+    "fill-color": (
+    property: fill,
+    class: fill,
+    values: map-merge($theme-colors, 
+      (
+        "white": $white,
+        "body": var(--#{$prefix}body-bg),
+        "mode": var(--#{$prefix}gray-900)
+        )
+      )
+    ),
+
+    // Blur
+    "blur": (
+    property: filter,
+    class: blur,
+    values: (
+        1: blur(0.2rem),
+        2: blur(0.4rem),
+        3: blur(0.6rem),
+        4: blur(0.8rem),
+        5: blur(1rem),
+        6: blur(1.2rem),
+        7: blur(2rem),
+        8: blur(5rem),
+        9: blur(9rem)
+      )
+    ),
+
+    // z index
+    "z-index": (
+      property: z-index,
+      class: z-index,
+      values: (
+        0: 0,
+        1: 1,
+        2: 2,
+        9: 9,
+        99: 99
+      )
+    ),
+
+    // Rotate
+    "rotate": (
+      property: transform,
+      responsive: true,
+      class: rotate,
+      values: (
+        13: rotate(13deg),
+        180: rotate(180deg),
+        270: rotate(270deg),
+        335: rotate(335deg),
+        343: rotate(343deg),
+        350: rotate(350deg)
+      )
+    ),
+
+    //line height
+    "line-height": (
+      property: line-height,
+      responsive: true,
+      class: lh,
+      values: (
+        0: 0,
+        base: 1.5
+      )
+    ),
+
+    // Opacity
+    "opacity": (
+      property: opacity,
+      class: opacity,
+      values: (
+        0: 0,
+        1: 0.1,
+        2: 0.2,
+        3: 0.3,
+        4: 0.4,
+        5: 0.5,
+        6: 0.6,
+        7: 0.7,
+        8: 0.8,
+        9: 0.9
+      )
+    ),
+
+
+  ),
+  $utilities
+);

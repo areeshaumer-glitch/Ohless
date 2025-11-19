@@ -1,0 +1,308 @@
+//
+// accordion.scss
+// Extended from Bootstrap
+//
+
+//
+// Bootstrap Overrides
+//
+.accordion .accordion-button{
+  text-align: left;
+}
+
+//
+// Additional style for theme
+// 
+
+// Accordion collapse plus/minus icon
+.accordion{
+  .accordion-item {
+    color: $accordion-color;
+  }
+  &.accordion-icon{
+    .accordion-header{
+      position: relative;
+      .accordion-button{
+        background: transparent;
+        font-size: inherit;
+        border: none;
+        padding-right: 2rem;
+        &:after {
+          content:"";
+          background: var(--#{$prefix}gray-800) !important;
+          width: 10px;
+          height: 2px;
+          display: block;
+          position: absolute;
+          top: 47%;
+          right: 20px;
+          transform: translateY(-50%);
+          transition: $transition-base;
+          transform: rotateZ(0deg);
+          z-index: 9;
+        }
+        &:before {
+          content:"";
+          background: var(--#{$prefix}gray-800) !important;
+          width: 10px;
+          height: 2px;
+          display: block;
+          position: absolute;
+          top: 47%;
+          right: 20px;
+          transform: translateY(-50%);
+          transition: $transition-base;
+          transform: rotateZ(0deg);
+          z-index: 9;
+        }
+        &[aria-expanded=false]:after {
+          transform: rotateZ(267deg);
+        }
+        &[aria-expanded=true]:before {
+          transform: rotateZ(0deg);
+        }
+      }
+    }
+    .accordion-collapse{
+      border: none;
+    }
+    .accordion-body {
+      padding: 0.2rem 1rem 0.5rem 1rem;
+    }
+  }
+
+  &.accordion-icon-start{
+    .accordion-item {
+      border: none;
+      background: transparent;
+    }
+    .accordion-header{
+      .accordion-button{
+        color: var(--#{$prefix}gray-900) !important;
+        box-shadow: none;
+        padding-left: 2rem;
+        &:after {
+          content:"";
+          left: 0 !important;
+          right: auto;
+          width: 15px;
+          height: 2px;
+          background: linear-gradient(180deg, $grad-primary-start 0%, $grad-primary-end 100%) !important;
+        }
+        &:before {
+          content:"";
+          left: 0 !important;
+          right: auto;
+          width: 15px;
+          height: 2px;
+          background: linear-gradient(180deg, $grad-primary-start 0%, $grad-primary-end 100%) !important;
+        }
+      }
+    }
+
+    .accordion-body {
+      padding: 0.2rem 1rem 0.5rem 2rem;
+    }
+
+  }
+}
+
+// Accordion step border
+.accordion.accordion-step-border {
+  .accordion-item {
+    border: 0;
+    border-bottom: $input-border-width $border-style $input-border-color !important;
+    background-color: transparent;
+    border-radius: 0;
+  }
+
+  .accordion-button {
+    color: var(--#{$prefix}gray-800);
+    background-color: transparent;
+    border-radius: 0 !important;
+    padding-left: 0;
+    opacity: 75%;
+    padding: 1.5rem 0;
+      .accordion-step-number{
+        background-color: $white;
+        color: $dark;
+        width: 2.6rem;
+        height: 2.6rem;
+        line-height: 2.6rem;
+        text-align: center;
+        border-radius: 100%;
+        margin-right: 10px;
+        font-size: 1rem;
+        font-weight: 500;
+        flex-shrink: 0;
+      }
+
+    &:not(.collapsed) {
+      box-shadow: none !important;
+    }
+    &[aria-expanded=true]{
+      color: $white; 
+      background-color: transparent;
+      opacity: 100%;
+      .accordion-step-number{
+        background-color: $purple;
+        color: $white;
+      }
+    }
+  }
+  .accordion-collapse.collapse.show{
+    border-bottom: $input-border-width $border-style var(--#{$prefix}primary) !important;
+    border-radius: 0;
+  }
+  .accordion-body{
+    padding-left: 3rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+// Accordion bg body light
+.accordion.accordion-bg-body-light {
+  .accordion-item {
+    border: none;
+    background-color: rgba(var(--bs-body-bg-rgb), 0.6)!important;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    padding: 15px;
+  }
+  .accordion-button {
+    background-color: transparent!important;
+    color: var(--#{$prefix}gray-900) !important;
+    font-size: 20px;
+    &:not(.collapsed) {
+      box-shadow: none !important;
+    }
+    &:after {
+      --#{$prefix}accordion-btn-icon: #{escape-svg($accordion-button-active-icon-white)};
+      --#{$prefix}accordion-btn-active-icon: #{escape-svg($accordion-button-active-icon-white)};
+      background-color: var(--#{$prefix}gray-900);
+      background-position: center;
+      background-size: 1rem;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 100%;
+    }
+
+    &[aria-expanded=true]{
+      &:after {
+        background-color: var(--#{$prefix}primary);
+        background-position: center;
+      }
+    }
+  }
+}
+
+// Accordion order start
+.accordion.accordion-border-start {
+  .accordion-item {
+    border: 2.5px solid transparent;
+    background-color: rgba(var(--bs-secondary-bg-rgb), 0.5)!important;
+    border-radius: 10px;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    &:has(.accordion-button[aria-expanded=true]){
+      border-left: 2.5px solid var(--#{$prefix}primary);
+    }
+  }
+  .accordion-button {
+    background-color: transparent!important;
+    color: var(--#{$prefix}gray-900);
+    font-size: 22px;
+
+    .heading-icon{
+      background-color: var(--#{$prefix}body-bg);
+      color: var(--#{$prefix}gray-900);
+      width: 2.6rem;
+      height: 2.6rem;
+      line-height: 2.6rem;
+      text-align: center;
+      border-radius: 6px;
+      margin-right: 15px;
+      font-size: 1.3rem;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    &:not(.collapsed) {
+      box-shadow: none !important;
+    }
+    &:after {
+      display: none;
+    }
+    &[aria-expanded=true]{
+      .heading-icon{
+        background-color: var(--#{$prefix}gray-900);
+        color: var(--#{$prefix}gray-100);
+      }
+    }
+  }
+  .accordion-body{
+    padding-left: 5rem;
+  }
+
+  @include media-breakpoint-down(sm) {
+    .accordion-button {
+      font-size: 18px;
+    }
+  }
+}
+
+// Accordion border bottom
+.accordion.accordion-border-bottom {
+  .accordion-item {
+    border:none;
+    padding-bottom: 20px;
+    background-color: transparent;
+    border-bottom: $input-border-width $border-style $input-border-color !important;
+    border-radius: 0;
+  }
+  .accordion-body{
+    padding-left: 0;
+    padding-top: 10px;
+  }
+  .accordion-button {
+    border: none;
+    padding: 0;
+    color: var(--#{$prefix}gray-800);
+    &:not(.collapsed) {
+      box-shadow: none !important;
+    }
+  }
+}
+
+// Accordion border
+.accordion.accordion-alt {
+  .accordion-item {
+    border: $input-border-width $border-style $input-border-color !important;
+    border-radius: $border-radius-lg;
+    background-color: transparent;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  .accordion-body{
+    padding: 0;
+    margin-top: 20px;
+  }
+  .accordion-button {
+    border: 0 !important;
+    color: var(--#{$prefix}gray-800);
+    padding: 0;
+    &:not(.collapsed) {
+      box-shadow: none !important;
+    }
+    &[aria-expanded=true]{
+      color:  var(--#{$prefix}gray-900);
+      background-color: var(--#{$prefix}body-bg);
+    }
+    &:after{
+      width: 1rem;
+      height: 1rem;
+      background-size: 1rem;;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+// 
+// breadcrumb.scss
+// Extended from Bootstrap
+// 
+
+// 
+// Bootstrap Overrides
+//
+.breadcrumb-item {
+  a {
+    color: var(--#{$prefix}body-color);
+    &:hover {
+      color: var(--#{$prefix}primary);
+    }
+  }
+}
+
+// 
+// Additional style for theme
+// 
+.breadcrumb.breadcrumb-dark {
+  .breadcrumb-item {
+    a {
+      color: $white;
+      &:hover {
+        color: var(--#{$prefix}primary);
+      }
+    }
+    &.active{
+      color: var(--#{$prefix}primary);
+    }
+  }
+ 
+}

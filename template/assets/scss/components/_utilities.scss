@@ -1,0 +1,126 @@
+// 
+// utilities.scss
+// Theme component for utility classes (helper classes)
+
+
+.heading-color{
+  color: $headings-color !important;
+}
+
+// text color on hover
+.text-primary-hover {
+  a {
+    color: $gray-300;
+    &:hover {
+      color: var(--#{$prefix}primary) !important;
+    }
+  }
+}
+
+a.text-primary-hover, button.text-primary-hover {
+  color: var(--#{$prefix}gray-600);
+  transition: $transition-base;
+  &:hover {
+    color: var(--#{$prefix}primary) !important;
+  }
+}
+
+.text-primary-hover {
+  li {
+    color: var(--#{$prefix}gray-300);
+    &:hover {
+      color: var(--#{$prefix}primary) !important;
+    }
+  }
+}
+
+// font family
+.font-base {
+  font-family: $font-family-base !important;
+}
+
+.font-heading {
+  font-family: $headings-font-family !important;
+}
+
+// Filter
+.grayscale {
+  filter: grayscale(100%);
+  transition: all .6s ease;
+  &:hover {
+    filter: none;
+    -webkit-filter: grayscale(0%);
+  }
+}
+
+// logo swap
+.swap-logo {
+  position: relative;
+  display: inline-block;
+  user-select: none;
+  .swap-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: $transition-base;
+    &:hover{
+      opacity: 1;
+    }
+  }
+}
+
+// Icons fixed height and width
+.icon-sm {
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  font-size: 75%;
+}
+.icon-md {
+  width: 2.6rem;
+  height: 2.6rem;
+  line-height: 2.6rem;
+  text-align: center;
+  font-size: .8rem;
+}
+.icon-lg {
+  width: 3.5rem;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.icon-xl {
+  width: 4.5rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  text-align: center;
+  font-size: 1.9rem;
+}
+
+.icon-xxl {
+  width: 7rem;
+  height: 7rem;
+  line-height: 7rem;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.icon-xxxl {
+  width: 9rem;
+  height: 9rem;
+  line-height: 9rem;
+  text-align: center;
+  font-size: 3rem;
+}
+
+// border display none on responsive
+@include media-breakpoint-down(md) {
+  .border-md-transparent{
+    .border, .border-start, .border-end, .border-top, .border-bottom{
+      border: 1px solid transparent !important;
+    }
+  }
+}

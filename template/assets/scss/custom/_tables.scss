@@ -1,0 +1,16 @@
+// 
+// tables.scss
+// Extended from Bootstrap
+// 
+
+// 
+// Additional styles for theme
+// 
+
+.table td, .table th {
+  white-space: nowrap;
+}
+
+.table-compare td, .table-compare th {
+  white-space: normal;
+}

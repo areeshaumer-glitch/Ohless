@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Folio - Multipurpose Bootstrap Theme</title>
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Webestica.com">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="./assets/images/favicon.ico">
+
+		<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/doc.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/prism.css">
+
+</head>
+
+<body>
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+<!-- Navbar top START -->
+<div class="navbar-top bg-dark px-3 px-sm-4">
+	<div class="d-flex justify-content-between align-items-center">
+		<!-- Logo START -->
+			<a class="navbar-brand py-3" href="index.html">
+				<img class="navbar-brand-item h-30px" src="assets/images/logo-light.svg" alt="logo">				
+			</a>
+			<!-- Logo END -->
+
+		<!-- Navbar right -->
+		<div>
+			<ul class="text-end list-inline m-0">
+				<li class="list-inline-item me-2 me-md-4 d-none d-sm-inline"> <a class="text-white" href="https://folio.webestica.com">Live Preview</a> </li>
+				<li class="list-inline-item me-2 me-md-4"> <a class="text-white" href="https://support.webestica.com" target="_blank">Support</a> </li>
+				<li class="list-inline-item text-white"> <span class="badge text-bg-danger">v2.0.1</span></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- Navbar top END -->
+
+<div class="container-fluid px-0">
+	<div class="page-wrapper">
+		<!-- Left sidebar START -->
+		<nav class="navbar navbar-expand-sm navbar-light bg-light px-3">
+			<a class="navbar-brand py-2 d-sm-none" href="#">Doc nav</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#docNav" aria-controls="docNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="docNav">
+				<div class="left-sidebar bg-light z-index-1">
+					<div class="content h-100vh">
+						<div class="list-group list-group-borderless p-3 p-md-4">
+							<b class="text-dark text-uppercase mb-2">Getting Started</b>
+								<a class="list-group-item" href="index.html">Introduction</a>
+								<a class="list-group-item" href="gulp.html">Gulp</a>
+								<a class="list-group-item" href="customization.html">Customization</a>
+								<a class="list-group-item" href="color-scheme.html">Color Scheme</a>
+								<a class="list-group-item" href="logo-settings.html">Logo Settings</a>
+								<a class="list-group-item" href="page-loading.html">Page Loading</a>
+								<a class="list-group-item" href="fonts.html">Fonts</a>
+								<a class="list-group-item" href="dark-mode.html">Dark mode</a>
+								<a class="list-group-item" href="sources-and-credits.html">Sources and Credits</a>
+								<a class="list-group-item" href="changelog.html">Changelog</a>
+								<a class="list-group-item" href="updates.html">Updates</a>
+								<a class="list-group-item" href="support.html">Support</a>
+                <b class="text-dark text-uppercase mt-3 mb-2">Components</b>
+								<a class="list-group-item" href="alerts.html">Alerts</a>
+								<a class="list-group-item" href="avatar.html">Avatar</a>
+								<a class="list-group-item" href="badges.html">Badges</a>
+								<a class="list-group-item" href="breadcrumb.html">Breadcrumb</a>
+								<a class="list-group-item" href="buttons.html">Buttons</a>
+								<a class="list-group-item" href="font-icons.html">Font icons</a>
+								<a class="list-group-item" href="google-map.html">Google Map</a>
+								<a class="list-group-item" href="nav-and-tabs.html">Nav and Tabs</a>
+								<a class="list-group-item" href="pagination.html">Pagination</a>
+								<a class="list-group-item" href="progress.html">Progress</a>
+								<a class="list-group-item" href="sticky-element.html">Sticky element</a>
+								<a class="list-group-item" href="utility-classes.html">Utility classes</a>
+							<b class="text-dark text-uppercase mt-3 mb-2">Plugins</b>
+								<a class="list-group-item" href="swiper-slider.html">Swiper Slider</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>		
+		<!-- Left sidebar END -->
+
+		<!-- Main content START -->
+		<div class="main-content">
+			<div class="row">
+				<div class="col-12">
+					<!-- Page title -->
+					<div class="my-5">
+						<h1 class="h2">Navs and tabs</h1>
+									<p class="lead">Documentation and examples for how to use Bootstrap’s included navigation components.</p>
+						<hr class="my-5">
+					</div>
+<!-- Page content START -->
+
+
+<!-- Base nav Examples -->
+<h4 class="mt-5">Base nav</h4>
+<p>Navigation available in Bootstrap share general markup and styles, from the base <code>.nav</code> class to the active and disabled states. Swap modifier classes to switch between each style.</p>
+<div class="p-3 border border-2 mb-3">
+	<p>The base <code>.nav</code> component does not include any <code>.active</code> state. The following examples include the class, mainly to demonstrate that this particular class does not trigger any special styling.</p>
+	<p>To convey the active state to assistive technologies, use the <code>aria-current</code> attribute — using the page value for current page, or <code>true</code> for the current item in a set.</p>
+</div>
+<!-- Tab START -->
+<ul class="nav nav-tabs nav-tabs-line">
+	<li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-1">Result</a> </li>
+	<li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2">HTML</a> </li>
+</ul>
+<div class="tab-content bg-light bg-opacity-50 p-4">
+	<div class="tab-pane show active" id="tab-1">
+		<ul class="nav">
+			<li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="#">Active</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Link</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Link</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+			</li>
+		</ul>
+	</div>
+
+<div class="tab-pane" id="tab-2">
+<div class="position-relative">
+<pre id="copy-1" class="my-3">
+<code class="language-markup" data-lang="html">&lt;ul class="nav"&gt;
+	&lt;li class="nav-item"&gt;
+		&lt;a class="nav-link active" aria-current="page" href="#"&gt;Active&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li class="nav-item"&gt;
+		&lt;a class="nav-link" href="#"&gt;Link&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li class="nav-item"&gt;
+		&lt;a class="nav-link" href="#"&gt;Link&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li class="nav-item"&gt;
+		&lt;a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"&gt;Disabled&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<button id="copy_id-1" data-clipboard-action="copy" data-clipboard-target="#copy-1" class="copy-link btn btn-primary btn-sm">Copy</button>
+</div>
+</div>
+</div>
+<!-- Tab END -->
+
+<h4 class="mt-5">Nav hover underline</h4>
+<ul class="nav nav-tabs nav-tabs-line">
+	<li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-08">Result</a> </li>
+	<li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-09">HTML</a> </li>
+</ul>
+<div class="tab-content bg-light bg-opacity-50 p-4">
+	<div class="tab-pane show active" id="tab-08">
+		<ul class="nav nav-link-hover-underline">
+			<li class="nav-item">
+				<a href="#" class="nav-link">
+					<span class="nav-link-text">Nav link one</span>
+					<span class="nav-link-icon ms-1"><i class="bi bi-arrow-up-right"></i></span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link">
+					<span class="nav-link-text">Nav link two</span>
+					<span class="nav-link-icon ms-1"><i class="bi bi-arrow-up-right"></i></span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link">
+					<span class="nav-link-text">Nav link three</span>
+					<span class="nav-link-icon ms-1"><i class="bi bi-arrow-up-right"></i></span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link disabled" tabindex="-1" aria-disabled="true">
+					<span class="nav-link-text">Nav link disable</span>
+					<span class="nav-link-icon ms-1"><i class="bi bi-arrow-up-right"></i></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+<div class="tab-pane" id="tab-09">
+<div class="position-relative">
+<pre id="copy-25" class="my-3">
+<code class="language-markup" data-lang="html">&lt;ul class="nav nav-link-hover-underline"&gt;
+	&lt;li class="nav-item"&gt;
+		&lt;a href="#" class="nav-link"&gt;
+			&lt;span class="nav-link-text"&gt;Nav link one&lt;/span&gt;
+			&lt;span class="nav-link-icon ms-1"&gt;&lt;i class="bi bi-arrow-up-right"&gt;&lt;/i&gt;&lt;/span&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li class="nav-item"&gt;
+		&lt;a href="#" class="nav-link"&gt;
+			&lt;span class="nav-link-text"&gt;Nav link two&lt;/span&gt;
+			&lt;span class="nav-link-icon ms-1"&gt;&lt;i class="bi bi-arrow-up-right"&gt;&lt;/i&gt;&lt;/span&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li class="nav-item"&gt;
+		&lt;a href="#" class="nav-link"&gt;
+			&lt;span class="nav-link-text"&gt;Nav link three&lt;/span&gt;
+			&lt;span class="nav-link-icon ms-1"&gt;&lt;i class="bi bi-arrow-up-right"&gt;&lt;/i&gt;&lt;/span&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li class="nav-item"&gt;
+		&lt;a href="#" class="nav-link disabled" tabindex="-1" aria-disabled="true"&gt;
+			&lt;span class="nav-link-text"&gt;Nav link disable&lt;/span&gt;
+			&lt;span class="nav-link-icon ms-1"&gt;&lt;i class="bi bi-arrow-up-right"&gt;&lt;/i&gt;&lt;/span&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<button id="copy_id-25" data-clipboard-action="copy" data-clipboard-target="#copy-25" class="copy-link btn btn-primary btn-sm">Copy</button>
+</div>
+</div>
+</div>
+<!-- Tab END -->
+
+
+<h4 class="mt-5">Tab default</h4>
+<ul class="nav nav-tabs nav-tabs-line">
+	<li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-19">Result</a> </li>
+	<li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-20">HTML</a> </li>
+</ul>
+<div class="tab-content bg-light bg-opacity-50 p-4">
+	<div class="tab-pane show active" id="tab-19">
+		<ul class="nav nav-tabs mb-3">
+			<li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-1-1"> Research </a> </li>
+			<li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-1-2"> Design </a> </li>
+			<li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-1-3"> Develop </a> </li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane show active" id="tab-1-1">
+				We have a strong foundation built on legacy and emerging technologies, including excellent track record of on-time deliveries. We are emerging as one of the most promising private talent sourcing and management firms in the world. The real challenge before companies in today's world is to make their products and services appealing to everyone.
+			</div>
+			<div class="tab-pane" id="tab-1-2">
+				We pride ourselves on the service we give to our clients. Our friendly team members are always willing to help you understand your present technology requirements and provide suggestions on your future needs. It can be the packaging of an item or the design of its website and Applications.
+			</div>
+			<div class="tab-pane" id="tab-1-3">
+				Social an innovative Internet marketing solutions company that offers comprehensive web development, SMO services, SEO strategies and various other types of Internet marketing related services. With us at your side, you will find the IT solution to achieve your strategic and financial goals.
+			</div>
+		</div>
+	</div>
+
+<div class="tab-pane" id="tab-20">
+<div class="position-relative">
+<pre id="copy-10" class="my-3">
+<code class="language-markup" data-lang="html">&lt;ul class="nav nav-tabs mb-3"&gt;
+	&lt;li class="nav-item"&gt; &lt;a class="nav-link active" data-bs-toggle="tab" href="#tab-1-1"&gt; Research &lt;/a&gt; &lt;/li&gt;
+	&lt;li class="nav-item"&gt; &lt;a class="nav-link" data-bs-toggle="tab" href="#tab-1-2"&gt; Design &lt;/a&gt; &lt;/li&gt;
+	&lt;li class="nav-item"&gt; &lt;a class="nav-link" data-bs-toggle="tab" href="#tab-1-3"&gt; Develop &lt;/a&gt; &lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="tab-content"&gt;
+	&lt;div class="tab-pane show active" id="tab-1-1"&gt;
+		We have a strong foundation built on legacy and emerging technologies, including excellent track record of on-time deliveries. We are emerging as one of the most promising private talent sourcing and management firms in the world. The real challenge before companies in today's world is to make their products and services appealing to everyone.
+	&lt;/div&gt;
+	&lt;div class="tab-pane" id="tab-1-2"&gt;
+		We pride ourselves on the service we give to our clients. Our friendly team members are always willing to help you understand your present technology requirements and provide suggestions on your future needs. It can be the packaging of an item or the design of its website and Applications.
+	&lt;/div&gt;
+	&lt;div class="tab-pane" id="tab-1-3"&gt;
+		Social an innovative Internet marketing solutions company that offers comprehensive web development, SMO services, SEO strategies and various other types of Internet marketing related services. With us at your side, you will find the IT solution to achieve your strategic and financial goals.
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<button id="copy_id-10" data-clipboard-action="copy" data-clipboard-target="#copy-10" class="copy-link btn btn-primary btn-sm">Copy</button>
+</div>
+</div>
+</div>
+<!-- Tab END -->
+
+
+<!-- Tab default Justified -->
+<h4 class="mt-5">Tab default Justified</h4>
+<ul class="nav nav-tabs nav-tabs-line">
+	<li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-21">Result</a> </li>
+	<li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-22">HTML</a> </li>
+</ul>
+<div class="tab-content bg-light bg-opacity-50 p-4">
+	<div class="tab-pane show active" id="tab-21">
+		<ul class="nav nav-tabs nav-justified mb-3">
+			<li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-2-1"> Research </a> </li>
+			<li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2-2"> Design </a> </li>
+			<li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-2-3"> Develop </a> </li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane show active" id="tab-2-1">
+				We have a strong foundation built on legacy and emerging technologies, including excellent track record of on-time deliveries. We are emerging as one of the most promising private talent sourcing and management firms in the world. The real challenge before companies in today's world is to make their products and services appealing to everyone.
+			</div>
+			<div class="tab-pane" id="tab-2-2">
+				We pride ourselves on the service we give to our clients. Our friendly team members are always willing to help you understand your present technology requirements and provide suggestions on your future needs. It can be the packaging of an item or the design of its website and Applications.
+			</div>
+			<div class="tab-pane" id="tab-2-3">
+				Social an innovative Internet marketing solutions company that offers comprehensive web development, SMO services, SEO strategies and various other types of Internet marketing related services. With us at your side, you will find the IT solution to achieve your strategic and financial goals.
+			</div>
+		</div>
+	</div>
+
+<div class="tab-pane" id="tab-22">
+<div class="position-relative">
+<pre id="copy-11" class="my-3">
+<code class="language-markup" data-lang="html">&lt;ul class="nav nav-tabs nav-justified mb-3"&gt;
+	&lt;li class="nav-item"&gt; &lt;a class="nav-link active" data-bs-toggle="tab" href="#tab-2-1"&gt; Research &lt;/a&gt; &lt;/li&gt;
+	&lt;li class="nav-item"&gt; &lt;a class="nav-link" data-bs-toggle="tab" href="#tab-2-2"&gt; Design &lt;/a&gt; &lt;/li&gt;
+	&lt;li class="nav-item"&gt; &lt;a class="nav-link" data-bs-toggle="tab" href="#tab-2-3"&gt; Develop &lt;/a&gt; &lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="tab-content"&gt;
+	&lt;div class="tab-pane show active" id="tab-2-1"&gt;
+		We have a strong foundation built on legacy and emerging technologies, including excellent track record of on-time deliveries. We are emerging as one of the most promising private talent sourcing and management firms in the world. The real challenge before companies in today's world is to make their products and services appealing to everyone.
+	&lt;/div&gt;
+	&lt;div class="tab-pane" id="tab-2-2"&gt;
+		We pride ourselves on the service we give to our clients. Our friendly team members are always willing to help you understand your present technology requirements and provide suggestions on your future needs. It can be the packaging of an item or the design of its website and Applications.
+	&lt;/div&gt;
+	&lt;div class="tab-pane" id="tab-2-3"&gt;
+		Social an innovative Internet marketing solutions company that offers comprehensive web development, SMO services, SEO strategies and various other types of Internet marketing related services. With us at your side, you will find the IT solution to achieve your strategic and financial goals.
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<button id="copy_id-11" data-clipboard-action="copy" data-clipboard-target="#copy-11" class="copy-link btn btn-primary btn-sm">Copy</button>
+</div>
+</div>
+</div>
+<!-- Tab END -->
+
+<!-- Tab vertical -->
+<h4 class="mt-5">Tab vertical</h4>
+<ul class="nav nav-tabs nav-tabs-line">
+	<li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-27">Result</a> </li>
+	<li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-28">HTML</a> </li>
+</ul>
+<div class="tab-content bg-light bg-opacity-50 p-4">
+	<div class="tab-pane show active" id="tab-27">
+		<div class="row">
+			<div class="col-4 col-sm-3">
+				<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+					<a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+					<a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+					<a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+					<a class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+				</div>
+			</div>
+			<div class="col-8 col-sm-9">
+				<div class="tab-content pt-0" id="v-pills-tabContent">
+					<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+						We have a strong foundation built on legacy and emerging technologies, including excellent track record of on-time deliveries. We are emerging as one of the most promising private talent sourcing and management firms in the world. The real challenge before companies in today's world is to make their products and services appealing to everyone.
+					</div>
+					<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+						We pride ourselves on the service we give to our clients. Our friendly team members are always willing to help you understand your present technology requirements and provide suggestions on your future needs. It can be the packaging of an item or the design of its website and Applications.
+					</div>
+					<div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+						Social an innovative Internet marketing solutions company that offers comprehensive web development, SMO services, SEO strategies and various other types of Internet marketing related services. With us at your side, you will find the IT solution to achieve your strategic and financial goals.
+					</div>
+					<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+						Our friendly team members are always willing to help you understand your present technology requirements and provide suggestions on your future needs. It can be the packaging of an item or the design of its website and Applications. We pride ourselves on the service we give to our clients.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="tab-pane" id="tab-28">
+<div class="position-relative">
+<pre id="copy-14" class="my-3">
+<code class="language-markup" data-lang="html">&lt;div class="row"&gt;
+	&lt;div class="col-4 col-sm-3"&gt;
+		&lt;div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"&gt;
+			&lt;a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"&gt;Home&lt;/a&gt;
+			&lt;a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"&gt;Profile&lt;/a&gt;
+			&lt;a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"&gt;Messages&lt;/a&gt;
+			&lt;a class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false"&gt;Settings&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="col-8 col-sm-9"&gt;
+		&lt;div class="tab-content pt-0" id="v-pills-tabContent"&gt;
+			&lt;div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"&gt;
+				We have a strong foundation built on legacy and emerging technologies, including excellent track record of on-time deliveries. We are emerging as one of the most promising private talent sourcing and management firms in the world. The real challenge before companies in today's world is to make their products and services appealing to everyone.
+			&lt;/div&gt;
+			&lt;div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"&gt;
+				We pride ourselves on the service we give to our clients. Our friendly team members are always willing to help you understand your present technology requirements and provide suggestions on your future needs. It can be the packaging of an item or the design of its website and Applications.
+			&lt;/div&gt;
+			&lt;div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab"&gt;
+				Social an innovative Internet marketing solutions company that offers comprehensive web development, SMO services, SEO strategies and various other types of Internet marketing related services. With us at your side, you will find the IT solution to achieve your strategic and financial goals.
+			&lt;/div&gt;
+			&lt;div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab"&gt;
+				Our friendly team members are always willing to help you understand your present technology requirements and provide suggestions on your future needs. It can be the packaging of an item or the design of its website and Applications. We pride ourselves on the service we give to our clients.
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<button id="copy_id-14" data-clipboard-action="copy" data-clipboard-target="#copy-14" class="copy-link btn btn-primary btn-sm">Copy</button>
+</div>
+</div>
+</div>
+<!-- Tab END -->
+
+<!-- Tab dark -->
+<h4 class="mt-5">Tab dark</h4>
+<ul class="nav nav-tabs nav-tabs-line">
+	<li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-25">Result</a> </li>
+	<li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-26">HTML</a> </li>
+</ul>
+<div class="tab-content bg-light bg-opacity-50 p-4">
+	<div class="tab-pane show active" id="tab-25">
+		<ul class="nav nav-pills nav-pills-dark mb-3" id="tour-pills-tab" role="tablist">
+			<li class="nav-item me-2">
+				<a class="nav-link active" data-bs-toggle="tab" href="#tab-oneway">Our mission</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" data-bs-toggle="tab" href="#tab-roundtrip">Our goal</a>
+			</li>
+		</ul>
+
+		<div class="tab-content">
+			<div class="tab-pane show active" id="tab-oneway">
+				We have a strong foundation built on legacy and emerging technologies, including excellent track record of on-time deliveries. We are emerging as one of the most promising private talent sourcing and management firms in the world. The real challenge before companies in today's world is to make their products and services appealing to everyone.
+			</div>
+			<div class="tab-pane" id="tab-roundtrip">
+				We pride ourselves on the service we give to our clients. Our friendly team members are always willing to help you understand your present technology requirements and provide suggestions on your future needs. It can be the packaging of an item or the design of its website and Applications.
+			</div>
+		</div>
+	</div>
+
+<div class="tab-pane" id="tab-26">
+<div class="position-relative">
+<pre id="copy-13" class="my-3">
+<code class="language-markup" data-lang="html">&lt;ul class="nav nav-pills nav-pills-dark mb-3" id="tour-pills-tab" role="tablist"&gt;
+	&lt;li class="nav-item me-2"&gt;
+		&lt;a class="nav-link active" data-bs-toggle="tab" href="#tab-oneway"&gt;Our mission&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li class="nav-item"&gt;
+		&lt;a class="nav-link" data-bs-toggle="tab" href="#tab-roundtrip"&gt;Our goal&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="tab-content"&gt;
+	&lt;div class="tab-pane show active" id="tab-oneway"&gt;
+		We have a strong foundation built on legacy and emerging technologies, including excellent track record of on-time deliveries. We are emerging as one of the most promising private talent sourcing and management firms in the world. The real challenge before companies in today's world is to make their products and services appealing to everyone.
+	&lt;/div&gt;
+	&lt;div class="tab-pane" id="tab-roundtrip"&gt;
+		We pride ourselves on the service we give to our clients. Our friendly team members are always willing to help you understand your present technology requirements and provide suggestions on your future needs. It can be the packaging of an item or the design of its website and Applications.
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<button id="copy_id-13" data-clipboard-action="copy" data-clipboard-target="#copy-13" class="copy-link btn btn-primary btn-sm">Copy</button>
+</div>
+</div>
+</div>
+<!-- Tab END -->
+
+<!-- Tabs primary gradient -->
+<h4 class="mt-5">Tabs primary gradient</h4>
+<ul class="nav nav-tabs nav-tabs-line">
+	<li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-31">Result</a> </li>
+	<li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-32">HTML</a> </li>
+</ul>
+<div class="tab-content bg-light bg-opacity-50 p-4">
+	<div class="tab-pane show active" id="tab-31">
+		<div class="inner-container-small">
+			<div class="nav nav-pills nav-pills-primary-grad nav-responsive gap-4 mx-auto mb-3 pt-3" id="pills-tab" role="tablist">
+				<!-- Tab item -->
+				<div class="col">
+					<div class="nav-item">
+						<a href="#!" class="nav-link rounded-4 active" id="pills-dashboard-tab" data-bs-toggle="pill" data-bs-target="#pills-dashboard" role="tab" aria-controls="pills-dashboard" aria-selected="false" style="min-width: 9rem; min-height: 120px;">
+							<span class="nav-bg-primary-grad"></span>
+							<!-- Icon -->
+							<svg class="nav-link-content" width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M18 4.375V7.29167M18 4.375C14.3756 4.375 11.0944 5.84407 8.71923 8.21923M18 4.375C21.6241 4.375 24.9052 5.84391 27.2804 8.21883M8.71923 8.21923C6.34407 10.5944 4.875 13.8756 4.875 17.5M8.71923 8.21923L10.7802 10.2802M27.2804 8.21883C29.6557 10.594 31.125 13.8754 31.125 17.5M27.2804 8.21883L25.218 10.2812M4.875 17.5H7.79167M4.875 17.5C4.875 21.1241 6.34391 24.4052 8.71883 26.7804M8.71883 26.7804C11.094 29.1557 14.3754 30.625 18 30.625M8.71883 26.7804L10.7812 24.718M31.125 17.5H28.2083M31.125 17.5C31.125 21.1244 29.6559 24.4056 27.2808 26.7808M27.2808 26.7808C24.9056 29.1559 21.6244 30.625 18 30.625M27.2808 26.7808L25.217 24.717M18 30.625V27.7083M17.9994 15.3125C19.2075 15.3125 20.1875 16.2919 20.1875 17.5C20.1875 18.7081 19.2081 19.6875 18 19.6875C16.7919 19.6875 15.8125 18.7078 15.8125 17.4997C15.8125 16.2919 16.7916 15.3125 17.9994 15.3125ZM17.9994 15.3125V11.3021" stroke="currentColor" stroke-width="2.1875" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							<!-- Text -->
+							<span class="nav-link-content mt-2">Dashboard</span>
+						</a>
+					</div>
+				</div>
+
+				<!-- Tab item -->
+				<div class="col">
+					<div class="nav-item">
+						<a href="#!" class="nav-link rounded-4" id="pills-analytics-tab" data-bs-toggle="pill" data-bs-target="#pills-analytics" role="tab" aria-controls="pills-analytics" aria-selected="true" style="min-width: 9rem; min-height: 120px;">
+							<span class="nav-bg-primary-grad"></span>
+							<!-- Icon -->
+							<svg class="nav-link-content" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M22.6575 5.42667C21.6595 4.99974 21.1604 4.78627 20.5971 5.01507C20.4401 5.07877 20.2396 5.21111 20.1195 5.33027C19.6875 5.75822 19.6875 6.3915 19.6875 7.65809V15.3121H27.3414C28.608 15.3121 29.2413 15.3121 29.6692 14.8802C29.7885 14.7598 29.9208 14.5593 29.9845 14.4025C30.2133 13.8392 29.9998 13.3401 29.5728 12.3421C28.2462 9.24043 25.7591 6.7534 22.6575 5.42667Z" stroke="CurrentColor" stroke-width="2.1875" stroke-linejoin="round"/>
+								<path d="M4.375 17.4997C4.375 24.7483 10.2513 30.6247 17.5 30.6247C23.2383 30.6247 28.1164 26.9422 29.9002 21.8115C30.2406 20.8327 30.4108 20.3433 30.1685 19.8116C30.1006 19.6625 29.9669 19.4745 29.8484 19.3614C29.4257 18.958 28.8218 18.958 27.6137 18.958H18.6667C17.5731 18.958 17.0262 18.958 16.6428 18.6795C16.519 18.5895 16.4102 18.4805 16.3202 18.3567C16.0417 17.9735 16.0417 17.4266 16.0417 16.333V7.38588C16.0417 6.17789 16.0417 5.57389 15.6381 5.15123C15.5251 5.03274 15.3371 4.89904 15.188 4.83113C14.6563 4.58886 14.1669 4.75901 13.1881 5.09933C8.05744 6.88319 4.375 11.7614 4.375 17.4997Z" stroke="CurrentColor" stroke-width="2.1875" stroke-linejoin="round"/>
+							</svg>
+							<!-- Text -->
+							<span class="nav-link-content mt-2">Analytics</span>
+						</a>
+					</div>
+				</div>
+
+				<!-- Tab item -->
+				<div class="col">
+					<div class="nav-item">
+						<a href="#!" class="nav-link rounded-4" id="pills-reports-tab" data-bs-toggle="pill" data-bs-target="#pills-reports" role="tab" aria-controls="pills-reports" aria-selected="false" style="min-width: 9rem; min-height: 120px;">
+							<span class="nav-bg-primary-grad"></span>
+							<!-- Icon -->
+							<svg class="nav-link-content" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M18.9596 4.375V5.25C18.9596 8.53102 18.9596 10.1715 19.7953 11.3216C20.0651 11.693 20.3917 12.0196 20.763 12.2894C21.9131 13.125 23.5537 13.125 26.8346 13.125H27.7096M27.7096 14.9287V22.75C27.7096 26.031 27.7096 27.6716 26.8742 28.8216C26.6042 29.1929 26.2775 29.5196 25.9063 29.7895C24.7562 30.625 23.1156 30.625 19.8346 30.625H15.168C11.887 30.625 10.2464 30.625 9.0964 29.7895C8.72499 29.5196 8.39837 29.1929 8.12852 28.8216C7.29297 27.6716 7.29297 26.031 7.29297 22.75V12.25C7.29297 8.96898 7.29297 7.32848 8.12852 6.17843C8.39837 5.80702 8.72499 5.4804 9.0964 5.21055C10.2464 4.375 11.887 4.375 15.168 4.375H17.156C18.5846 4.375 19.2987 4.375 19.9577 4.58913C20.1757 4.65996 20.3878 4.74779 20.5919 4.85185C21.2094 5.16644 21.7144 5.67147 22.7245 6.68153L25.4031 9.36014C26.4132 10.3702 26.9182 10.8752 27.2328 11.4926C27.3369 11.6969 27.4247 11.9089 27.4956 12.1269C27.7096 12.7859 27.7096 13.5001 27.7096 14.9287Z" stroke="currentColor" stroke-width="2.1875" stroke-linejoin="round"/>
+								<path d="M18.9596 18.229H11.668M23.3346 22.604H11.668" stroke="currentColor" stroke-width="2.1875" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							<!-- Text -->
+							<span class="nav-link-content mt-2">Reports</span>
+						</a>
+					</div>
+				</div>
+			</div>	
+		</div>
+
+		<div class="tab-content">
+			<div class="tab-pane show active" id="pills-dashboard">
+				We have a strong foundation built on legacy and emerging technologies, including excellent track record of on-time deliveries. We are emerging as one of the most promising private talent sourcing and management firms in the world. The real challenge before companies in today's world is to make their products and services appealing to everyone.
+			</div>
+			<div class="tab-pane" id="pills-analytics">
+				We pride ourselves on the service we give to our clients. Our friendly team members are always willing to help you understand your present technology requirements and provide suggestions on your future needs. It can be the packaging of an item or the design of its website and Applications.
+			</div>
+			<div class="tab-pane" id="pills-reports">
+				On the service we give to our clients. Our friendly team members are always willing to help you understand your present technology requirements and provide suggestions on your future needs. It can be the packaging of an item or the design of its website and Applications.
+			</div>
+		</div>
+	</div>
+
+<div class="tab-pane" id="tab-32">
+<div class="position-relative">
+<pre id="copy-15" class="my-3">
+<code class="language-markup" data-lang="html">&lt;div class="inner-container-small"&gt;
+	&lt;div class="nav nav-pills nav-pills-primary-grad nav-responsive gap-4 mx-auto mb-3 pt-3" id="pills-tab" role="tablist"&gt;
+		&lt;!-- Tab item --&gt;
+		&lt;div class="col"&gt;
+			&lt;div class="nav-item"&gt;
+				&lt;a href="#!" class="nav-link rounded-4 active" id="pills-dashboard-tab" data-bs-toggle="pill" data-bs-target="#pills-dashboard" role="tab" aria-controls="pills-dashboard" aria-selected="false" style="min-width: 9rem; min-height: 120px;"&gt;
+					&lt;span class="nav-bg-primary-grad"&gt;&lt;/span&gt;
+					&lt;!-- Icon --&gt;
+					&lt;svg class="nav-link-content" width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+						&lt;path d="M18 4.375V7.29167M18 4.375C14.3756 4.375 11.0944 5.84407 8.71923 8.21923M18 4.375C21.6241 4.375 24.9052 5.84391 27.2804 8.21883M8.71923 8.21923C6.34407 10.5944 4.875 13.8756 4.875 17.5M8.71923 8.21923L10.7802 10.2802M27.2804 8.21883C29.6557 10.594 31.125 13.8754 31.125 17.5M27.2804 8.21883L25.218 10.2812M4.875 17.5H7.79167M4.875 17.5C4.875 21.1241 6.34391 24.4052 8.71883 26.7804M8.71883 26.7804C11.094 29.1557 14.3754 30.625 18 30.625M8.71883 26.7804L10.7812 24.718M31.125 17.5H28.2083M31.125 17.5C31.125 21.1244 29.6559 24.4056 27.2808 26.7808M27.2808 26.7808C24.9056 29.1559 21.6244 30.625 18 30.625M27.2808 26.7808L25.217 24.717M18 30.625V27.7083M17.9994 15.3125C19.2075 15.3125 20.1875 16.2919 20.1875 17.5C20.1875 18.7081 19.2081 19.6875 18 19.6875C16.7919 19.6875 15.8125 18.7078 15.8125 17.4997C15.8125 16.2919 16.7916 15.3125 17.9994 15.3125ZM17.9994 15.3125V11.3021" stroke="currentColor" stroke-width="2.1875" stroke-linecap="round" stroke-linejoin="round"/&gt;
+					&lt;/svg&gt;
+					&lt;!-- Text --&gt;
+					&lt;span class="nav-link-content mt-2"&gt;Dashboard&lt;/span&gt;
+				&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;!-- Tab item --&gt;
+		&lt;div class="col"&gt;
+			&lt;div class="nav-item"&gt;
+				&lt;a href="#!" class="nav-link rounded-4" id="pills-analytics-tab" data-bs-toggle="pill" data-bs-target="#pills-analytics" role="tab" aria-controls="pills-analytics" aria-selected="true" style="min-width: 9rem; min-height: 120px;"&gt;
+					&lt;span class="nav-bg-primary-grad"&gt;&lt;/span&gt;
+					&lt;!-- Icon --&gt;
+					&lt;svg class="nav-link-content" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+						&lt;path d="M22.6575 5.42667C21.6595 4.99974 21.1604 4.78627 20.5971 5.01507C20.4401 5.07877 20.2396 5.21111 20.1195 5.33027C19.6875 5.75822 19.6875 6.3915 19.6875 7.65809V15.3121H27.3414C28.608 15.3121 29.2413 15.3121 29.6692 14.8802C29.7885 14.7598 29.9208 14.5593 29.9845 14.4025C30.2133 13.8392 29.9998 13.3401 29.5728 12.3421C28.2462 9.24043 25.7591 6.7534 22.6575 5.42667Z" stroke="CurrentColor" stroke-width="2.1875" stroke-linejoin="round"/&gt;
+						&lt;path d="M4.375 17.4997C4.375 24.7483 10.2513 30.6247 17.5 30.6247C23.2383 30.6247 28.1164 26.9422 29.9002 21.8115C30.2406 20.8327 30.4108 20.3433 30.1685 19.8116C30.1006 19.6625 29.9669 19.4745 29.8484 19.3614C29.4257 18.958 28.8218 18.958 27.6137 18.958H18.6667C17.5731 18.958 17.0262 18.958 16.6428 18.6795C16.519 18.5895 16.4102 18.4805 16.3202 18.3567C16.0417 17.9735 16.0417 17.4266 16.0417 16.333V7.38588C16.0417 6.17789 16.0417 5.57389 15.6381 5.15123C15.5251 5.03274 15.3371 4.89904 15.188 4.83113C14.6563 4.58886 14.1669 4.75901 13.1881 5.09933C8.05744 6.88319 4.375 11.7614 4.375 17.4997Z" stroke="CurrentColor" stroke-width="2.1875" stroke-linejoin="round"/&gt;
+					&lt;/svg&gt;
+					&lt;!-- Text --&gt;
+					&lt;span class="nav-link-content mt-2"&gt;Analytics&lt;/span&gt;
+				&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;!-- Tab item --&gt;
+		&lt;div class="col"&gt;
+			&lt;div class="nav-item"&gt;
+				&lt;a href="#!" class="nav-link rounded-4" id="pills-reports-tab" data-bs-toggle="pill" data-bs-target="#pills-reports" role="tab" aria-controls="pills-reports" aria-selected="false" style="min-width: 9rem; min-height: 120px;"&gt;
+					&lt;span class="nav-bg-primary-grad"&gt;&lt;/span&gt;
+					&lt;!-- Icon --&gt;
+					&lt;svg class="nav-link-content" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+						&lt;path d="M18.9596 4.375V5.25C18.9596 8.53102 18.9596 10.1715 19.7953 11.3216C20.0651 11.693 20.3917 12.0196 20.763 12.2894C21.9131 13.125 23.5537 13.125 26.8346 13.125H27.7096M27.7096 14.9287V22.75C27.7096 26.031 27.7096 27.6716 26.8742 28.8216C26.6042 29.1929 26.2775 29.5196 25.9063 29.7895C24.7562 30.625 23.1156 30.625 19.8346 30.625H15.168C11.887 30.625 10.2464 30.625 9.0964 29.7895C8.72499 29.5196 8.39837 29.1929 8.12852 28.8216C7.29297 27.6716 7.29297 26.031 7.29297 22.75V12.25C7.29297 8.96898 7.29297 7.32848 8.12852 6.17843C8.39837 5.80702 8.72499 5.4804 9.0964 5.21055C10.2464 4.375 11.887 4.375 15.168 4.375H17.156C18.5846 4.375 19.2987 4.375 19.9577 4.58913C20.1757 4.65996 20.3878 4.74779 20.5919 4.85185C21.2094 5.16644 21.7144 5.67147 22.7245 6.68153L25.4031 9.36014C26.4132 10.3702 26.9182 10.8752 27.2328 11.4926C27.3369 11.6969 27.4247 11.9089 27.4956 12.1269C27.7096 12.7859 27.7096 13.5001 27.7096 14.9287Z" stroke="currentColor" stroke-width="2.1875" stroke-linejoin="round"/&gt;
+						&lt;path d="M18.9596 18.229H11.668M23.3346 22.604H11.668" stroke="currentColor" stroke-width="2.1875" stroke-linecap="round" stroke-linejoin="round"/&gt;
+					&lt;/svg&gt;
+					&lt;!-- Text --&gt;
+					&lt;span class="nav-link-content mt-2"&gt;Reports&lt;/span&gt;
+				&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;	
+&lt;/div&gt;
+
+&lt;div class="tab-content"&gt;
+	&lt;div class="tab-pane show active" id="pills-dashboard"&gt;
+		We have a strong foundation built on legacy and emerging technologies, including excellent track record of on-time deliveries. We are emerging as one of the most promising private talent sourcing and management firms in the world. The real challenge before companies in today's world is to make their products and services appealing to everyone.
+	&lt;/div&gt;
+	&lt;div class="tab-pane" id="pills-analytics"&gt;
+		We pride ourselves on the service we give to our clients. Our friendly team members are always willing to help you understand your present technology requirements and provide suggestions on your future needs. It can be the packaging of an item or the design of its website and Applications.
+	&lt;/div&gt;
+	&lt;div class="tab-pane" id="pills-reports"&gt;
+		On the service we give to our clients. Our friendly team members are always willing to help you understand your present technology requirements and provide suggestions on your future needs. It can be the packaging of an item or the design of its website and Applications.
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<button id="copy_id-15" data-clipboard-action="copy" data-clipboard-target="#copy-15" class="copy-link btn btn-primary btn-sm">Copy</button>
+</div>
+</div>
+</div>
+<!-- Tab END -->
+
+<!-- Tabs secondary -->
+<h4 class="mt-5">Tabs secondary</h4>
+<ul class="nav nav-tabs nav-tabs-line">
+	<li class="nav-item"> <a class="nav-link active" data-bs-toggle="tab" href="#tab-35">Result</a> </li>
+	<li class="nav-item"> <a class="nav-link" data-bs-toggle="tab" href="#tab-36">HTML</a> </li>
+</ul>
+<div class="tab-content bg-light bg-opacity-50 p-4">
+	<div class="tab-pane show active" id="tab-35">
+		<ul class="nav nav-pills gap-1 nav-pills-secondary mb-3" id="tour-pills-tab" role="tablist">
+			<li class="nav-item">
+				<a class="nav-link active" data-bs-toggle="tab" href="#tab-research-1">Research</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" data-bs-toggle="tab" href="#tab-design-1">Design</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" data-bs-toggle="tab" href="#tab-develope-1">Develope</a>
+			</li>
+		</ul>
+
+		<div class="tab-content">
+			<div class="tab-pane show active" id="tab-research-1">
+				We have a strong foundation built on legacy and emerging technologies, including excellent track record of on-time deliveries. We are emerging as one of the most promising private talent sourcing and management firms in the world. The real challenge before companies in today's world is to make their products and services appealing to everyone.
+			</div>
+			<div class="tab-pane" id="tab-design-1">
+				We pride ourselves on the service we give to our clients. Our friendly team members are always willing to help you understand your present technology requirements and provide suggestions on your future needs. It can be the packaging of an item or the design of its website and Applications.
+			</div>
+			<div class="tab-pane" id="tab-develope-1">
+				On the service we give to our clients. Our friendly team members are always willing to help you understand your present technology requirements and provide suggestions on your future needs. It can be the packaging of an item or the design of its website and Applications.
+			</div>
+		</div>
+	</div>
+
+<div class="tab-pane" id="tab-36">
+<div class="position-relative">
+<pre id="copy-15" class="my-3">
+<code class="language-markup" data-lang="html">&lt;ul class="nav nav-pills gap-1 nav-pills-secondary mb-3" id="tour-pills-tab" role="tablist"&gt;
+	&lt;li class="nav-item"&gt;
+		&lt;a class="nav-link active" data-bs-toggle="tab" href="#tab-research-1"&gt;Research&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li class="nav-item"&gt;
+		&lt;a class="nav-link" data-bs-toggle="tab" href="#tab-design-1"&gt;Design&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li class="nav-item"&gt;
+		&lt;a class="nav-link" data-bs-toggle="tab" href="#tab-develope-1"&gt;Develope&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="tab-content"&gt;
+	&lt;div class="tab-pane show active" id="tab-research-1"&gt;
+		We have a strong foundation built on legacy and emerging technologies, including excellent track record of on-time deliveries. We are emerging as one of the most promising private talent sourcing and management firms in the world. The real challenge before companies in today's world is to make their products and services appealing to everyone.
+	&lt;/div&gt;
+	&lt;div class="tab-pane" id="tab-design-1"&gt;
+		We pride ourselves on the service we give to our clients. Our friendly team members are always willing to help you understand your present technology requirements and provide suggestions on your future needs. It can be the packaging of an item or the design of its website and Applications.
+	&lt;/div&gt;
+	&lt;div class="tab-pane" id="tab-develope-1"&gt;
+		On the service we give to our clients. Our friendly team members are always willing to help you understand your present technology requirements and provide suggestions on your future needs. It can be the packaging of an item or the design of its website and Applications.
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<button id="copy_id-15" data-clipboard-action="copy" data-clipboard-target="#copy-15" class="copy-link btn btn-primary btn-sm">Copy</button>
+</div>
+</div>
+</div>
+<!-- Tab END -->
+
+			</div>
+		</div>
+		<!-- Main content END -->
+	</div>
+</div>
+</main>
+
+<!-- =======================
+JavaScripts -->
+
+<!-- Bootstrap JS -->
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/js/simple-scrollbar.min.js"></script>
+<script src="assets/js/prism.js"></script>
+<script src="assets/js/clipboard.min.js"></script>
+ 
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+</html>

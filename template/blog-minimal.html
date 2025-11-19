@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<title>Ohless</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="webestica.com">
+	<meta name="description" content="multipurpose bootstrap theme">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="./assets/images/favicon.svg">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+	
+<!-- Header START -->
+<header class="header-sticky bg-transparent">
+		<!-- Logo Nav START -->
+		<nav class="navbar navbar-expand-xl">
+			<div class="container">
+				<!-- Logo START -->
+				<a class="navbar-brand me-0" href="index.html">
+					<img class="light-mode-item navbar-brand-item" src="assets/images/hero/logo.svg" alt="logo">
+					<img class="dark-mode-item navbar-brand-item" src="assets/images/hero/darklogo.svg" alt="logo">
+				</a>
+				<!-- Logo END -->
+
+				<!-- Main navbar START -->
+				<div class="navbar-collapse collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll dropdown-hover mx-auto">
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown" href="index.html"  >Demos</a>
+						
+					</li>
+
+					<!-- Nav item -->
+					<li class="nav-item dropdown">
+						<a class="nav-link "  href="about-v1.html"  >About us</a>
+						
+					</li>
+
+					
+				
+<li class="nav-item dropdown">
+  <a class="nav-link" href="blog-minimal.html">Blogs</a>
+ 
+</li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a class="nav-link" href="contact-us-v1.html">Contact us</a> </li>
+				</ul>
+			</div>
+				<!-- Main navbar END -->
+
+				<!-- Buttons -->
+				<ul class="nav align-items-center dropdown-hover ms-sm-2">
+					<!-- Dark mode option START -->
+					<li class="nav-item dropdown dropdown-animation">
+						<button class="btn btn-link mb-0 px-2 lh-1" id="bd-theme"
+						type="button"
+						aria-expanded="false"
+						data-bs-toggle="dropdown"
+						data-bs-display="static">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"  class="bi bi-circle-half theme-icon-active fill-mode fa-fw" viewBox="0 0 16 16">
+							<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+							<use href="#"></use>
+						</svg>
+						</button>
+
+						<ul class="dropdown-menu min-w-auto dropdown-menu-end" aria-labelledby="bd-theme">
+							<li class="mb-1">
+								<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light">
+									<svg width="16" height="16" fill="currentColor" class="bi bi-brightness-high-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+										<path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+										<use href="#"></use>
+									</svg>Light
+								</button>
+							</li>
+							<li class="mb-1">
+								<button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars-fill fa-fw mode-switch me-1" viewBox="0 0 16 16">
+										<path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+										<path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+										<use href="#"></use>
+									</svg>Dark
+								</button>
+							</li>
+							<li>
+								<button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch me-1" viewBox="0 0 16 16">
+										<path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+										<use href="#"></use>
+									</svg>Auto
+								</button>
+							</li>
+						</ul>
+					</li>
+					<!-- Dark mode option END -->
+
+					<!-- Schedule button
+					<li class="nav-item ms-2 d-none d-sm-block">
+						<a href="#" class="btn btn-sm btn-dark mb-0"><i class="bi bi-cloud-download-fill me-2"></i>Download app</a>
+					</li> -->
+					<!-- Responsive navbar toggler -->
+					<li class="nav-item">
+						<button class="navbar-toggler ms-sm-3 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-animation">
+								<span></span>
+								<span></span>
+								<span></span>
+							</span>
+						</button>
+					</li>	
+				</ul>
+
+			</div>
+		</nav>
+		<!-- Logo Nav END -->
+	</header>
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Hero START -->
+<section class="bg-secondary position-relative overflow-hidden pt-xl-8">
+	<!-- Blur decoration START -->
+	<div class="position-absolute start-0 top-0">
+		<img src="assets/images/elements/grad-shape/blur-decoration-2.svg" class="opacity-3 blur-9 h-300px rotate-335" alt="Grad shape">
+	</div>
+
+	<div class="position-absolute end-0 top-0">
+		<img src="assets/images/elements/grad-shape/blur-decoration-2.svg" class="opacity-2 blur-8 h-300px rotate-335" alt="Grad shape">
+	</div>
+	<!-- Blur decoration END -->
+
+	<div class="container inner-container position-relative pt-4 pt-sm-5">
+		<!-- Breadcrumb -->
+		<nav class="mb-2 d-flex justify-content-center" aria-label="breadcrumb">
+			<ol class="breadcrumb pt-0">
+				<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Blog Minimal</li>
+			</ol>
+		</nav>
+
+		<!-- Title -->
+		<h1 class="fw-bold text-center mb-2">Hey,<span class="hand-wave-animate">🖐️</span> we’re <span class="text-primary-grad">Folio</span></h1>
+		<h2 class="fs-1 text-center">Explore our stories, thoughts, and ideas.</h2>
+
+		<!-- Search box -->
+		<div class="col-md-8 mx-auto bg-body shadow-primary rounded-pill position-relative z-index-2 p-1 mt-5">
+			<form class="input-group align-items-center">
+				<input class="form-control bg-transparent border-0 me-1" type="email" placeholder="Search.....">
+				<button type="button" class="btn btn-dark btn-round rounded-circle lh-1 mb-0 me-2"><i class="bi bi-search"></i></button>
+			</form>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Hero END -->
+
+<!-- =======================
+Blog START -->
+<section class="bg-secondary overflow-hidden pt-0">
+	<div class="container inner-container">
+		<div class="row g-4 g-lg-6">
+
+			<!-- Blog item -->
+			<div class="col-md-6">
+				<article class="card card-img-scale bg-transparent overflow-hidden h-100 p-0">
+					<!-- Badge -->
+					<div class="d-flex gap-2 position-absolute top-0 start-0 z-index-2 m-4">
+						<span class="badge bg-dark">Technology</span>
+						<span class="badge bg-white text-dark">June 28, 2024</span>
+					</div>
+
+					<!-- Card image -->
+					 <div class="card-img-scale-wrapper rounded-4">
+						 <img src="assets/images/blog/4by3/01.jpg" class="rounded-4 img-scale" alt="Blog-img">
+					 </div>
+
+					<!-- Card Body -->
+					<div class="card-body px-2">
+						<!-- Title -->
+						<h6 class="card-title mb-2"><a href="#">Building a strong identity for your business</a></h6>
+						<a class="icon-link icon-link-hover stretched-link" href="blog-single.html">Read more<i class="bi bi-arrow-right"></i> </a>
+					</div>
+				</article>
+			</div>
+
+			<!-- Blog item -->
+			<div class="col-md-6">
+				<article class="card card-img-scale bg-transparent overflow-hidden h-100 p-0">
+					<!-- Badge -->
+					<div class="d-flex gap-2 position-absolute top-0 start-0 z-index-2 m-4">
+						<span class="badge bg-dark">Research</span>
+						<span class="badge bg-white text-dark">July 15, 2024</span>
+					</div>
+
+					<!-- Card image -->
+					 <div class="card-img-scale-wrapper rounded-4">
+						 <img src="assets/images/blog/4by3/04.jpg" class="rounded-4 img-scale" alt="Blog-img">
+					 </div>
+
+					<!-- Card Body -->
+					<div class="card-body px-2">
+						<!-- Title -->
+						<h6 class="card-title mb-2"><a href="#">Tips for improving your website's visibility</a></h6>
+						<a class="icon-link icon-link-hover stretched-link" href="blog-single.html">Read more<i class="bi bi-arrow-right"></i> </a>
+					</div>
+				</article>
+			</div>
+
+			<!-- Blog item -->
+			<div class="col-12">
+				<article class="card card-img-scale bg-transparent overflow-hidden h-100 p-0">
+					<!-- Card image -->
+					 <div class="card-img-scale-wrapper rounded-4">
+						<div class="ratio ratio-16x9">
+							<iframe src="https://www.youtube.com/embed/9No-FiEInLA" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+						</div>
+					 </div>
+
+					<!-- Card Body -->
+					<div class="card-body px-2">
+						<!-- Badge -->
+						<div class="d-flex gap-2 z-index-2 mb-2">
+							<span class="badge bg-dark">Technology</span>
+							<span class="badge bg-white text-dark">June 28, 2024</span>
+						</div>
+						<!-- Title -->
+						<h6 class="card-title mb-2"><a href="#">10 things you need to know about Folio</a></h6>
+						<a class="icon-link icon-link-hover" href="blog-single.html">Read more<i class="bi bi-arrow-right"></i> </a>
+					</div>
+				</article>
+			</div>
+
+			<!-- Blog item -->
+			<div class="col-md-6">
+				<article class="card card-img-scale bg-transparent overflow-hidden h-100 p-0">
+					<!-- Badge -->
+					<div class="d-flex gap-2 position-absolute top-0 start-0 z-index-2 m-4">
+						<span class="badge bg-dark">Design</span>
+						<span class="badge bg-white text-dark">June 28, 2024</span>
+					</div>
+
+					<!-- Card image -->
+					 <div class="card-img-scale-wrapper rounded-4">
+						 <img src="assets/images/blog/4by3/02.jpg" class="rounded-4 img-scale" alt="Blog-img">
+					 </div>
+
+					<!-- Card Body -->
+					<div class="card-body px-2">
+						<!-- Title -->
+						<h6 class="card-title mb-2"><a href="#">Techniques to captivate your audience</a></h6>
+						<a class="icon-link icon-link-hover stretched-link" href="blog-single.html">Read more<i class="bi bi-arrow-right"></i> </a>
+					</div>
+				</article>
+			</div>
+
+			<!-- Blog item -->
+			<div class="col-md-6">
+				<article class="card card-img-scale bg-transparent overflow-hidden h-100 p-0">
+					<!-- Badge -->
+					<div class="d-flex gap-2 position-absolute top-0 start-0 z-index-2 m-4">
+						<span class="badge bg-dark">Research</span>
+						<span class="badge bg-white text-dark">July 15, 2024</span>
+					</div>
+
+					<!-- Card image -->
+					 <div class="card-img-scale-wrapper rounded-4">
+						 <img src="assets/images/blog/4by3/04.jpg" class="rounded-4 img-scale" alt="Blog-img">
+					 </div>
+
+					<!-- Card Body -->
+					<div class="card-body px-2">
+						<!-- Title -->
+						<h6 class="card-title mb-2"><a href="#">Never underestimate the influence</a></h6>
+						<a class="icon-link icon-link-hover stretched-link" href="blog-single.html">Read more<i class="bi bi-arrow-right"></i> </a>
+					</div>
+				</article>
+			</div>
+
+			<!-- Pagination -->
+			<div class="col-12">
+				<nav aria-label="Page navigation">
+					<ul class="pagination pagination-primary-grad d-flex justify-content-center">
+						<li class="page-item disabled">
+							<a class="page-link"><i class="bi bi-chevron-left mx-n1 rtl-flip"></i></a>
+						</li>
+						<li class="page-item active" aria-current="page">
+							<span class="page-link">
+								1
+								<span class="visually-hidden">(current)</span>
+							</span>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">2</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">3</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link">4</a>
+						</li>
+						<li class="page-item">
+							<a href="#" class="page-link" aria-label="Next page">
+								<i class="bi bi-chevron-right mx-n1 rtl-flip"></i>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+			<!-- Newsletter -->
+			<div class="col-12">
+				<div class="bg-body position-relative rounded-3 overflow-hidden p-4 p-sm-6">
+					<!-- BG pattern -->
+					<div class="position-absolute end-0 top-0 rotate-343 mt-n5 me-n8">
+						<img src="assets/images/elements/grad-shape/05.png" class="h-200px h-sm-300px" alt="bg pattern">
+					</div>
+		
+					<!-- BG pattern -->
+					<div class="position-absolute start-0 top-0 rotate-343 mt-n5 ms-n6">
+						<img src="assets/images/elements/grad-shape/11.png" class="h-200px blur-2" alt="bg pattern">
+					</div>
+					
+					<div class="position-relative text-center">
+						<h3 class="fw-bold mb-4">Subscribe to new<span class="text-primary-grad"> updates</span></h3>
+
+						<!-- Subscribe input -->
+						<form class="row g-2 align-items-center justify-content-center">
+							<div class="col-auto col-md-8 col-lg-6">
+								<input type="email" class="form-control form-control-lg bg-secondary" placeholder="Enter your email address">
+							</div>
+							<div class="col-auto">
+								<button type="submit" class="btn btn-lg btn-dark m-0">Subscribe!</button>
+							</div>
+							
+							<p class="small mt-2">✌️ No Spam — We Promise!</p>
+						</form>
+					</div>
+				</div>
+			</div>
+
+		</div> <!-- Row END -->
+	</div>
+</section>
+<!-- =======================
+Blog END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer class="bg-dark pt-6 pt-md-8 position-relative" data-bs-theme="dark">
+
+	<div class="container">
+		<div class="row g-4 justify-content-between">
+			<!-- Widget 1 START -->
+			<div class="col-lg-4">
+				<!-- logo -->
+				<a href="index.html">
+					<img class="h-40px" src="assets/images/hero/footerlogo.svg" alt="logo">
+				</a>
+
+				<p class="my-3 my-lg-4"> See everything you owe in one clear dashboard and make one unified monthly payment. Every payment, every plan, and every next step is finally in one place</p>
+				<!-- Social icon -->
+				<ul class="list-inline mb-0">
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-secondary" href="#"><i class="bi bi-facebook lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-secondary" href="#"><i class="bi bi-instagram lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-secondary" href="#"><i class="bi bi-twitter-x lh-base"></i></a> </li>
+					<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-secondary" href="#"><i class="bi bi-linkedin lh-base"></i></a> </li>
+				</ul>
+			</div>
+			<!-- Widget 1 END -->
+
+			<!-- Widget 2 START -->
+			<div class="col-lg-6 col-xxl-4">
+				<div class="row g-4">
+					<!-- Link block -->
+					<div class="col-6">
+						<h6 class="mb-3 mb-sm-4">Company</h6>
+						<!-- Links -->
+						<ul class="nav flex-column gap-1">
+							<li class="nav-item"><a class="nav-link pt-0" href="about-v1.html">About us</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-us-v1.html">Contact us</a></li>
+							<!-- <li class="nav-item"><a class="nav-link" href="career.html">Career <span class="badge bg-primary ms-2">2 jobs</span></a></li>
+							<li class="nav-item"><a class="nav-link" href="career-single.html">Career detail</a></li>
+							<li class="nav-item"><a class="nav-link" href="contact-us-v2.html">Become a partner</a></li>
+							<li class="nav-item"><a class="nav-link" href="service-v1.html">Services</a></li> -->
+						</ul>
+					</div>
+
+					<!-- Link block -->
+					<div class="col-6">
+						<h6 class="mb-3 mb-sm-4">Resources</h6>
+						<!-- Links -->
+						<ul class="nav flex-column gap-1">
+							<!-- <li class="nav-item"><a class="nav-link pt-0" href="portfolio-case-study-v1.html">Case studies</a></li>
+							<li class="nav-item"><a class="nav-link" href="pricing-v1.html">Pricing <span class="badge bg-success ms-2">New</span></a></li> -->
+							<li class="nav-item"><a class="nav-link" href="blog-minimal.html">Blogs</a></li>
+							<!-- <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog detail</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Success stories<i class="bi bi-box-arrow-up-right small ms-2"></i></a></li> -->
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Widget 2 END -->
+		</div>
+
+		<!-- Divider -->
+		<hr class="mt-xl-5 mb-0 opacity-1">
+
+		<!-- Bottom footer -->
+		<div class="d-md-flex justify-content-between align-items-center text-center text-lg-start py-4">
+			<!-- copyright text -->
+			<div class="text-body small mb-3 mb-md-0"> Copyrights ©2025 Ohless. </div>
+			
+			<!-- Policy link -->
+			<ul class="nav d-flex justify-content-center gap-1 mb-0">
+				<li class="nav-item"><a class="nav-link small py-0" href="#">Privacy policy</a></li>
+				<li class="nav-item"><a class="nav-link small py-0 pe-0" href="#">Terms & conditions</a></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Theme Functions -->
+<script src="assets/js/functions.js"></script>
+
+</body>
+</html>

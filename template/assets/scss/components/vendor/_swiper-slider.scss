@@ -1,0 +1,122 @@
+// 
+// swiper-slider.scss
+// Vendor style override and new style added
+.swiper-button-next{
+  right: 0;
+  &:after{
+    display: none !important;
+  }
+}
+.swiper-button-prev{
+  left: 0;
+  &:after{
+    display: none !important;
+  }
+}
+
+.swiper-button-next.swiper-button-disabled,.swiper-button-prev.swiper-button-disabled {
+  pointer-events: visible;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--#{$prefix}primary);
+}
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
+  background: var(--#{$prefix}primary);
+}
+
+// Pagination style
+.swiper-pagination.swiper-pagination-primary{
+  .swiper-pagination-bullet{
+    background-color: var(--#{$prefix}gray-600);
+    transition: width .3s ease-in-out, height .3s ease-in-out ,background-color .3s ease-in-out;
+    border-radius: 10px;
+    &.swiper-pagination-bullet-active{
+      background-color: var(--#{$prefix}primary);
+      width: 30px;
+      border-radius: 5px;
+    }
+  }
+}
+
+// Slider pagination
+.swiper-pagination.swiper-pagination-line{
+  .swiper-pagination-bullet{
+    width: 30px;
+    height: 3px;
+    border-radius: 0;
+    background-color: $white;
+  }
+}
+
+// Slider pagination progress primary
+.swiper-pagination.swiper-pagination-progress-primary{
+  background-color: var(--#{$prefix}border-color);
+  .swiper-pagination-progressbar-fill{
+    background-color: var(--#{$prefix}primary);
+  }
+}
+
+// Swiper negative
+.swiper-outside-n5 {
+  margin-right: -5vw;
+  margin-left: -5vw;
+}
+@include media-breakpoint-down(md) {
+  .swiper-outside-n20 {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.swiper-outside-end-n20 {
+  margin-right: -20vw;
+}
+
+@media (max-width: 767.98px) {
+  .swiper-outside-end-n20 {
+    margin-right: 0;
+  }
+}
+
+// Swiper step
+.swiper-step {
+  padding-left: .3125rem;
+}
+.swiper-step .swiper-step-divider {
+  position: relative;
+  width: calc(100% + 2rem);
+  height: .125rem;
+  background-color: var(--#{$prefix}border-color);
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+.swiper-step .swiper-step-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--#{$prefix}gray-900);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+.swiper-step .swiper-step-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: .5rem;
+  width: .5rem;
+  height: .5rem;
+  background-color: var(--#{$prefix}gray-100);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+// To flip element in RTL
+/* rtl:raw:
+.swiper-button-prev, .swiper-button-next{
+  transform: scaleX(-1);
+}
+*/

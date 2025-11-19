@@ -1,0 +1,60 @@
+// Should you need to overwrite any of our SCSS code or need to add any custom code, We highly recommend that you add your code into this file, so whenever theme update is available and you update the theme, You will not lose your hard work :)
+
+// Note for dark mode:
+// Uncomment below code and change primary color code to set different primary(i.e. light color of your primary) color in dark mode only.
+
+/*User CSS*/
+
+// [data-bs-theme="dark"] {
+//   --bs-primary: #f53e2a !important;
+//   --bs-primary-rgb: 245, 62, 42 !important; 
+//   --bs-link-hover-color:#a5190a !important;
+//   --bs-link-color:#f53e2a;
+//   --bs-link-color-rgb: 245, 62, 42  !important;
+//   --bs-link-hover-color-rgb: 165, 25, 10 !important;
+//   --bs-accordion-button-icon-dark: shade-color(var(--#{$prefix}primary), 10%);
+
+
+//   // Button primary
+//   .btn-primary {
+//     --bs-btn-bg: var(--#{$prefix}primary);
+//     --bs-btn-border-color: var(--#{$prefix}primary);
+//     --bs-btn-hover-bg: var(--#{$prefix}link-hover-color);
+//     --bs-btn-hover-border-color: var(--#{$prefix}link-hover-color);
+//     --bs-btn-active-bg: var(--#{$prefix}link-hover-color);
+//     --bs-btn-active-border-color: var(--#{$prefix}link-hover-color);
+//     --bs-btn-disabled-bg: var(--#{$prefix}primary);
+//   }
+//   .btn-link {
+//     --bs-link-color: var(--#{$prefix}primary);
+//     --bs-btn-hover-color: var(--#{$prefix}link-hover-color);
+//     --bs-btn-active-color: var(--#{$prefix}link-hover-color);
+//   }
+//   .btn-outline-primary {
+//     --bs-btn-color: var(--#{$prefix}primary);
+//     --bs-btn-border-color: var(--#{$prefix}primary);
+//     --bs-btn-hover-bg: var(--#{$prefix}primary);
+//     --bs-btn-hover-border-color: var(--#{$prefix}primary);
+//     --bs-btn-active-bg: var(--#{$prefix}primary);
+//     --bs-btn-active-border-color: var(--#{$prefix}primary);
+//     --bs-btn-disabled-color: var(--#{$prefix}primary);
+//     --bs-btn-disabled-border-color: var(--#{$prefix}primary);
+//   }
+
+//   .btn-primary-soft{
+//     color: var(--#{$prefix}primary);
+//     background-color: rgba(var(--#{$prefix}primary-rgb), 0.1);
+//     &:hover, &:focus{
+//       color: $white;
+//       background-color: var(--#{$prefix}primary);
+//       border-color: var(--#{$prefix}primary);
+//     }
+//   }
+
+//   // Fill color
+//   .fill-primary{
+//     fill: var(--#{$prefix}primary) !important;
+//   }
+
+//   $accordion-button-active-icon-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-active-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+// }

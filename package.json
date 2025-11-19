@@ -1,0 +1,26 @@
+{
+  "name": "folio",
+  "version": "2.0.1",
+  "description": "multipurpose bootstrap theme",
+  "main": "gulpfile.js",
+  "scripts": {
+    "build": "gulp",
+    "start": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "webestica",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^3.0.2",
+    "caniuse-lite": "^1.0.30001651",
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-cli": "^3.1.0",
+    "gulp-if": "^3.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-rtlcss": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.67.0"
+  }
+}

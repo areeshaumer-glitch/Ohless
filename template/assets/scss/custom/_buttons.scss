@@ -1,0 +1,251 @@
+// 
+// buttons.scss
+// Extended from Bootstrap
+// 
+
+// 
+// Additional styles for theme
+// 
+
+.btn {
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  outline: 0;
+  margin-bottom: 6px;
+}
+.btn:focus-visible{
+  box-shadow: none !important;
+}
+.input-group .btn{
+  margin-bottom: 0;
+}
+.btn-xs{
+  padding: 0.4rem 0.6rem;
+  font-size: 0.6rem;
+  line-height: 1.2;
+  border-radius: $btn-border-radius-sm;
+}
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    --#{$prefix}btn-hover-bg: #{darken($value, 5.5%)};
+    --#{$prefix}btn-active-bg: #{darken($value, 5.5%)};
+    --#{$prefix}btn-hover-border-color: #{darken($value, 5.5%)};
+    --#{$prefix}btn-active-border-color: #{darken($value, 5.5%)};
+  }
+}
+
+//button gradient
+.btn-primary-grad {
+  color: $white;
+  background: linear-gradient(to right, $grad-primary-end 0%, $grad-primary-start 51%, $grad-primary-end 100%);
+  transition: $transition-base;
+  background-size: 200% auto;
+  border: 0;
+  line-height: 1.62;
+  
+  &:active, &:focus, &:hover, &:focus-visible {
+    color: $white !important;
+    background-position: right center;
+  }
+  &.btn-sm{
+    line-height: $line-height-sm + .4;
+  }
+}
+
+.link-primary-grad{
+  background: linear-gradient(90deg, $grad-primary-start 0%, $grad-primary-end 100%);
+  background-clip: text;
+  -WebKit-text-fill-color: transparent;
+  transition: $transition-base;
+  &.active, &:active, &:focus, &:hover {
+    background: linear-gradient(280deg, $grad-primary-start 0%, $grad-primary-end 100%);
+    background-clip: text;
+    -WebKit-text-fill-color: transparent;
+  }
+  & > .bi {
+    background: linear-gradient(180deg, $grad-primary-start 0%, $grad-primary-end 100%);
+    background-clip: text;
+  }
+}
+
+//Button shadow
+.btn-white-shadow{
+  background: $white;
+  border-color: $white;
+  color: $gray-900;
+  box-shadow: 0 .18rem .25rem  rgba(var(--#{$prefix}primary-rgb), 0.20);
+  &.active, &:active, &:focus, &:hover {
+    background: $white !important;
+    border-color: $white !important;
+    color: $gray-900;
+    box-shadow: 0 .3rem .25rem  rgba(var(--#{$prefix}primary-rgb), 0.30);
+    transform: translateY(-0.1875rem);
+  }
+}
+
+// button loader
+.btn-loader{
+  position: relative;
+  text-align: center;
+  .load-icon{
+    display: none;
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .load-text{
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.btn-loader.active{
+  background-color: transparent !important;
+  border: transparent !important;
+  .load-text{
+    opacity: 0;
+    visibility: hidden;
+  }
+  .load-icon{
+    display: block;
+  }
+}
+
+.btn-light {
+  background: $light;
+  border-color: $light;
+  color: $gray-900;
+  &.active, &:active, &:focus, &:hover {
+    background: $gray-300;
+    border-color: $gray-300;
+    color: $gray-900;
+  }
+}
+
+// button white
+.btn-white {
+  background: $white;
+  color: $gray-800;
+  &.active, &:active, &:focus, &:hover {
+    background: $gray-200;
+    color: $gray-800;
+    border-color:  $gray-200;
+  }
+}
+.btn-outline-white {
+  background: transparent;
+  border-color: $white;
+  color: $white;
+  &.active, &:active, &:focus, &:hover {
+    color: $gray-800;
+    background: $white;
+  }
+}
+
+.btn-outline-light{
+  background: transparent;
+  border-color: $gray-400;
+  color: $body-color;
+	&:active, &:hover, &:focus{
+		background: $gray-300;
+		border-color: $gray-300;
+		color: $gray-800;
+	}
+}
+.btn-check:checked + .btn-outline-light{
+  background: $gray-400;
+  border-color: $gray-400;
+  color: $gray-800;
+}
+
+// button round
+.btn-round{
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  padding: 0;
+  text-align: center;
+  i{
+    margin:0; 
+  }
+  // Quick fix for play button centered
+  .fa-play{
+    padding-left: 3px;
+  }
+  &.btn-lg{
+    height: 55px;
+    width: 55px;
+    line-height: 55px;
+  }
+  &.btn-sm{
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    i{
+      font-size: .8rem;
+    }
+  }
+  &.btn-xs{
+    height: 25px;
+    width: 25px;
+    line-height: 24px;
+    i{
+      font-size: .6rem;
+    }
+  }
+}
+
+// Button check
+.btn-check:focus + .btn, .btn-round-shadow:focus {
+  box-shadow: none;
+}
+
+// Button transition
+.btn-transition {
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-transition:focus, .btn-transition:hover {
+  transform: translateY(-0.1875rem);
+}
+
+// Button icon
+.btn-icon {
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  width: $btn-icon-size;
+  height: $btn-icon-size;
+  padding: 0;
+
+  &.btn-xs {
+    width: $btn-icon-xs-size;
+    height: $btn-icon-xs-size;
+    font-size: $font-size-base * 0.8;
+  }
+
+  &.btn-sm {
+    width: $btn-icon-sm-size;
+    height: $btn-icon-sm-size;
+    font-size: $font-size-base * 0.8;
+  }
+
+  &.btn-lg {
+    width: $btn-icon-lg-size;
+    height: $btn-icon-lg-size;
+    font-size: $font-size-base * 1.4375;
+  }
+
+  &.btn-xl {
+    width: $btn-icon-xl-size;
+    height: $btn-icon-xl-size;
+    font-size: $font-size-base * 1.75;
+  }
+}

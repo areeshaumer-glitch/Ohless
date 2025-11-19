@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<title>Folio - Multipurpose Bootstrap Theme</title>
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="webestica.com">
+	<meta name="description" content="multipurpose bootstrap theme">
+
+	<!-- Dark mode -->
+	<script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="../assets/images/favicon.ico">
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" type="text/css" href="../assets/vendor/bootstrap-icons/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" href="../assets/vendor/swiper/swiper-bundle.min.css">
+
+	<!-- Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+
+</head>
+
+<body>
+
+<!-- Header START -->
+<header class="header-absolute">
+	<!-- Logo Nav START -->
+	<nav class="navbar navbar-expand-xl">
+		<div class="container">
+			<!-- Logo START -->
+			<a class="navbar-brand me-0" href="index.html">
+				<img class="light-mode-item navbar-brand-item" src="../assets/images/logo.svg" alt="logo">
+				<img class="dark-mode-item navbar-brand-item" src="../assets/images/logo-light.svg" alt="logo">
+			</a>
+			<!-- Logo END -->
+
+			<!-- Main navbar START -->
+			<div class="navbar-collapse collapse" id="navbarCollapse">
+				<ul class="navbar-nav navbar-nav-scroll dropdown-hover ms-auto">
+					<!-- Nav item -->
+					<li class="nav-item"> <a href="https://support.webestica.com/" class="nav-link" target="_blank">Support</a> </li>
+
+					<!-- Nav item -->
+					<li class="nav-item"> <a href="../docs/index.html" class="nav-link" target="_blank">Documentation</a> </li>
+				</ul>
+			</div>
+			<!-- Main navbar END -->
+			
+			<!-- Responsive navbar toggler -->
+			<div class="nav-item">
+				<button class="navbar-toggler ms-sm-3 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-animation">
+						<span></span>
+						<span></span>
+						<span></span>
+					</span>
+				</button>
+			</div>	
+		</div>
+	</nav>
+	<!-- Logo Nav END -->
+</header>
+<!-- Header END -->
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Hero START -->
+<section class="py-0">
+	<!-- Title and content -->
+	<div class="bg-secondary bg-opacity-50 position-relative overflow-hidden pb-7 pt-8">
+		<!-- Grad blur -->
+		<div class="position-absolute start-0 top-0">
+			<img src="../assets/images/elements/grad-shape/blur-decoration-2.svg" class="opacity-2 blur-9 h-300px rotate-335" alt="Grad shape">
+		</div>
+		<!-- Decoration -->
+		<div class="position-absolute top-0 end-0 z-index-2 mt-6 me-n6 d-none d-lg-block">
+			<img src="../assets/images/elements/grad-shape/05.png" class="h-250px" alt="">
+		</div>
+		<!-- Decoration -->
+		<div class="position-absolute top-50 start-0 mt-n6 d-none d-lg-block">
+			<img src="../assets/images/elements/clay-decoration.png" class="h-300px" alt="Clay-decoration">
+		</div>
+		
+		<!-- Title and content -->
+		<div class="container position-relative">
+			<div class="row">
+				<div class="col-xxl-8 text-center mx-auto">
+					<!-- Pre title -->
+					<h1 class="small fw-medium bg-secondary-grad rounded px-2 px-sm-3 py-2 mb-3 d-inline-flex">Folio Bootstrap HTML Theme</h1>
+		
+					<!-- Title -->
+					<h2 class="mb-3 lh-base">Build a stunning website for
+						<span class="h1 fw-bold text-primary-grad ityped-cursor-opacity mb-0 d-block">
+							<span class="typed" 
+							data-type-text="Software Company&&Finance Consulting&&SaaS Product&&AI Agency&&Product Landing&&AI Chatbot&&Personal Portfolio&&App Showcase&&Blog Website&&any purpose"></span>
+						</span>
+					</h2>
+
+					<!-- Desc -->
+					<p class="mb-4 lead">The all-in-one HTML theme for modern websites. Stunning design, seamless customization, and top-notch performance. Scroll down to see demos!</p>
+
+					<!-- Button -->
+					<div class="d-flex justify-content-center flex-wrap gap-3">
+						<a href="#demos" class="btn btn-white-shadow mb-0">Explore features</a>
+						<a href="https://themes.getbootstrap.com/product/folio-creative-agency-portfolio-theme/" target="_blank" class="btn btn-dark icon-link icon-link-hover mb-0">Purchase folio <i class="bi bi-arrow-right"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Gallery START -->
+	<div class="position-relative overflow-hidden">
+		<!-- Bg -->
+		<div class="h-300px w-100 bg-secondary bg-opacity-50 position-absolute top-0 start-0"></div>
+
+		<div class="swiper swiper-outside-n5 px-4 px-sm-5" data-swiper-options='{
+			"spaceBetween": 50,
+			"loop": true,
+			"speed": 10000,
+			"autoplay":{
+				"delay": 0, 
+				"disableOnInteraction": false
+			},
+			"breakpoints": { 
+				"576": {"slidesPerView": 2},
+				"768": {"slidesPerView": 3},
+				"992": {"slidesPerView": 3},
+				"1200": {"slidesPerView": 4},
+				"1300": {"slidesPerView": 5}
+			}}'>
+			
+			<div class="swiper-wrapper pb-5">
+				<!-- Item -->
+				<div class="swiper-slide">
+					<img src="assets/images/pages-ss/14.jpg" class="rounded-2 shadow-lg" alt="portfolio-img">
+				</div>
+	
+				<!-- Item -->
+				<div class="swiper-slide">
+					<img src="assets/images/pages-ss/02.jpg" class="rounded-2 shadow-lg" alt="portfolio-img">
+				</div>
+	
+				<!-- Item -->
+				<div class="swiper-slide">
+					<img src="assets/images/pages-ss/03.jpg" class="rounded-2 shadow-lg" alt="portfolio-img">
+				</div>
+	
+				<!-- Item -->
+				<div class="swiper-slide">
+					<img src="assets/images/pages-ss/04.jpg" class="rounded-2 shadow-lg" alt="portfolio-img">
+				</div>
+	
+				<!-- Item -->
+				<div class="swiper-slide">
+					<img src="assets/images/pages-ss/05.jpg" class="rounded-2 shadow-lg" alt="portfolio-img">
+				</div>
+
+				<!-- Item -->
+				<div class="swiper-slide">
+					<img src="assets/images/pages-ss/06.jpg" class="rounded-2 shadow-lg" alt="portfolio-img">
+				</div>
+	
+				<!-- Item -->
+				<div class="swiper-slide">
+					<img src="assets/images/pages-ss/07.jpg" class="rounded-2 shadow-lg" alt="portfolio-img">
+				</div>
+	
+				<!-- Item -->
+				<div class="swiper-slide">
+					<img src="assets/images/pages-ss/08.jpg" class="rounded-2 shadow-lg" alt="portfolio-img">
+				</div>
+
+				<!-- Item -->
+				<div class="swiper-slide">
+					<img src="assets/images/pages-ss/09.jpg" class="rounded-2 shadow-lg" alt="portfolio-img">
+				</div>
+			</div>	
+		</div>
+
+		<div class="swiper swiper-outside-n5 px-4 px-sm-5" dir="rtl" data-swiper-options='{
+			"spaceBetween": 50,
+			"loop": true,
+			"speed": 10000,
+			"autoplay":{
+				"delay": 0, 
+				"disableOnInteraction": false
+			},
+			"breakpoints": { 
+				"576": {"slidesPerView": 2},
+				"768": {"slidesPerView": 3},
+				"992": {"slidesPerView": 3},
+				"1200": {"slidesPerView": 4},
+				"1300": {"slidesPerView": 5}
+			}}'>
+			
+			<div class="swiper-wrapper pb-5">
+				<!-- Item -->
+				<div class="swiper-slide">
+					<img src="assets/images/pages-ss/10.jpg" class="rounded-2 shadow-lg" alt="portfolio-img">
+				</div>
+	
+				<!-- Item -->
+				<div class="swiper-slide">
+					<img src="assets/images/pages-ss/11.jpg" class="rounded-2 shadow-lg" alt="portfolio-img">
+				</div>
+	
+				<!-- Item -->
+				<div class="swiper-slide">
+					<img src="assets/images/pages-ss/12.jpg" class="rounded-2 shadow-lg" alt="portfolio-img">
+				</div>
+	
+				<!-- Item -->
+				<div class="swiper-slide">
+					<img src="assets/images/pages-ss/13.jpg" class="rounded-2 shadow-lg" alt="portfolio-img">
+				</div>
+	
+				<!-- Item -->
+				<div class="swiper-slide">
+					<img src="assets/images/pages-ss/07.jpg" class="rounded-2 shadow-lg" alt="portfolio-img">
+				</div>
+	
+				<!-- Item -->
+				<div class="swiper-slide">
+					<img src="assets/images/pages-ss/01.jpg" class="rounded-2 shadow-lg" alt="portfolio-img">
+				</div>
+
+				<!-- Item -->
+				<div class="swiper-slide">
+					<img src="assets/images/pages-ss/02.jpg" class="rounded-2 shadow-lg" alt="portfolio-img">
+				</div>
+	
+				<!-- Item -->
+				<div class="swiper-slide">
+					<img src="assets/images/pages-ss/05.jpg" class="rounded-2 shadow-lg" alt="portfolio-img">
+				</div>
+
+				<!-- Item -->
+				<div class="swiper-slide">
+					<img src="assets/images/pages-ss/04.jpg" class="rounded-2 shadow-lg" alt="portfolio-img">
+				</div>
+			</div>	
+		</div>
+	</div>
+	<!-- Gallery END -->
+
+</section>
+<!-- =======================
+Hero END -->
+
+<!-- =======================
+Features START -->
+<section class="pb-0">
+	<div class="container">
+		<!-- Title -->
+		<h2 class="text-center mb-4 mb-lg-5">Crafted with premium-grade features</h2>
+
+		<!-- Features START -->
+		<div class="row justify-content-center g-4 g-lg-5">
+			<!-- Feature item -->
+			<div class="col-md-6 col-lg-4">
+				<div class="card shadow h-100 p-1">
+					<div class="bg-secondary-grad rounded d-flex flex-column h-100">
+						<!-- Card header -->
+						<div class="card-header bg-transparent rounded-top p-4">
+							<img src="assets/images/pages-ss/features/01.svg" alt="features">
+						</div>
+	
+						<!-- Card body -->
+						<div class="card-footer bg-transparent text-center mt-auto p-4">
+							<h6 class="mb-3">Powered by Bootstrap 5</h6>
+							<p class="mb-0">Leverage the robust Bootstrap framework for responsive design</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Feature item -->
+			<div class="col-md-6 col-lg-4">
+				<div class="card shadow h-100 p-1">
+					<div class="bg-secondary-grad rounded d-flex flex-column h-100">
+						<!-- Card header -->
+						<div class="card-header bg-transparent rounded-top p-0">
+							<img src="assets/images/pages-ss/features/02.svg" class="h-200px" alt="features">
+						</div>
+	
+						<!-- Card body -->
+						<div class="card-footer bg-transparent text-center mt-auto p-4">
+							<h6 class="mb-3">Specialized Components</h6>
+							<p class="mb-0">Enhance your site with exclusive, ready-to-use components</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Feature item -->
+			<div class="col-md-6 col-lg-4">
+				<div class="card shadow h-100 p-1">
+					<div class="bg-secondary-grad rounded d-flex flex-column h-100">
+						<!-- Card header -->
+						<div class="card-header bg-transparent rounded-top p-3">
+							<img src="assets/images/pages-ss/features/03.svg" class="" alt="features">
+						</div>
+	
+						<!-- Card body -->
+						<div class="card-footer bg-transparent text-center mt-auto p-4">
+							<h6 class="mb-3">Light/Dark mode</h6>
+							<p class="mb-0">Switch effortlessly between light and dark modes.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Features END -->
+	</div>
+</section>
+<!-- =======================
+Features END -->
+
+<!-- =======================
+Demo pages START -->
+<section id="demos" class="overflow-hidden">
+	<div class="container-fluid">
+		<div class="max-width-1550">
+			<!-- Title -->
+			<h2 class="text-center mb-4 mb-lg-5">Hand-crafted landing pages</h2>
+
+			<div class="row g-4 g-md-5 justify-content-center">
+				<!-- Item -->
+				<div class="col-sm-6 col-lg-4 col-xl-3">
+					<div class="card card-hover-shadow card-hover-transition shadow">
+						<!-- Image -->
+						<img src="assets/images/pages-ss/demos/01.jpg" class="card-img-top" alt="">
+						<!-- card body -->
+						<div class="card-body border-top">
+							<p class="lead fw-semibold mb-0"><a href="../index.html" class="stretched-link heading-color text-primary-hover">Main home</a></p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Item -->
+				<div class="col-sm-6 col-lg-4 col-xl-3">
+					<div class="card card-hover-shadow card-hover-transition shadow">
+						<!-- Image -->
+						<img src="assets/images/pages-ss/demos/02.jpg" class="card-img-top" alt="">
+						<!-- card body -->
+						<div class="card-body border-top">
+							<p class="lead fw-semibold mb-0"><a href="../index-software-company.html" class="stretched-link heading-color text-primary-hover">Software company</a></p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Item -->
+				<div class="col-sm-6 col-lg-4 col-xl-3">
+					<div class="card card-hover-shadow card-hover-transition shadow">
+						<!-- Image -->
+						<img src="assets/images/pages-ss/demos/03.jpg" class="card-img-top" alt="">
+						<!-- card body -->
+						<div class="card-body border-top">
+							<p class="lead fw-semibold mb-0"><a href="../index-finance-consulting.html" class="stretched-link heading-color text-primary-hover">Finance consulting</a></p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Item -->
+				<div class="col-sm-6 col-lg-4 col-xl-3">
+					<div class="card card-hover-shadow card-hover-transition shadow">
+						<!-- Image -->
+						<img src="assets/images/pages-ss/demos/04.jpg" class="card-img-top" alt="">
+						<!-- card body -->
+						<div class="card-body border-top">
+							<p class="lead fw-semibold mb-0"><a href="../index-ai-agency.html" class="stretched-link heading-color text-primary-hover">AI agency</a></p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Item -->
+				<div class="col-sm-6 col-lg-4 col-xl-3">
+					<div class="card card-hover-shadow card-hover-transition shadow">
+						<!-- Image -->
+						<img src="assets/images/pages-ss/demos/05.jpg" class="card-img-top" alt="">
+						<!-- card body -->
+						<div class="card-body border-top">
+							<p class="lead fw-semibold mb-0"><a href="../index-product-landing.html" class="stretched-link heading-color text-primary-hover">Product landing</a></p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Item -->
+				<div class="col-sm-6 col-lg-4 col-xl-3">
+					<div class="card card-hover-shadow card-hover-transition shadow">
+						<!-- Image -->
+						<img src="assets/images/pages-ss/demos/06.jpg" class="card-img-top" alt="">
+						<!-- card body -->
+						<div class="card-body border-top">
+							<p class="lead fw-semibold mb-0"><a href="../index-saas.html" class="stretched-link heading-color text-primary-hover">SaaS</a></p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Item -->
+				<div class="col-sm-6 col-lg-4 col-xl-3">
+					<div class="card card-hover-shadow card-hover-transition shadow">
+						<!-- Image -->
+						<img src="assets/images/pages-ss/demos/07.jpg" class="card-img-top" alt="">
+						<!-- card body -->
+						<div class="card-body border-top">
+							<p class="lead fw-semibold mb-0"><a href="../index-ai-chatbot.html" class="stretched-link heading-color text-primary-hover">AI chatbot SaaS</a></p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Item -->
+				<div class="col-sm-6 col-lg-4 col-xl-3">
+					<div class="card card-hover-shadow card-hover-transition shadow">
+						<!-- Image -->
+						<img src="assets/images/pages-ss/demos/08.jpg" class="card-img-top" alt="">
+						<!-- card body -->
+						<div class="card-body border-top">
+							<p class="lead fw-semibold mb-0"><a href="../index-application-showcase.html" class="stretched-link heading-color text-primary-hover">Application showcase</a></p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Item -->
+				<div class="col-sm-6 col-lg-4 col-xl-3">
+					<div class="card card-hover-shadow card-hover-transition shadow">
+						<!-- Image -->
+						<img src="assets/images/pages-ss/demos/09.jpg" class="card-img-top" alt="">
+						<!-- card body -->
+						<div class="card-body border-top">
+							<p class="lead fw-semibold mb-0"><a href="../index-personal-portfolio.html" class="stretched-link heading-color text-primary-hover">Personal portfolio</a></p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Item -->
+				<div class="col-sm-6 col-lg-4 col-xl-3">
+					<div class="card card-hover-shadow card-hover-transition shadow">
+						<!-- Image -->
+						<img src="assets/images/pages-ss/demos/10.jpg" class="card-img-top" alt="">
+						<!-- card body -->
+						<div class="card-body border-top">
+							<p class="lead fw-semibold mb-0"><a href="../index-blog.html" class="stretched-link heading-color text-primary-hover">Blog home</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- =======================
+Demo pages END -->
+
+<!-- =======================
+Left right features START -->
+<section class="pt-0 overflow-hidden">
+	<div class="container">
+		<div class="row align-items-center">
+			<!-- Images -->
+			<div class="col-lg-7 position-relative mb-5 mb-sm-0">
+				<img src="assets/images/pages-ss/features/feature.png" class="position-relative z-index-2" alt="feature image">
+
+				<!-- Decoration -->
+				<div class="position-absolute top-50 start-50 translate-middle">
+					<img src="../assets/images/elements/grad-shape/06.png" class="blur-9 opacity-6 h-500px" alt="blur decoration">
+				</div>	
+			</div>
+
+			<!-- Content -->
+			<div class="col-lg-5 ms-auto">
+				<h2 class="mb-sm-5">Top-notch features</h2>
+
+				<!-- Feature item -->
+				<div class="d-lg-flex gap-3 mb-4">
+					<!-- Icon -->
+					<div class="icon-lg bg-success bg-opacity-10 d-flex align-items-center justify-content-center rounded-3 flex-shrink-0">
+						<svg class="text-success" width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M15.4697 15.4697C15.1768 15.7626 15.1768 16.2374 15.4697 16.5303C15.7626 16.8232 16.2374 16.8232 16.5303 16.5303L15.4697 15.4697ZM20 12L20.5303 12.5303C20.671 12.3897 20.75 12.1989 20.75 12C20.75 11.8011 20.671 11.6103 20.5303 11.4697L20 12ZM16.5303 7.46967C16.2374 7.17678 15.7626 7.17678 15.4697 7.46967C15.1768 7.76256 15.1768 8.23744 15.4697 8.53033L16.5303 7.46967ZM8.53033 8.53033C8.82322 8.23744 8.82322 7.76256 8.53033 7.46967C8.23744 7.17678 7.76256 7.17678 7.46967 7.46967L8.53033 8.53033ZM4 12L3.46967 11.4697C3.32902 11.6103 3.25 11.8011 3.25 12C3.25 12.1989 3.32902 12.3897 3.46967 12.5303L4 12ZM7.46967 16.5303C7.76256 16.8232 8.23744 16.8232 8.53033 16.5303C8.82322 16.2374 8.82322 15.7626 8.53033 15.4697L7.46967 16.5303ZM9.27886 18.794C9.16506 19.1922 9.39568 19.6073 9.79396 19.7211C10.1922 19.8349 10.6073 19.6043 10.7211 19.206L9.27886 18.794ZM14.7211 5.20604C14.8349 4.80776 14.6043 4.39265 14.206 4.27886C13.8078 4.16506 13.3927 4.39568 13.2789 4.79396L14.7211 5.20604ZM16.5303 16.5303L20.5303 12.5303L19.4697 11.4697L15.4697 15.4697L16.5303 16.5303ZM20.5303 11.4697L16.5303 7.46967L15.4697 8.53033L19.4697 12.5303L20.5303 11.4697ZM7.46967 7.46967L3.46967 11.4697L4.53033 12.5303L8.53033 8.53033L7.46967 7.46967ZM3.46967 12.5303L7.46967 16.5303L8.53033 15.4697L4.53033 11.4697L3.46967 12.5303ZM10.7211 19.206L14.7211 5.20604L13.2789 4.79396L9.27886 18.794L10.7211 19.206Z" fill="currentColor"></path>
+						</svg>
+					</div>
+					<!-- Content -->
+					<div class="mt-3 mt-lg-0">
+						<h6 class="lead fw-semibold">Clean and optimized code</h6>
+						<p>Crafted for performance, ensuring smooth and efficient functionality.</p>
+					</div>
+				</div>
+
+				<!-- Feature item -->
+				<div class="d-lg-flex gap-3 mb-4">
+					<!-- Icon -->
+					<div class="icon-lg bg-pink bg-opacity-10 d-flex align-items-center justify-content-center rounded-3 flex-shrink-0">
+						<svg class="text-pink" width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M10 18.5H14M11.4 21H12.6C14.8498 21 15.9748 21 16.7634 20.4271C17.018 20.242 17.242 20.018 17.4271 19.7634C18 18.9748 18 17.8498 18 15.6V8.4C18 6.15016 18 5.02524 17.4271 4.23664C17.242 3.98196 17.018 3.75799 16.7634 3.57295C15.9748 3 14.8498 3 12.6 3H11.4C9.15016 3 8.02524 3 7.23664 3.57295C6.98196 3.75799 6.75799 3.98196 6.57295 4.23664C6 5.02524 6 6.15016 6 8.4V15.6C6 17.8498 6 18.9748 6.57295 19.7634C6.75799 20.018 6.98196 20.242 7.23664 20.4271C8.02524 21 9.15016 21 11.4 21Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M12.75 5.25C12.75 5.66421 12.4142 6 12 6C11.5858 6 11.25 5.66421 11.25 5.25C11.25 4.83579 11.5858 4.5 12 4.5C12.4142 4.5 12.75 4.83579 12.75 5.25Z" fill="currentColor"></path>
+						</svg>
+					</div>
+					<!-- Content -->
+					<div class="mt-3 mt-lg-0">
+						<h6 class="lead fw-semibold">Responsive across all devices</h6>
+						<p>Designed to adapt perfectly to any screen, our layouts provide a consistent user experience.</p>
+					</div>
+				</div>
+
+				<!-- Feature item -->
+				<div class="d-lg-flex gap-3">
+					<!-- Icon -->
+					<div class="icon-lg bg-info bg-opacity-10 d-flex align-items-center justify-content-center rounded-3 flex-shrink-0">
+						<svg class="text-info" width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12 21C15.2143 21 19.5 18.8411 19.5 14C19.5035 10.4103 17.6735 8.0166 17.0012 7.25839C16.9145 7.16063 16.8712 7.11175 16.7854 7.09662C16.7634 7.09273 16.724 7.09246 16.7019 7.09604C16.6159 7.11 16.576 7.15374 16.4963 7.24122C16.1879 7.57954 15.6672 8.32135 15.2754 9.75619C14.5501 6.71833 13.1511 4.83341 12.2088 3.85022C11.921 3.5499 11.7771 3.39974 11.4288 3.35384C11.3468 3.34303 11.1738 3.34959 11.0928 3.36657C10.7491 3.43868 10.618 3.59795 10.356 3.91648C9.39538 5.08412 7.94257 7.43367 7.46824 11.3386C7.13696 10.5988 6.76771 9.9581 6.50537 9.53534C6.37827 9.33053 6.31472 9.22812 6.20674 9.20768C6.17527 9.20172 6.13517 9.20252 6.10396 9.20973C5.99688 9.23448 5.93832 9.33786 5.8212 9.54462C5.34143 10.3916 4.51286 12.1233 4.5 14C4.5 19 8.7857 21 12 21ZM12 21C13.2857 21 15 19.9205 15 17.5C15 16.113 14.0149 14.5096 13.1737 13.3933C12.7634 12.8488 12.5583 12.5766 12.1783 12.5047C12.0743 12.485 11.9154 12.4846 11.8113 12.5038C11.4309 12.5738 11.2255 12.8437 10.8147 13.3835C9.97603 14.4853 8.99995 16.074 8.99995 17.5C8.99995 20 10.7143 21 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</div>
+					<!-- Content -->
+					<div class="mt-3 mt-lg-0">
+						<h6 class="lead fw-semibold">Rich features & elements</h6>
+						<p>Our template offers everything you need to create a visually striking and functional website.</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+<!-- =======================
+Left right features END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+<!-- =======================
+Footer START -->
+<footer class="bg-dark position-relative overflow-hidden py-6 pt-xl-8" data-bs-theme="dark">
+	<!-- Blur decoration -->
+	<div class="position-absolute bottom-0 end-0 mb-n8">
+		<img src="../assets/images/elements/grad-shape/blur-decoration-2.svg" class="opacity-2 blur-9" alt="Grad shape">
+	</div>
+	<div class="position-absolute top-0 start-0 mt-n9 ms-n8">
+		<img src="../assets/images/elements/grad-shape/05.png" class="blur-9 opacity-3" alt="Grad shape">
+	</div>
+
+	<div class="container position-relative">
+		<!-- Widgets START -->
+		<div class="row g-4">
+			<div class="col-lg-8 mx-auto text-center">
+				<!-- Logo -->
+				<a class="navbar-brand me-0" href="../index.html">
+					<img class="light-mode-item navbar-brand-item h-40px" src="../assets/images/logo.svg" alt="logo">
+					<img class="dark-mode-item navbar-brand-item h-40px" src="../assets/images/logo-light.svg" alt="logo">
+				</a>
+				<h2 class="my-5">Get your copy of Folio now - It's easier than you might think.</h2>
+				<a class="btn btn-lg btn-primary-grad" href="https://themes.getbootstrap.com/product/folio-creative-agency-portfolio-theme/" target="_blank">Buy Folio now!</a>
+				<p class="pt-5 mb-0">Made with 💖 by <a href="https://www.webestica.com/" target="_blank" class="text-body text-primary-hover hover-underline-animation">Webestica</a></p>
+			</div>
+		</div>
+		<!-- Widgets END -->
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+<!-- Back to top -->
+<div class="back-top"></div>
+
+<!-- Bootstrap JS -->
+<script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<!--Vendors-->
+<script src="../assets/vendor/ityped/index.js"></script>
+<script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Theme Functions -->
+<script src="../assets/js/functions.js"></script>
+
+</body>
+</html>
