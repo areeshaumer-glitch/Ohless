@@ -143,7 +143,7 @@ window.addEventListener('load', () => {
 		.hero-section {
 			display: flex;
 			align-items: stretch;
-			flex-wrap: wrap;
+			flex-wrap: nowrap;
 		}
 
 		.hero-content {
@@ -151,36 +151,48 @@ window.addEventListener('load', () => {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			padding: 4rem;
+			padding: 4rem 4rem 12rem;
 		}
 
 		.hero-image {
-			flex: 1 1 50%;
+			flex: 1 1 40%;
 			display: flex;
 			align-items: center;
-			justify-content: center;
+			justify-content: flex-end;
+			margin-left: auto;
+			padding-right: 1.5rem;
 		}
 
 		.hero-image img {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			transform: translateX(1.5rem);
+		}
+
+		
+
+		.wave-divider {
+			margin-top: -90px; /* Pull wave up into hero */
+			position: relative;
+			z-index: 1;
+			margin-bottom: -2px;
+			line-height: 0;
 		}
 
 		.section-wave-top {
-			position: relative;
-			margin-top: -50px;
-			z-index: 3;
+			padding-top: 0;
+			margin-top: -2px;
 		}
 
-		.section-wave-top svg {
+		.wave-divider svg {
 			display: block;
-			position: absolute;
-			top: 0;
-			left: 0;
 			width: 100%;
-			height: 100px;
-			fill: #f8f9fa;
+			height: 149px;
+		}
+
+		.wave-divider path {
+			fill: currentColor;
 		}
 
 		#calm-features .inner-container-small h2 {
@@ -277,15 +289,28 @@ window.addEventListener('load', () => {
 		@media (max-width: 992px) {
 			.hero-section {
 				flex-direction: column;
+				gap: 1.5rem;
 			}
-
 			.hero-image,
 			.hero-content {
 				flex: 1 1 100%;
 			}
 
+			.hero-image {
+				margin-left: 0;
+				padding-right: 0;
+				justify-content: center;
+			}
+
 			.hero-image img {
+				width: 100%;
 				height: auto;
+				object-fit: cover;
+				transform: none;
+			}
+
+			.hero-content {
+				padding: 3rem 1.5rem 3.5rem;
 			}
 		}
 
@@ -299,6 +324,22 @@ window.addEventListener('load', () => {
 				max-height: 360px;
 			}
 		}
+		 #emailInput {
+    background-color: #fff; /* white for light mode */
+    color: #000; /* black text */
+  }
+
+  /* Dark mode override */
+  html[data-bs-theme="dark"] #emailInput {
+    background-color: #fff !important; /* white even in dark mode */
+    color: #000; /* keep text black */
+    border-color: #ccc; /* optional: adjust border to look good in dark */
+  }
+
+  html[data-bs-theme="dark"] #emailForm button {
+    background-color: #007BFF; /* keep button visible in dark mode */
+    color: #fff;
+  }
 	</style>
 	  
 
@@ -406,7 +447,7 @@ window.addEventListener('load', () => {
 
 						<!-- Responsive navbar toggler -->
 						<li class="nav-item">
-							<button class="navbar-toggler ms-sm-3 p-2" type="button" data-bs-toggle="collapse"
+							<!-- <button class="navbar-toggler ms-sm-3 p-2" type="button" data-bs-toggle="collapse"
 								data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
 								aria-label="Toggle navigation">
 								<span class="navbar-toggler-animation">
@@ -415,7 +456,7 @@ window.addEventListener('load', () => {
 									<span></span>
 								</span>
 							</button>
-						</li>
+						</li> -->
 					</ul>
 
 				</div>
@@ -494,11 +535,16 @@ Hero END -->
 
 		<!-- =======================
 Features and rating START -->
+		<div class="wave-divider text-secondary" aria-hidden="true">
+			<svg viewBox="0 0 1920 149" preserveAspectRatio="none">
+				<path fill="currentColor" d="M873.3,37.9C775,19.2,603.7-11.5,433.5,4.4C275.1,19.3,45.1,43.4-12,4.4v121V149l1946-2.6V97.6c-109.9-35.9-230.6-93.1-468.8-75.4C1260.2,37.3,1089.7,79,873.3,37.9z"></path>
+			</svg>
+		</div>
 		<section id="calm-features" class="bg-secondary position-relative z-index-2 section-wave-top">
 			<div class="container">
   <!-- Title -->
   <div class="inner-container-small text-center mb-4 mb-md-6">
-    <h2 class="mb-0">
+    <h2 class="mb-0 ">
       Financial Clarity Built  to <span class="text-primary-grad">Calmness</span> the Mind
     </h2>
   </div>
