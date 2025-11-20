@@ -68,58 +68,58 @@
 
 			}
 		})
-function matchFeatureHeight() {
-  const sections = document.querySelectorAll('.feature-section');
+		function matchFeatureHeight() {
+			const sections = document.querySelectorAll('.feature-section');
 
-  sections.forEach(section => {
-    const left = section.querySelector('.left-features');
-    const right = section.querySelector('.right-features');
-    const image = section.querySelector('.feature-image img');
+			sections.forEach(section => {
+				const left = section.querySelector('.left-features');
+				const right = section.querySelector('.right-features');
+				const image = section.querySelector('.feature-image img');
 
-    if (!left || !right || !image) return;
+				if (!left || !right || !image) return;
 
-    const maxHeight = Math.max(left.offsetHeight, right.offsetHeight);
-    image.style.height = maxHeight + 'px';
-  });
-}
+				const maxHeight = Math.max(left.offsetHeight, right.offsetHeight);
+				image.style.height = maxHeight + 'px';
+			});
+		}
 
-function matchStepsHeight() {
-  const section = document.querySelector('.steps-section');
-  if (!section) return;
+		function matchStepsHeight() {
+			const section = document.querySelector('.steps-section');
+			if (!section) return;
 
-  const content = section.querySelector('.steps-content');
-  const mediaColumn = section.querySelector('.steps-media');
-  const swiper = section.querySelector('.steps-media .swiper');
+			const content = section.querySelector('.steps-content');
+			const mediaColumn = section.querySelector('.steps-media');
+			const swiper = section.querySelector('.steps-media .swiper');
 
-  if (!content || !mediaColumn || !swiper) return;
+			if (!content || !mediaColumn || !swiper) return;
 
-  const targetHeight = content.offsetHeight;
-  mediaColumn.style.height = targetHeight + 'px';
-  swiper.style.height = targetHeight + 'px';
+			const targetHeight = content.offsetHeight;
+			mediaColumn.style.height = targetHeight + 'px';
+			swiper.style.height = targetHeight + 'px';
 
-  swiper.querySelectorAll('.swiper-slide > div').forEach(div => {
-    div.style.height = '100%';
-  });
+			swiper.querySelectorAll('.swiper-slide > div').forEach(div => {
+				div.style.height = '100%';
+			});
 
-  swiper.querySelectorAll('img').forEach(img => {
-    img.style.width = '100%';
-    img.style.height = 'auto';
-    img.style.maxHeight = '100%';
-    img.style.objectFit = 'contain';
-  });
-}
+			swiper.querySelectorAll('img').forEach(img => {
+				img.style.width = '100%';
+				img.style.height = 'auto';
+				img.style.maxHeight = '100%';
+				img.style.objectFit = 'contain';
+			});
+		}
 
-window.addEventListener('DOMContentLoaded', () => {
-  matchFeatureHeight();
-  matchStepsHeight();
-  window.addEventListener('resize', matchFeatureHeight);
-  window.addEventListener('resize', matchStepsHeight);
-});
+		window.addEventListener('DOMContentLoaded', () => {
+			matchFeatureHeight();
+			matchStepsHeight();
+			window.addEventListener('resize', matchFeatureHeight);
+			window.addEventListener('resize', matchStepsHeight);
+		});
 
-window.addEventListener('load', () => {
-  matchFeatureHeight();
-  matchStepsHeight();
-});
+		window.addEventListener('load', () => {
+			matchFeatureHeight();
+			matchStepsHeight();
+		});
 	</script>
 
 	<!-- Favicon -->
@@ -141,28 +141,33 @@ window.addEventListener('load', () => {
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<style>
 		.hero-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* ensures content and image are at ends */
-    flex-wrap: wrap;
-    overflow: hidden; /* prevents image from overflowing */
-    padding: 4rem 2rem 12rem;
-}
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			/* ensures content and image are at ends */
+			flex-wrap: wrap;
+			overflow: hidden;
+			/* prevents image from overflowing */
+			padding: 4rem 2rem 12rem;
+		}
 
-.hero-image {
-    flex: 1 1 50%;
-    display: flex;
-    justify-content: flex-end; /* keep image to the right */
-    align-items: center;
-}
+		.hero-image {
+			flex: 1 1 50%;
+			display: flex;
+			justify-content: flex-end;
+			/* keep image to the right */
+			align-items: center;
+		}
 
-.hero-image img {
-	margin-right: -160px;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain; /* prevent cropping */
-    transform: none; /* remove unnecessary translateX */
-}
+		.hero-image img {
+			margin-right: -160px;
+			max-width: 100%;
+			height: auto;
+			object-fit: contain;
+			/* prevent cropping */
+			transform: none;
+			/* remove unnecessary translateX */
+		}
 
 
 		.hero-content {
@@ -173,11 +178,12 @@ window.addEventListener('load', () => {
 			padding: 4rem 4rem 12rem;
 		}
 
-		
-		
+
+
 
 		.wave-divider {
-			margin-top: -180px; /* Pull wave up into hero */
+			margin-top: -180px;
+			/* Pull wave up into hero */
 			position: relative;
 			z-index: 1;
 			margin-bottom: -2px;
@@ -217,13 +223,16 @@ window.addEventListener('load', () => {
 		#calm-features .feature-item {
 			gap: 0.75rem;
 		}
-.reduced-font {
-    font-size: 14px; /* adjust as needed, e.g., 14px, 15px */
-}
 
-.reduced-font h2 {
-    font-size: 28px; /* smaller heading */
-}
+		.reduced-font {
+			font-size: 16px;
+			/* adjust as needed, e.g., 14px, 15px */
+		}
+
+		.reduced-font h2 {
+			font-size: 28px;
+			/* smaller heading */
+		}
 
 		.feature-section {
 			display: flex;
@@ -266,7 +275,7 @@ window.addEventListener('load', () => {
 			height: 100%;
 		}
 
-		.steps-media .swiper-slide > div {
+		.steps-media .swiper-slide>div {
 			width: 100%;
 			height: 100%;
 			display: flex;
@@ -283,7 +292,7 @@ window.addEventListener('load', () => {
 
 		.steps-media .swiper-slide .bg-secondary-grad {
 			padding: 0 !important;
-			background: rgb(244, 230, 239)		;
+			background: rgb(244, 230, 239);
 		}
 
 		.steps-media .swiper-slide .bg-secondary-grad img,
@@ -302,6 +311,7 @@ window.addEventListener('load', () => {
 				flex-direction: column;
 				gap: 1.5rem;
 			}
+
 			.hero-image,
 			.hero-content {
 				flex: 1 1 100%;
@@ -326,7 +336,7 @@ window.addEventListener('load', () => {
 		}
 
 		@media (max-width: 768px) {
-			.steps-media .swiper-slide > div {
+			.steps-media .swiper-slide>div {
 				max-width: 100%;
 				padding: 1rem;
 			}
@@ -335,24 +345,31 @@ window.addEventListener('load', () => {
 				max-height: 360px;
 			}
 		}
-		 #emailInput {
-    background-color: #fff; /* white for light mode */
-    color: #000; /* black text */
-  }
 
-  /* Dark mode override */
-  html[data-bs-theme="dark"] #emailInput {
-    background-color: #fff !important; /* white even in dark mode */
-    color: #000; /* keep text black */
-    border-color: #ccc; /* optional: adjust border to look good in dark */
-  }
+		#emailInput {
+			background-color: #fff;
+			/* white for light mode */
+			color: #000;
+			/* black text */
+		}
 
-  html[data-bs-theme="dark"] #emailForm button {
-    background-color: #007BFF; /* keep button visible in dark mode */
-    color: #fff;
-  }
+		/* Dark mode override */
+		html[data-bs-theme="dark"] #emailInput {
+			background-color: #fff !important;
+			/* white even in dark mode */
+			color: #000;
+			/* keep text black */
+			border-color: #ccc;
+			/* optional: adjust border to look good in dark */
+		}
+
+		html[data-bs-theme="dark"] #emailForm button {
+			background-color: #007BFF;
+			/* keep button visible in dark mode */
+			color: #fff;
+		}
 	</style>
-	  
+
 
 </head>
 
@@ -483,44 +500,67 @@ window.addEventListener('load', () => {
 
 		<!-- =======================
 Hero START -->
-<section class="hero-section pt-sm-8 pt-lg-9 pb-0">
-  <div class="hero-content">
-    <h1 class="fw-bold mb-3 mb-md-4">See Every Debt. Clear Every Balance.</h1>
-    <p class="lead mb-3 mb-md-4">
-      See everything you owe in one clear dashboard and make one unified monthly payment. Every payment, every plan, and every next step is finally in one place.
-    </p>
-   <form id="emailForm" style="position: relative; width: 300px; margin-bottom: 20px;">
-          <input type="email" id="emailInput" placeholder="Enter your email" required style="
-            width: 100%;
-            padding: 12px 80px 12px 20px; 
-            border-radius: 50px;
-            border: 2px solid #ccc;
-            font-size: 16px;
-            outline: none;
-            box-sizing: border-box;
-          ">
-          <button type="submit" style="
-            position: absolute;
-            right: 4px;
-            top: 4px;
-            bottom: 4px;
-            border: none;
-            background-color: #007BFF;
-            color: white;
-            padding: 0 20px;
-            border-radius: 50px;
-            font-size: 14px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          ">
-            SEND →
-          </button>
-        </form>
+		<section class="position-relative overflow-hidden pt-sm-8 pt-lg-8 pb-0">
+			<!-- Curve background -->
+			<span>
+				<svg class="position-absolute bottom-0 start-0 mb-n1 mb-lg-n4" viewBox="0 0 1920 149"
+					style="enable-background:new 0 0 1920 149; z-index: 4" xml:space="preserve">
+					<path class="text-secondary"
+						d="M873.3,37.9C775,19.2,603.7-11.5,433.5,4.4C275.1,19.3,45.1,43.4-12,4.4v121V149l1946-2.6V97.6 c-109.9-35.9-230.6-93.1-468.8-75.4C1260.2,37.3,1089.7,79,873.3,37.9z"
+						fill="currentColor" />
+				</svg>
+			</span>
 
-        <!-- Thank You Message -->
-        <div id="thankYou" style="
+			<!-- Top-right blur decoration -->
+			<div class="position-absolute end-0 top-0">
+				<img src="assets/images/elements/grad-shape/blur-decoration-2.svg"
+					class="opacity-2 blur-9 h-300px rotate-335" alt="Grad shape">
+			</div>
+
+			<div class="container position-relative pt-4 pt-sm-0 pb-8 pb-xl-9">
+				<div class="row align-items-center">
+
+					<!-- Left Content -->
+					<div class="col-lg-6 mb-6 mb-lg-0">
+						<h1 class="fw-bold mb-3 mb-md-4">See Every Debt. Clear Every Balance.</h1>
+						<p class="lead mb-3 mb-md-4">
+							See everything you owe in one clear dashboard and make one unified monthly payment. Every
+							payment, every plan, and every next step is finally in one place.
+						</p>
+
+						<!-- Email Form -->
+						<form id="emailForm" style="position: relative; width: 300px; margin-bottom: 20px;">
+							<input type="email" id="emailInput" placeholder="Enter your email" required style="
+              width: 100%;
+              padding: 12px 80px 12px 20px; 
+              border-radius: 50px;
+              border: 2px solid #ccc;
+              font-size: 16px;
+              outline: none;
+              box-sizing: border-box;
+            ">
+							<button type="submit" style="
+              position: absolute;
+              right: 4px;
+              top: 4px;
+              bottom: 4px;
+              border: none;
+              background-color: #007BFF;
+              color: white;
+              padding: 0 20px;
+              border-radius: 50px;
+              font-size: 14px;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            ">
+								SEND →
+							</button>
+						</form>
+
+						<!-- Thank You Message -->
+						<div id="thankYou" style="
           display: none;
           width: 300px;
           padding: 10px;
@@ -532,104 +572,148 @@ Hero START -->
           margin-bottom: 20px;
           box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         ">Thank you!</div>
-      </div>
-  </div>
 
-	<div class="hero-image"> <img src="assets/images/hero/hero1.png" alt="hero image"> </div>
-				
-  
-</section>
 
-<!-- =======================
+
+					</div>
+
+
+					<!-- Right Image -->
+					<div class="col-sm-9 col-lg-6 col-xxl-5 position-relative mx-auto">
+						<!-- Left decoration image - smaller width -->
+						<div class="position-absolute d-none d-sm-block" style="left: -80px; top: 80px; z-index: 1;">
+							<img src="assets/images/hero/thirdhero.png" class="aos rounded-3 shadow-primary"
+								data-aos="zoom-in" data-aos-delay="400" data-aos-duration="800"
+								data-aos-easing="ease-in-out" style="height: 70px; width: auto;" alt="decoration">
+						</div>
+
+						<!-- Main hero image - shifted right -->
+						<div class="position-relative" style="z-index: 3; margin-left: 60px;">
+							<img src="assets/images/hero/hero1.png" class="aos mb-n8 mb-md-n9 mb-xxl-n8"
+								data-aos="fade-up" data-aos-delay="100" data-aos-duration="800"
+								data-aos-easing="ease-in-out" style="height: 600px; width: 700px; max-width: 100%;"
+								alt="hero image">
+						</div>
+
+						<!-- Right decoration image - more to the right -->
+						<div class="position-absolute d-none d-sm-block" style="right: -100px; top: 50px; z-index: 1;">
+							<img src="assets/images/hero/secondhero.png" class="aos rounded-3 shadow-primary"
+								data-aos="zoom-in" data-aos-delay="600" data-aos-duration="800"
+								data-aos-easing="ease-in-out" style="width: 200px; height: 110px;" alt="decoration">
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</section>
+
+
+
+
+		<!-- =======================
 Hero END -->
 
 		<!-- =======================
 Features and rating START -->
-		<div class="wave-divider text-secondary" aria-hidden="true">
+		<!-- <div class="wave-divider text-secondary" aria-hidden="true">
 			<svg viewBox="0 0 1920 149" preserveAspectRatio="none">
 				<path fill="currentColor" d="M873.3,37.9C775,19.2,603.7-11.5,433.5,4.4C275.1,19.3,45.1,43.4-12,4.4v121V149l1946-2.6V97.6c-109.9-35.9-230.6-93.1-468.8-75.4C1260.2,37.3,1089.7,79,873.3,37.9z"></path>
 			</svg>
-		</div>
+		</div> -->
 		<section id="calm-features" class="bg-secondary position-relative z-index-2 section-wave-top">
 			<div class="container">
-  <!-- Title -->
-  <div class="inner-container-small text-center mb-4 mb-md-6">
-    <h2 class="mb-0 ">
-      Financial Clarity Built  to <br/><span class="text-primary-grad">Calm</span> the Mind
-    </h2>
-  </div>
+				<!-- Title -->
+				<div class="inner-container-small text-center mb-4 mb-md-6">
+					<h2 class="mb-0 ">
+						Financial Clarity Built to <br /><span class="text-primary-grad">Calm</span> the Mind
+					</h2>
+				</div>
 
-  <!-- Features and Image -->
-  <div class="row g-4 g-lg-5 align-items-start feature-section">
-    <!-- Left side features -->
-    <div class="col-md-6 col-lg-4 order-1 pe-5 d-flex flex-column justify-content-between left-features">
-      <div class="aos feature-item d-flex justify-content-lg-end mb-4 mb-md-6" data-aos="fade-right">
-        <div class="text-sm-end order-1 ms-3 ms-lg-0 me-lg-3">
-          <h6 class="mb-2">One Platform, Every Debt</h6>
-          <p class="mb-0">
-			Get full-picture clarity without juggling tabs.
-			 Ohless will connect every credit card, loan, and payment plan into one organised dashboard.</p>
-        </div>
-        <div class="icon-lg bg-body text-success rounded-circle flex-shrink-0 order-lg-2">
-          <i class="bi bi-cash-stack fa-lg"></i>
-        </div>
-      </div>
+				<!-- Features and Image -->
+				<div class="row g-4 g-lg-5 align-items-start feature-section">
+					<!-- Left side features -->
+					<div
+						class="col-md-6 col-lg-4 order-1 pe-5 d-flex flex-column justify-content-between left-features">
+						<div class="aos feature-item d-flex justify-content-lg-end mb-4 mb-md-6" data-aos="fade-right">
+							<div class="text-sm-end order-1 ms-3 ms-lg-0 me-lg-3">
+								<h6 class="mb-2">One Platform, Every Debt</h6>
+								<p class="mb-0">
+									Get full-picture clarity without juggling tabs.
+									Ohless will connect every credit card, loan, and payment plan into one organised
+									dashboard.</p>
+							</div>
+							<div class="icon-lg bg-body text-success rounded-circle flex-shrink-0 order-lg-2">
+								<i class="bi bi-cash-stack fa-lg"></i>
+							</div>
+						</div>
 
-      <div class="aos feature-item d-flex justify-content-lg-end mb-4 mb-md-6" data-aos="fade-right">
-        <div class="text-sm-end order-1 ms-3 ms-lg-0 me-lg-3">
-          <h6 class="mb-2">Pay Once, Progress Everywhere</h6>
-          <p class="mb-0">One monthly payment automatically divided across every debt, visualised in a clear pie chart that shows exactly where your money goes.</p>
-        </div>
-        <div class="icon-lg bg-body text-purple rounded-circle flex-shrink-0 order-lg-2">
-          <i class="bi bi-receipt fa-lg"></i>
-        </div>
-      </div>
+						<div class="aos feature-item d-flex justify-content-lg-end mb-4 mb-md-6" data-aos="fade-right">
+							<div class="text-sm-end order-1 ms-3 ms-lg-0 me-lg-3">
+								<h6 class="mb-2">Pay Once, Progress Everywhere</h6>
+								<p class="mb-0">One monthly payment automatically divided across every debt, visualised
+									in a clear pie chart that shows exactly where your money goes.</p>
+							</div>
+							<div class="icon-lg bg-body text-purple rounded-circle flex-shrink-0 order-lg-2">
+								<i class="bi bi-receipt fa-lg"></i>
+							</div>
+						</div>
 
-      <div class="aos feature-item d-flex justify-content-lg-end" data-aos="fade-right">
-        <div class="text-sm-end order-1 ms-3 ms-lg-0 me-lg-3">
-          <h6 class="mb-2">Guidance That Learns From You</h6>
-          <p class="mb-0">Automatic reminders, personalised payment plans, and progress updates built around how you manage money.</p>
-        </div>
-        <div class="icon-lg bg-body text-warning rounded-circle flex-shrink-0 order-lg-2">
-          <i class="bi bi-bell fa-lg"></i>
-        </div>
-      </div>
-    </div>
+						<div class="aos feature-item d-flex justify-content-lg-end" data-aos="fade-right">
+							<div class="text-sm-end order-1 ms-3 ms-lg-0 me-lg-3">
+								<h6 class="mb-2">Guidance That Learns From You</h6>
+								<p class="mb-0">Automatic reminders, personalised payment plans, and progress updates
+									built around how you manage money.</p>
+							</div>
+							<div class="icon-lg bg-body text-warning rounded-circle flex-shrink-0 order-lg-2">
+								<i class="bi bi-bell fa-lg"></i>
+							</div>
+						</div>
+					</div>
 
-    <!-- Image -->
-    <div class="col-md-8 col-lg-4 mx-auto order-3 order-lg-2 d-flex justify-content-center" id="feature-image-container">
-  <img src="assets/images/hero/hero2.svg" class="aos feature-image img-fluid" alt="feature mobile" data-aos="fade-up">
-</div>
+					<!-- Image -->
+					<div class="col-md-8 col-lg-4 mx-auto order-3 order-lg-2 d-flex justify-content-center"
+						id="feature-image-container">
+						<img src="assets/images/hero/hero2.svg" class="aos feature-image img-fluid" alt="feature mobile"
+							data-aos="fade-up">
+					</div>
 
 
-    <!-- Right side features -->
-    <div class="col-md-6 col-lg-4 order-2 order-lg-3 d-flex flex-column justify-content-between right-features">
-      <div class="aos feature-item d-flex mb-4 mb-md-6" data-aos="fade-left">
-        <div class="icon-lg bg-body text-info rounded-circle flex-shrink-0"><i class="bi bi-person-vcard fa-lg"></i></div>
-        <div class="ms-2">
-          <h6 class="mb-2">Built for Peace of Mind</h6>
-          <p class="mb-0">Unified payments, smart reminders, and mental-health check-ins bring calm structure to your finances.</p>
-        </div>
-      </div>
+					<!-- Right side features -->
+					<div
+						class="col-md-6 col-lg-4 order-2 order-lg-3 d-flex flex-column justify-content-between right-features">
+						<div class="aos feature-item d-flex mb-4 mb-md-6" data-aos="fade-left">
+							<div class="icon-lg bg-body text-info rounded-circle flex-shrink-0"><i
+									class="bi bi-person-vcard fa-lg"></i></div>
+							<div class="ms-2">
+								<h6 class="mb-2">Built for Peace of Mind</h6>
+								<p class="mb-0">Unified payments, smart reminders, and mental-health check-ins bring
+									calm structure to your finances.</p>
+							</div>
+						</div>
 
-      <div class="aos feature-item d-flex mb-4 mb-md-6" data-aos="fade-left">
-        <div class="icon-lg bg-body text-primary rounded-circle flex-shrink-0"><i class="bi bi-gear fa-lg"></i></div>
-        <div class="ms-3">
-          <h6 class="mb-2">Goal Setting & Milestones</h6>
-          <p class="mb-0">Tailored goals, live progress tracking, and milestone alerts that keep momentum visible and motivation steady. </p>
-        </div>
-      </div>
+						<div class="aos feature-item d-flex mb-4 mb-md-6" data-aos="fade-left">
+							<div class="icon-lg bg-body text-primary rounded-circle flex-shrink-0"><i
+									class="bi bi-gear fa-lg"></i></div>
+							<div class="ms-3">
+								<h6 class="mb-2">Goal Setting & Milestones</h6>
+								<p class="mb-0">Tailored goals, live progress tracking, and milestone alerts that keep
+									momentum visible and motivation steady. </p>
+							</div>
+						</div>
 
-      <div class="aos feature-item d-flex" data-aos="fade-left">
-        <div class="icon-lg bg-body text-pink rounded-circle flex-shrink-0"><i class="bi bi-headset fa-lg"></i></div>
-        <div class="ms-3">
-          <h6 class="mb-2">Built on Trust</h6>
-          <p class="mb-0">Your data stays private, encrypted, and respected. Security is more than a promise; it’s the architectural foundation of calm.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+						<div class="aos feature-item d-flex" data-aos="fade-left">
+							<div class="icon-lg bg-body text-pink rounded-circle flex-shrink-0"><i
+									class="bi bi-headset fa-lg"></i></div>
+							<div class="ms-3">
+								<h6 class="mb-2">Built on Trust</h6>
+								<p class="mb-0">Your data stays private, encrypted, and respected. Security is more than
+									a promise; it’s the architectural foundation of calm.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
 		<!-- =======================
 Features and rating END -->
@@ -655,24 +739,21 @@ Steps START -->
 								<!-- Testimonials item -->
 								<div class="swiper-slide bg-body">
 									<div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100">
-										<img src="assets/images/hero/hero3.svg" class="rounded-5 "
-											alt="step image">
+										<img src="assets/images/hero/hero3.svg" class="rounded-5 " alt="step image">
 									</div>
 								</div>
 
 								<!-- Testimonials item -->
 								<div class="swiper-slide bg-body">
 									<div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100">
-										<img src="assets/images/hero/hero3.svg" class="rounded-5 "
-											alt="step image">
+										<img src="assets/images/hero/hero3.svg" class="rounded-5 " alt="step image">
 									</div>
 								</div>
 
 								<!-- Testimonials item -->
 								<div class="swiper-slide bg-body">
 									<div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100">
-										<img src="assets/images/hero/hero3.svg" class="rounded-5 "
-											alt="step image">
+										<img src="assets/images/hero/hero3.svg" class="rounded-5 " alt="step image">
 									</div>
 								</div>
 							</div>
@@ -767,22 +848,40 @@ Left right feature START -->
 			<div class="container">
 				<div class="row align-items-lg-center">
 					<!-- Content -->
-				<div class="col-md-6 reduced-font">
-    <!-- Title -->
-    <h2 class="mb-lg-3">The Future of Debt Clarity</h2>
-    
-    <!-- List -->
-    <ul class="list-group list-group-borderless mb-0">
-        As a true debt specialist, Ohless is evolving to give users more ways to lift the weight for good. In the future, you can expect even more helpful features, such as:
+					<div class="col-md-6 reduced-font">
+						<!-- Title -->
+						<h2 class="mb-lg-3">The Future of Debt Clarity</h2>
 
-        <li class="list-group-item d-flex fw-semibold pb-0"><i class="bi bi-check-circle text-primary me-2"></i>Collaboration-first connections - Direct partnerships with creditors to make communication, negotiation, and repayment simpler and more transparent.</li>
-        <li class="list-group-item d-flex fw-semibold pb-0"><i class="bi bi-check-circle text-primary me-2"></i>Budgeting & Income Planner – Track income, expenses, and optimize cash flow so every dollar has direction.</li>
-        <li class="list-group-item d-flex fw-semibold pb-0"><i class="bi bi-check-circle text-primary me-2"></i>AI-Generated Payoff Plans – Automated Intelligence analyzes your full debt picture and builds a payoff plan designed around your income, habits, and priorities.</li>
-        <li class="list-group-item d-flex fw-semibold pb-0"><i class="bi bi-check-circle text-primary me-2"></i>Smart prevention tools - Subtle reminders that anticipate when payments may fall behind, protecting users before problems arise.</li>
-        <li class="list-group-item d-flex fw-semibold pb-0"><i class="bi bi-check-circle text-primary me-2"></i>Negotiation support - Guided options to help reduce rates, restructure terms, and create repayment plans that fit your life.</li>
-        <li class="list-group-item d-flex fw-semibold pb-0"><i class="bi bi-check-circle text-primary me-2"></i>Predictive insight - Forward-looking forecasts that show exactly when freedom from debt becomes possible, and how to get there faster.</li>
-    </ul>
-</div>
+						<!-- List -->
+						<ul class="list-group list-group-borderless mb-0">
+							As a true debt specialist, Ohless is evolving to give users more ways to lift the weight for
+							good. In the future, you can expect even more helpful features, such as:
+
+							<li class="list-group-item d-flex fw-semibold pb-0"><i
+									class="bi bi-check-circle text-primary me-2"></i>Collaboration-first connections -
+								Direct partnerships with creditors to make communication, negotiation, and repayment
+								simpler and more transparent.</li>
+							<li class="list-group-item d-flex fw-semibold pb-0"><i
+									class="bi bi-check-circle text-primary me-2"></i>Budgeting & Income Planner – Track
+								income, expenses, and optimize cash flow so every dollar has direction.</li>
+							<li class="list-group-item d-flex fw-semibold pb-0"><i
+									class="bi bi-check-circle text-primary me-2"></i>AI-Generated Payoff Plans –
+								Automated Intelligence analyzes your full debt picture and builds a payoff plan designed
+								around your income, habits, and priorities.</li>
+							<li class="list-group-item d-flex fw-semibold pb-0"><i
+									class="bi bi-check-circle text-primary me-2"></i>Smart prevention tools - Subtle
+								reminders that anticipate when payments may fall behind, protecting users before
+								problems arise.</li>
+							<li class="list-group-item d-flex fw-semibold pb-0"><i
+									class="bi bi-check-circle text-primary me-2"></i>Negotiation support - Guided
+								options to help reduce rates, restructure terms, and create repayment plans that fit
+								your life.</li>
+							<li class="list-group-item d-flex fw-semibold pb-0"><i
+									class="bi bi-check-circle text-primary me-2"></i>Predictive insight -
+								Forward-looking forecasts that show exactly when freedom from debt becomes possible, and
+								how to get there faster.</li>
+						</ul>
+					</div>
 
 
 					<!-- Image -->
@@ -936,7 +1035,7 @@ Testimonials START -->
 					<!-- Title and slider button -->
 					<div class="col-lg-4 text-center text-lg-start">
 						<h2 class="mb-1 mb-lg-2">Hear from our satisfied users</h2>
-						
+
 					</div>
 
 					<div class="col-lg-8 col-xl-7 ms-auto">
