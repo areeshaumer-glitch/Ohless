@@ -37,7 +37,7 @@
 			if (el != 'undefined' && el != null) {
 				const showActiveTheme = theme => {
 					const activeThemeIcon = document.querySelector('.theme-icon-active use')
-					const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+					const btnToActive = document.querySelector([data-bs-theme-value,"${theme}"])
 					const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
 
 					document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
@@ -495,7 +495,7 @@
 	</div>
 	<!-- Header END -->
 
-	<!-- **************** MAIN CONTENT START **************** -->
+	<!-- ****** MAIN CONTENT START ****** -->
 	<main>
 
 		<!-- =======================
@@ -581,14 +581,14 @@ Hero START -->
 					<!-- Right Image -->
 					<div class="col-sm-9 col-lg-6 col-xxl-5 position-relative mx-auto">
 						<!-- Left decoration image - smaller width -->
-						<div class="position-absolute d-none d-sm-block" style="left: -80px; top: 80px; z-index: 1;">
+						<div class="position-absolute d-none d-sm-block" style="left: -60px; top: 80px; z-index: 1;">
 							<img src="assets/images/hero/thirdhero.png" class="aos rounded-3 shadow-primary"
 								data-aos="zoom-in" data-aos-delay="400" data-aos-duration="800"
 								data-aos-easing="ease-in-out" style="height: 70px; width: auto;" alt="decoration">
 						</div>
 
 						<!-- Main hero image - shifted right -->
-						<div class="position-relative" style="z-index: 3; margin-left: 60px;">
+						<div class="position-relative" style="z-index: 3; margin-left: 230px;">
 							<img src="assets/images/hero/hero1.png" class="aos mb-n8 mb-md-n9 mb-xxl-n8"
 								data-aos="fade-up" data-aos-delay="100" data-aos-duration="800"
 								data-aos-easing="ease-in-out" style="height: 600px; width: 700px; max-width: 100%;"
@@ -596,7 +596,7 @@ Hero START -->
 						</div>
 
 						<!-- Right decoration image - more to the right -->
-						<div class="position-absolute d-none d-sm-block" style="right: -100px; top: 50px; z-index: 1;">
+						<div class="position-absolute d-none d-sm-block" style="right: -60px; top: 50px; z-index: 1;">
 							<img src="assets/images/hero/secondhero.png" class="aos rounded-3 shadow-primary"
 								data-aos="zoom-in" data-aos-delay="600" data-aos-duration="800"
 								data-aos-easing="ease-in-out" style="width: 200px; height: 110px;" alt="decoration">
@@ -1277,7 +1277,7 @@ CTA START -->
 CTA END -->
 
 	</main>
-	<!-- **************** MAIN CONTENT END **************** -->
+	<!-- ****** MAIN CONTENT END ****** -->
 
 	<!-- =======================
 Footer START -->
