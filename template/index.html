@@ -37,7 +37,7 @@
 			if (el != 'undefined' && el != null) {
 				const showActiveTheme = theme => {
 					const activeThemeIcon = document.querySelector('.theme-icon-active use')
-					const btnToActive = document.querySelector([data-bs-theme-value,"${theme}"])
+					const btnToActive = document.querySelector([data - bs - theme - value, "${theme}"])
 					const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
 
 					document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
@@ -140,138 +140,157 @@
 	<!-- Theme CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<style>
-	
-/* .hero-image-wrapper {
+		/* .hero-image-wrapper {
   position: relative;
   overflow: visible; 
   margin-left: 20px;
 } */
-/* Replace the existing hero-section and related styles with these */
+		/* Replace the existing hero-section and related styles with these */
 
-.hero-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  overflow: visible; /* Changed from hidden to visible */
-  padding: 4rem 2rem 0; /* Removed bottom padding */
-}
+		.hero-section {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			overflow: visible;
+			/* Changed from hidden to visible */
+			padding: 4rem 2rem 0;
+			/* Removed bottom padding */
+		}
 
-.hero-content {
-  flex: 1 1 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 4rem 4rem 8rem; /* Adjusted bottom padding */
-}
+		.hero-content {
+			flex: 1 1 50%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 4rem 4rem 8rem;
+			/* Adjusted bottom padding */
+		}
 
-.hero-image-wrapper {
-  position: relative;
-  overflow: visible;
-  margin-left: auto; /* Push to right */
-  margin-right: -300px; /* Negative margin to move right */
-  margin-bottom: -250px; /* Move much further down */
-  margin-top: 100px; /* Push down from top */
-  flex: 1 1 50%;
-  max-width: 50%;
-  z-index: 2; /* Keep image above wave */
-}
+		.hero-image-wrapper {
+			position: relative;
+			overflow: visible;
+			margin-left: auto;
+			/* Push to right */
+			margin-right: -300px;
+			/* Negative margin to move right */
+			margin-bottom: -250px;
+			/* Move much further down */
+			margin-top: 100px;
+			/* Push down from top */
+			flex: 1 1 50%;
+			max-width: 50%;
+			z-index: 2;
+			/* Keep image above wave */
+			transform: translateX(100px);
+			/* Move image towards right side */
+		}
 
-.hero-img {
-  width: 100%;
-  height: 750px; /* Increased height */
-  object-fit: cover;
-  display: block;
-  border-bottom-left-radius: 80px;
-  border-bottom-right-radius: 80px;
-}
+		.hero-img {
+			width: 100%;
+			height: 750px;
+			/* Increased height */
+			object-fit: cover;
+			display: block;
+			border-bottom-left-radius: 80px;
+			border-bottom-right-radius: 80px;
+		}
 
-/* Wave divider - adjusted to match image position */
-.wave-divider {
-  margin-top: -150px; /* Match the image bottom margin */
-  position: relative;
-  z-index: 1;
-  margin-bottom: -2px;
-  line-height: 0;
-}
+		/* Wave divider - adjusted to match image position */
+		.wave-divider {
+			margin-top: -150px;
+			/* Match the image bottom margin */
+			position: relative;
+			z-index: 1;
+			margin-bottom: -2px;
+			line-height: 0;
+		}
 
-.wave-divider svg {
-  display: block;
-  width: 100%;
-  height: 149px;
-}
+		.wave-divider svg {
+			display: block;
+			width: 100%;
+			height: 149px;
+		}
 
-/* Responsive adjustments */
-@media (max-width: 992px) {
-  .hero-section {
-    flex-direction: column;
-    gap: 1.5rem;
-    padding-bottom: 0;
-  }
+		/* Responsive adjustments */
+		@media (max-width: 992px) {
+			.hero-section {
+				flex-direction: column;
+				gap: 1.5rem;
+				padding-bottom: 0;
+			}
 
-  .hero-image-wrapper {
-    flex: 1 1 100%;
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    margin-bottom: -250px; /* Adjust for mobile */
-    justify-content: center;
-  }
+			.hero-image-wrapper {
+				flex: 1 1 100%;
+				max-width: 100%;
+				margin-left: 0;
+				margin-right: 0;
+				margin-top: 0;
+				margin-bottom: -250px;
+				/* Adjust for mobile */
+				justify-content: center;
+			}
 
-  .hero-img {
-    width: 100%;
-    height: auto;
-    min-height: 400px;
-  }
+			.hero-img {
+				width: 100%;
+				height: auto;
+				min-height: 400px;
+			}
 
-  .hero-content {
-    padding: 3rem 1.5rem 3.5rem;
-  }
-  
-  .wave-divider {
-    margin-top: -250px;
-  }
-}
+			.hero-content {
+				padding: 3rem 1.5rem 3.5rem;
+			}
 
-@media (max-width: 768px) {
-  .hero-image-wrapper {
-    margin-bottom: -180px; /* Adjust for smaller screens */
-  }
-  
-  .hero-img {
-    height: 550px;
-  }
-  
-  .wave-divider {
-    margin-top: -180px;
-  }
-}
+			.wave-divider {
+				margin-top: -250px;
+			}
+		}
 
-@media (min-width: 1400px) {
-  .hero-image-wrapper {
-    margin-right: -150px; /* More negative margin on larger screens */
-  }
-}
-.hero-img {
-  width: 100%;
-  height: 600px; /* adjust height */
-  object-fit: cover;
-  display: block;
-  border-bottom-left-radius: 80px; /* optional soft curve */
-  border-bottom-right-radius: 80px; /* optional soft curve */
-}
+		@media (max-width: 768px) {
+			.hero-image-wrapper {
+				margin-bottom: -180px;
+				/* Adjust for smaller screens */
+			}
 
-/* If you want a separate curve element */
-.hero-bottom-curve {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 80px; /* curve height */
-  background: url('assets/images/hero/curve.png') no-repeat bottom center;
-  background-size: cover;
-}
+			.hero-img {
+				height: 550px;
+			}
+
+			.wave-divider {
+				margin-top: -180px;
+			}
+		}
+
+		@media (min-width: 1400px) {
+			.hero-image-wrapper {
+				margin-right: -150px;
+				/* More negative margin on larger screens */
+			}
+		}
+
+		.hero-img {
+			width: 100%;
+			height: 600px;
+			/* adjust height */
+			object-fit: cover;
+			display: block;
+			border-bottom-left-radius: 80px;
+			/* optional soft curve */
+			border-bottom-right-radius: 80px;
+			/* optional soft curve */
+		}
+
+		/* If you want a separate curve element */
+		.hero-bottom-curve {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 80px;
+			/* curve height */
+			background: url('assets/images/hero/curve.png') no-repeat bottom center;
+			background-size: cover;
+		}
 
 
 		.hero-image img {
@@ -695,29 +714,29 @@ Hero START -->
 
 
 					<!-- Right Image -->
-				<div class="col-sm-9 col-lg-6 col-xxl-5 position-relative mx-auto hero-image-wrapper">
-  <img src="assets/images/hero/hero.png" alt="" class="hero-img">
-  <div class="hero-bottom-curve"></div>
-</div>
+					<div class="col-sm-9 col-lg-6 col-xxl-5 position-relative mx-auto hero-image-wrapper">
+						<img src="assets/images/hero/hero.png" alt="" class="hero-img">
+						<div class="hero-bottom-curve"></div>
+					</div>
 
 
-						<!-- Left decoration image - smaller width -->
-						<!-- <div class="position-absolute d-none d-sm-block" style="left: -60px; top: 80px; z-index: 1;">
+					<!-- Left decoration image - smaller width -->
+					<!-- <div class="position-absolute d-none d-sm-block" style="left: -60px; top: 80px; z-index: 1;">
 							<img src="assets/images/hero/thirdhero.png" class="aos rounded-3 shadow-primary"
 								data-aos="zoom-in" data-aos-delay="400" data-aos-duration="800"
 								data-aos-easing="ease-in-out" style="height: 70px; width: auto;" alt="decoration">
 						</div> -->
 
-						<!-- Main hero image - shifted right -->
-						<!-- <div class="position-relative" style="z-index: 3; margin-left: 230px;">
+					<!-- Main hero image - shifted right -->
+					<!-- <div class="position-relative" style="z-index: 3; margin-left: 230px;">
 							<img src="assets/images/hero/hero1.png" class="aos mb-n8 mb-md-n9 mb-xxl-n8"
 								data-aos="fade-up" data-aos-delay="100" data-aos-duration="800"
 								data-aos-easing="ease-in-out" style="height: 600px; width: auto; max-width: 100%;"
 								alt="hero image">
 						</div> -->
 
-						<!-- Right decoration image - more to the right -->
-						<!-- <div class="position-absolute d-none d-sm-block" style="right: -60px; top: 50px; z-index: 1;">
+					<!-- Right decoration image - more to the right -->
+					<!-- <div class="position-absolute d-none d-sm-block" style="right: -60px; top: 50px; z-index: 1;">
 							<img src="assets/images/hero/secondhero.png" class="aos rounded-3 shadow-primary"
 								data-aos="zoom-in" data-aos-delay="600" data-aos-duration="800"
 								data-aos-easing="ease-in-out" style="width: 200px; height: 110px;" alt="decoration">
