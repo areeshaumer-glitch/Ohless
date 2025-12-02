@@ -36,9 +36,9 @@
 			var el = document.querySelector('.theme-icon-active');
 			if (el != 'undefined' && el != null) {
 				const showActiveTheme = theme => {
-					const activeThemeIcon = document.querySelector('.theme-icon-active use')
-					const btnToActive = document.querySelector([data - bs - theme - value, "${theme}"])
-					const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+                const activeThemeIcon = document.querySelector('.theme-icon-active use')
+                const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+                const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
 
 					document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
 						element.classList.remove('active')
@@ -170,11 +170,11 @@
 		.hero-image-wrapper {
 			position: relative;
 			overflow: visible;
-			margin-left: auto;
-			/* Push to right */
-			margin-right: -300px;
-			/* Negative margin to move right */
-			margin-bottom: -250px;
+			margin-left: 40px;
+			/* Gap on left side */
+			margin-right: 0;
+			/* No gap on right */
+			margin-bottom: -300px;
 			/* Move much further down */
 			margin-top: 100px;
 			/* Push down from top */
@@ -182,15 +182,14 @@
 			max-width: 50%;
 			z-index: 2;
 			/* Keep image above wave */
-			transform: translateX(100px);
-			/* Move image towards right side */
 		}
 
 		.hero-img {
 			width: 100%;
-			height: 750px;
+			height: 850px;
 			/* Increased height */
-			object-fit: cover;
+			object-fit: contain;
+			/* Show full image without cropping */
 			display: block;
 			border-bottom-left-radius: 80px;
 			border-bottom-right-radius: 80px;
@@ -263,8 +262,10 @@
 
 		@media (min-width: 1400px) {
 			.hero-image-wrapper {
-				margin-right: -150px;
-				/* More negative margin on larger screens */
+				margin-right: 0;
+				/* No gap on right */
+				margin-left: 60px;
+				/* More gap on left for larger screens */
 			}
 		}
 
@@ -272,7 +273,8 @@
 			width: 100%;
 			height: 600px;
 			/* adjust height */
-			object-fit: cover;
+			object-fit: contain;
+			/* Show full image without cropping */
 			display: block;
 			border-bottom-left-radius: 80px;
 			/* optional soft curve */
@@ -297,7 +299,7 @@
 			margin-bottom: -400px;
 			margin-right: -200px;
 			max-width: 100%;
-			height: 800px;
+			height: 700px;
 			object-fit: contain;
 			/* prevent cropping */
 			transform: none;
@@ -630,7 +632,7 @@
 	</div>
 	<!-- Header END -->
 
-	<!-- ****** MAIN CONTENT START ****** -->
+	<!-- ** MAIN CONTENT START ** -->
 	<main>
 
 		<!-- =======================
@@ -663,8 +665,9 @@ Hero START -->
 							payment, every plan, and every next step is finally in one place.
 						</p>
 
-						<!-- Email Form -->
-						<form id="emailForm" style="position: relative; width: 300px; margin-bottom: 20px;">
+                        <!-- Email Form -->
+                      
+                        <form id="emailForm" style="position: relative; width: 300px; margin-bottom: 20px;">
 							<input type="email" id="emailInput" placeholder="Enter your email" required style="
               width: 100%;
               padding: 12px 80px 12px 20px; 
@@ -690,9 +693,9 @@ Hero START -->
               align-items: center;
               justify-content: center;
             ">
-								SEND →
-							</button>
-						</form>
+                            				JOIN
+                            			</button>
+                        		</form>
 
 						<!-- Thank You Message -->
 						<div id="thankYou" style="
@@ -861,44 +864,47 @@ Features and rating END -->
 		<!-- =======================
 Steps START -->
 		<section>
-			<div class="container">
-				<div class="row g-4 align-items-lg-center steps-section">
-					<!-- Images -->
-					<div class="col-md-6 col-xl-5 order-2 order-md-1 steps-media">
-						<div class="swiper" data-swiper-options='{
-					"spaceBetween": 30,
-					"effect": "fade",
-					"autoplay":false,
-					"simulateTouch":false,
-					"navigation":{
-						"nextEl":".swiper-button-next-steps",
-						"prevEl":".swiper-button-prev-steps"
-					}}'>
+    <div class="container">
+        <div class="row g-4 align-items-lg-center steps-section">
+            <!-- Images -->
+            <div class="col-md-6 col-xl-5 order-2 order-md-1 steps-media">
+                <div class="swiper" data-swiper-options='{
+                    "spaceBetween": 30,
+                    "effect": "fade",
+                    "autoplay":false,
+                    "simulateTouch":false,
+                    "navigation":{
+                        "nextEl":".swiper-button-next-steps",
+                        "prevEl":".swiper-button-prev-steps"
+                    }}'>
 
-							<div class="swiper-wrapper">
-								<!-- Testimonials item -->
-								<div class="swiper-slide bg-body">
-									<div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100">
-										<img src="assets/images/hero/hero3.svg" class="rounded-5 " alt="step image">
-									</div>
-								</div>
+                    <div class="swiper-wrapper">
+                        <!-- Testimonials item -->
+                        <div class="swiper-slide bg-body">
+                            <div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100 ">
+                                <img src="assets/images/hero/hero3.svg" class="rounded-5" alt="step image" style="width: 210%; height: auto; display: block; margin-bottom: -90px;">
+                            </div>
+                        </div>
 
-								<!-- Testimonials item -->
-								<div class="swiper-slide bg-body">
-									<div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100">
-										<img src="assets/images/hero/hero3.svg" class="rounded-5 " alt="step image">
-									</div>
-								</div>
+                        <!-- Testimonials item -->
+                        <div class="swiper-slide bg-body">
+                            <div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100">
+                                <img src="assets/images/hero/hero3.svg" class="rounded-5" alt="step image" style="width: 120%; height: auto; display: block; margin-left: -10%; margin-bottom: -90px;">
+                            </div>
+                        </div>
 
-								<!-- Testimonials item -->
-								<div class="swiper-slide bg-body">
-									<div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100">
-										<img src="assets/images/hero/hero3.svg" class="rounded-5 " alt="step image">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+                        <!-- Testimonials item -->
+                        <div class="swiper-slide bg-body">
+                            <div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100">
+                                <img src="assets/images/hero/hero3.svg" class="rounded-5" alt="step image" style="width: 120%; height: auto; display: block; margin-left: -10%; margin-bottom: -90px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Steps Content START -->
+            <!-- ... rest of your code remains the same ... -->
 
 					<!-- Steps Content START -->
 					<div class="col-md-6 order-1 ms-auto steps-content">
@@ -1417,7 +1423,7 @@ CTA START -->
 CTA END -->
 
 	</main>
-	<!-- ****** MAIN CONTENT END ****** -->
+	<!-- ** MAIN CONTENT END ** -->
 
 	<!-- =======================
 Footer START -->
@@ -1432,9 +1438,7 @@ Footer START -->
 						<img class="h-40px" src="assets/images/hero/footerlogo.svg" alt="logo">
 					</a>
 
-					<p class="my-3 my-lg-4"> See everything you owe in one clear dashboard and make one unified monthly
-						payment. Every payment, every plan, and every next step is finally in one place</p>
-					<!-- Social icon -->
+					<p class="my-3 my-lg-4">  Join early access today and take the first step toward a calmer, more organised financial life.</p>
 					<ul class="list-inline mb-0">
 						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-secondary" href="#"><i
 									class="bi bi-facebook lh-base"></i></a> </li>
@@ -1496,8 +1500,27 @@ Footer START -->
 	<!-- =======================
 Footer END -->
 
-	<!-- Back to top -->
-	<div class="back-top"></div>
+		<!-- Back to top -->
+		<div class="back-top"></div>
+
+		<div class="modal fade" id="earlyAccessModal" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header border-0">
+						<h5 class="modal-title">Join for early access now</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form id="emailModalForm">
+							<div class="input-group">
+								<input type="email" id="emailModalInput" class="form-control" placeholder="Enter your email" required>
+								<button type="submit" class="btn btn-primary-grad">JOIN</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 
 	<!-- Bootstrap JS -->
 	<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -1508,11 +1531,16 @@ Footer END -->
 	<script src="assets/vendor/aos/aos.js"></script>
 
 	<!-- Theme Functions -->
-	<script src="assets/js/functions.js"></script>
-	<script>
-		const form = document.getElementById('emailForm');
-		const input = document.getElementById('emailInput');
-		const popup = document.getElementById('thankYou');
+		<script src="assets/js/functions.js"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				var earlyModal = new bootstrap.Modal(document.getElementById('earlyAccessModal'))
+				earlyModal.show()
+			})
+
+			const form = document.getElementById('emailForm');
+			const input = document.getElementById('emailInput');
+			const popup = document.getElementById('thankYou');
 
 		form.onsubmit = function (e) {
 			e.preventDefault(); // prevent actual form submission
@@ -1528,9 +1556,31 @@ Footer END -->
 				input.value = ''; // clear input
 			} else {
 				alert('Please enter a valid email!');
+				}
 			}
-		}
-	</script>
+
+			const modalForm = document.getElementById('emailModalForm');
+			const modalInput = document.getElementById('emailModalInput');
+			const modalEl = document.getElementById('earlyAccessModal');
+			if (modalForm) {
+				modalForm.onsubmit = function (e) {
+					e.preventDefault();
+					const email = modalInput.value.trim();
+					const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+					if (emailPattern.test(email)) {
+						var instance = bootstrap.Modal.getInstance(modalEl);
+						if (instance) instance.hide();
+						if (popup) {
+							popup.style.display = 'block';
+							setTimeout(() => { popup.style.display = 'none'; }, 2500);
+						}
+						modalInput.value = '';
+					} else {
+						alert('Please enter a valid email!');
+					}
+				}
+			}
+		</script>
 
 </body>
 
