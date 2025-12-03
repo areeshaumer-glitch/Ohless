@@ -36,9 +36,9 @@
 			var el = document.querySelector('.theme-icon-active');
 			if (el != 'undefined' && el != null) {
 				const showActiveTheme = theme => {
-                const activeThemeIcon = document.querySelector('.theme-icon-active use')
-                const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
-                const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+					const activeThemeIcon = document.querySelector('.theme-icon-active use')
+					const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+					const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
 
 					document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
 						element.classList.remove('active')
@@ -429,7 +429,11 @@
 
 		.steps-media .swiper-slide .bg-secondary-grad {
 			padding: 0 !important;
-			background: rgb(244, 230, 239);
+			background: linear-gradient(135deg, #fff5f9 0%, #f4e6ef 100%);
+		}
+
+		html[data-bs-theme="dark"] .steps-media .swiper-slide .bg-secondary-grad {
+			background: linear-gradient(135deg, #2e2a3d 0%, #232136 100%);
 		}
 
 		.steps-media .swiper-slide .bg-secondary-grad img,
@@ -504,6 +508,56 @@
 			background-color: #007BFF;
 			/* keep button visible in dark mode */
 			color: #fff;
+		}
+
+		#emailForm {
+			position: relative;
+			width: 100%;
+			max-width: 300px;
+			margin-bottom: 20px;
+		}
+
+		#thankYou {
+			display: none;
+			width: 100%;
+			max-width: 300px;
+			padding: 10px;
+			background-color: #e0f0ff;
+			color: #007BFF;
+			border-radius: 8px;
+			font-size: 14px;
+			text-align: center;
+			margin-bottom: 20px;
+			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+		}
+
+		html[data-bs-theme="dark"] #thankYou {
+			background-color: #212529;
+			color: #fff;
+			box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+		}
+
+		@media (max-width: 576px) {
+
+			#emailForm,
+			#thankYou {
+				max-width: 100%;
+			}
+
+			.hero-content {
+				padding-bottom: 0;
+			}
+
+			.hero-image-wrapper {
+				margin-bottom: 0;
+				margin-top: 0;
+			}
+
+			.hero-img {
+				height: auto;
+				min-height: 0;
+				object-position: bottom;
+			}
 		}
 	</style>
 
@@ -654,7 +708,7 @@ Hero START -->
 					class="opacity-2 blur-9 h-300px rotate-335" alt="Grad shape">
 			</div>
 
-			<div class="container position-relative pt-4 pt-sm-0 pb-8 pb-xl-9">
+			<div class="container position-relative pt-0 pb-0 pb-sm-8 pb-xl-9">
 				<div class="row align-items-center">
 
 					<!-- Left Content -->
@@ -665,9 +719,9 @@ Hero START -->
 							payment, every plan, and every next step is finally in one place.
 						</p>
 
-                        <!-- Email Form -->
-                      
-                        <form id="emailForm" style="position: relative; width: 300px; margin-bottom: 20px;">
+						<!-- Email Form -->
+
+						<form id="emailForm">
 							<input type="email" id="emailInput" placeholder="Enter your email" required style="
               width: 100%;
               padding: 12px 80px 12px 20px; 
@@ -693,23 +747,12 @@ Hero START -->
               align-items: center;
               justify-content: center;
             ">
-                            				JOIN
-                            			</button>
-                        		</form>
+								JOIN
+							</button>
+						</form>
 
 						<!-- Thank You Message -->
-						<div id="thankYou" style="
-          display: none;
-          width: 300px;
-          padding: 10px;
-          background-color: #e0f0ff;
-          color: #007BFF;
-          border-radius: 8px;
-          font-size: 14px;
-          text-align: center;
-          margin-bottom: 20px;
-          box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        ">Thank you!</div>
+						<div id="thankYou">Thank you!</div>
 
 
 
@@ -864,11 +907,11 @@ Features and rating END -->
 		<!-- =======================
 Steps START -->
 		<section>
-    <div class="container">
-        <div class="row g-4 align-items-lg-center steps-section">
-            <!-- Images -->
-            <div class="col-md-6 col-xl-5 order-2 order-md-1 steps-media">
-                <div class="swiper" data-swiper-options='{
+			<div class="container">
+				<div class="row g-4 align-items-lg-center steps-section">
+					<!-- Images -->
+					<div class="col-md-6 col-xl-5 order-2 order-md-1 steps-media">
+						<div class="swiper" data-swiper-options='{
                     "spaceBetween": 30,
                     "effect": "fade",
                     "autoplay":false,
@@ -878,33 +921,36 @@ Steps START -->
                         "prevEl":".swiper-button-prev-steps"
                     }}'>
 
-                    <div class="swiper-wrapper">
-                        <!-- Testimonials item -->
-                        <div class="swiper-slide bg-body">
-                            <div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100 ">
-                                <img src="assets/images/hero/hero3.svg" class="rounded-5" alt="step image" style="width: 210%; height: auto; display: block; margin-bottom: -90px;">
-                            </div>
-                        </div>
+							<div class="swiper-wrapper">
+								<!-- Testimonials item -->
+								<div class="swiper-slide bg-body">
+									<div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100 ">
+										<img src="assets/images/hero/Strategy.png" class="rounded-5" alt="step image"
+											style="width: 85%; height: auto; object-fit: contain; display: block; margin: 0 auto; align-self: flex-end; margin-bottom: -40px;">
+									</div>
+								</div>
 
-                        <!-- Testimonials item -->
-                        <div class="swiper-slide bg-body">
-                            <div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100">
-                                <img src="assets/images/hero/hero3.svg" class="rounded-5" alt="step image" style="width: 120%; height: auto; display: block; margin-left: -10%; margin-bottom: -90px;">
-                            </div>
-                        </div>
+								<!-- Testimonials item -->
+								<div class="swiper-slide bg-body">
+									<div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100">
+										<img src="assets/images/hero/Strategy.png" class="rounded-5" alt="step image"
+											style="width: 85%; height: auto; object-fit: contain; display: block; margin: 0 auto; align-self: flex-end; margin-bottom: -40px;">
+									</div>
+								</div>
 
-                        <!-- Testimonials item -->
-                        <div class="swiper-slide bg-body">
-                            <div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100">
-                                <img src="assets/images/hero/hero3.svg" class="rounded-5" alt="step image" style="width: 120%; height: auto; display: block; margin-left: -10%; margin-bottom: -90px;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+								<!-- Testimonials item -->
+								<div class="swiper-slide bg-body">
+									<div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100">
+										<img src="assets/images/hero/Strategy.png" class="rounded-5" alt="step image"
+											style="width: 85%; height: auto; object-fit: contain; display: block; margin: 0 auto; align-self: flex-end; margin-bottom: -40px;">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-            <!-- Steps Content START -->
-            <!-- ... rest of your code remains the same ... -->
+					<!-- Steps Content START -->
+					<!-- ... rest of your code remains the same ... -->
 
 					<!-- Steps Content START -->
 					<div class="col-md-6 order-1 ms-auto steps-content">
@@ -1438,7 +1484,8 @@ Footer START -->
 						<img class="h-40px" src="assets/images/hero/footerlogo.svg" alt="logo">
 					</a>
 
-					<p class="my-3 my-lg-4">  Join early access today and take the first step toward a calmer, more organised financial life.</p>
+					<p class="my-3 my-lg-4"> Join early access today and take the first step toward a calmer, more
+						organised financial life.</p>
 					<ul class="list-inline mb-0">
 						<li class="list-inline-item"> <a class="btn btn-xs btn-icon btn-secondary" href="#"><i
 									class="bi bi-facebook lh-base"></i></a> </li>
@@ -1500,27 +1547,28 @@ Footer START -->
 	<!-- =======================
 Footer END -->
 
-		<!-- Back to top -->
-		<div class="back-top"></div>
+	<!-- Back to top -->
+	<div class="back-top"></div>
 
-		<div class="modal fade" id="earlyAccessModal" tabindex="-1" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content">
-					<div class="modal-header border-0">
-						<h5 class="modal-title">Join for early access now</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<form id="emailModalForm">
-							<div class="input-group">
-								<input type="email" id="emailModalInput" class="form-control" placeholder="Enter your email" required>
-								<button type="submit" class="btn btn-primary-grad">JOIN</button>
-							</div>
-						</form>
-					</div>
+	<div class="modal fade" id="earlyAccessModal" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header border-0">
+					<h5 class="modal-title">Join for early access now</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form id="emailModalForm">
+						<div class="input-group">
+							<input type="email" id="emailModalInput" class="form-control" placeholder="Enter your email"
+								required>
+							<button type="submit" class="btn btn-primary-grad">JOIN</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
+	</div>
 
 	<!-- Bootstrap JS -->
 	<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -1531,16 +1579,16 @@ Footer END -->
 	<script src="assets/vendor/aos/aos.js"></script>
 
 	<!-- Theme Functions -->
-		<script src="assets/js/functions.js"></script>
-		<script>
-			document.addEventListener('DOMContentLoaded', function () {
-				var earlyModal = new bootstrap.Modal(document.getElementById('earlyAccessModal'))
-				earlyModal.show()
-			})
+	<script src="assets/js/functions.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			var earlyModal = new bootstrap.Modal(document.getElementById('earlyAccessModal'))
+			earlyModal.show()
+		})
 
-			const form = document.getElementById('emailForm');
-			const input = document.getElementById('emailInput');
-			const popup = document.getElementById('thankYou');
+		const form = document.getElementById('emailForm');
+		const input = document.getElementById('emailInput');
+		const popup = document.getElementById('thankYou');
 
 		form.onsubmit = function (e) {
 			e.preventDefault(); // prevent actual form submission
@@ -1556,31 +1604,31 @@ Footer END -->
 				input.value = ''; // clear input
 			} else {
 				alert('Please enter a valid email!');
-				}
 			}
+		}
 
-			const modalForm = document.getElementById('emailModalForm');
-			const modalInput = document.getElementById('emailModalInput');
-			const modalEl = document.getElementById('earlyAccessModal');
-			if (modalForm) {
-				modalForm.onsubmit = function (e) {
-					e.preventDefault();
-					const email = modalInput.value.trim();
-					const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-					if (emailPattern.test(email)) {
-						var instance = bootstrap.Modal.getInstance(modalEl);
-						if (instance) instance.hide();
-						if (popup) {
-							popup.style.display = 'block';
-							setTimeout(() => { popup.style.display = 'none'; }, 2500);
-						}
-						modalInput.value = '';
-					} else {
-						alert('Please enter a valid email!');
+		const modalForm = document.getElementById('emailModalForm');
+		const modalInput = document.getElementById('emailModalInput');
+		const modalEl = document.getElementById('earlyAccessModal');
+		if (modalForm) {
+			modalForm.onsubmit = function (e) {
+				e.preventDefault();
+				const email = modalInput.value.trim();
+				const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+				if (emailPattern.test(email)) {
+					var instance = bootstrap.Modal.getInstance(modalEl);
+					if (instance) instance.hide();
+					if (popup) {
+						popup.style.display = 'block';
+						setTimeout(() => { popup.style.display = 'none'; }, 2500);
 					}
+					modalInput.value = '';
+				} else {
+					alert('Please enter a valid email!');
 				}
 			}
-		</script>
+		}
+	</script>
 
 </body>
 
