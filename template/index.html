@@ -154,18 +154,18 @@
 			flex-wrap: wrap;
 			overflow: visible;
 			/* Changed from hidden to visible */
-			padding: 4rem 2rem 0;
+			padding: 0 2rem 0;
 			/* Removed bottom padding */
+			margin-top: -550px;
 		}
 
-		.hero-content {
-			flex: 1 1 50%;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			padding: 4rem 4rem 8rem;
-			/* Adjusted bottom padding */
-		}
+        .hero-content {
+            flex: 1 1 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 4rem 0;
+        }
 
 		.hero-image-wrapper {
 			position: relative;
@@ -174,14 +174,15 @@
 			/* Gap on left side */
 			margin-right: 0;
 			/* No gap on right */
-			margin-bottom: -300px;
+			/* margin-bottom: -300px; */
 			/* Move much further down */
-			margin-top: 100px;
+			margin-top: 0;
 			/* Push down from top */
 			flex: 1 1 50%;
 			max-width: 50%;
 			z-index: 2;
 			/* Keep image above wave */
+			
 		}
 
 		.hero-img {
@@ -193,17 +194,17 @@
 			display: block;
 			border-bottom-left-radius: 80px;
 			border-bottom-right-radius: 80px;
+		
 		}
 
-		/* Wave divider - adjusted to match image position */
-		.wave-divider {
-			margin-top: -150px;
-			/* Match the image bottom margin */
-			position: relative;
-			z-index: 1;
-			margin-bottom: -2px;
-			line-height: 0;
-		}
+        /* Wave divider - adjusted to match image position */
+        .wave-divider {
+            margin-top: -300px;
+            position: relative;
+            z-index: 1;
+            margin-bottom: -2px;
+            line-height: 0;
+        }
 
 		.wave-divider svg {
 			display: block;
@@ -241,7 +242,7 @@
 			}
 
 			.wave-divider {
-				margin-top: -250px;
+				margin-top: -950px;
 			}
 		}
 
@@ -307,13 +308,25 @@
 		}
 
 
-		.hero-content {
-			flex: 1 1 50%;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			padding: 4rem 4rem 12rem;
-		}
+        .hero-content {
+            flex: 1 1 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 4rem 0;
+        }
+
+        .hero-content h1 {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+        }
+
+        .hero-content .lead {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
 
 
 
@@ -510,26 +523,26 @@
 			color: #fff;
 		}
 
-		#emailForm {
-			position: relative;
-			width: 100%;
-			max-width: 300px;
-			margin-bottom: 20px;
-		}
+        #emailForm {
+            position: relative;
+            width: 100%;
+            max-width: 240px;
+            margin-bottom: 16px;
+        }
 
-		#thankYou {
-			display: none;
-			width: 100%;
-			max-width: 300px;
-			padding: 10px;
-			background-color: #e0f0ff;
-			color: #007BFF;
-			border-radius: 8px;
-			font-size: 14px;
-			text-align: center;
-			margin-bottom: 20px;
-			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-		}
+        #thankYou {
+            display: none;
+            width: 100%;
+            max-width: 240px;
+            padding: 8px;
+            background-color: #e0f0ff;
+            color: #007BFF;
+            border-radius: 8px;
+            font-size: 13px;
+            text-align: center;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
 
 		html[data-bs-theme="dark"] #thankYou {
 			background-color: #212529;
@@ -559,7 +572,43 @@
 				object-position: bottom;
 			}
 		}
-	</style>
+
+		#earlyAccessModal .modal-content {
+			border-radius: 20px;
+			box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+			overflow: hidden;
+		}
+		#earlyAccessModal .modal-header {
+			background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(236,72,153,0.08));
+			padding: 1rem 1.25rem;
+		}
+		#earlyAccessModal .modal-title {
+			font-weight: 600;
+		}
+		#earlyAccessModal .modal-body {
+			padding: 1.5rem;
+		}
+		#earlyAccessModal .input-group .form-control {
+			border-radius: 9999px;
+			padding: 0.75rem 1rem;
+			border-width: 1.5px;
+		}
+		#earlyAccessModal .input-group .btn {
+			border-radius: 9999px;
+			padding: 0.75rem 1rem;
+			margin-left: 8px;
+			background-color: #007BFF;
+			border-color: #007BFF;
+			color: #fff;
+		}
+		.modal-backdrop.show {
+			backdrop-filter: blur(3px);
+		}
+
+		.swiper-button-prev-exp, .swiper-button-next-exp {
+			z-index: 10;
+		}
+		</style>
 
 
 </head>
@@ -690,11 +739,20 @@
 	<main>
 
 		<!-- =======================
-Hero START -->
-		<section class="position-relative overflow-hidden pt-sm-8 pt-lg-8 pb-0">
+		Hero START -->
+		<style>
+		@media (max-width: 991.98px){
+			.hero-image-wrapper{max-width:100% !important}
+			.hero-image-wrapper .hero-img{width:100%;height:auto;margin-top:0 !important;margin-bottom:-1px !important}
+		}
+		@media (max-width: 575.98px){
+			.hero-image-wrapper .hero-img{margin-bottom:-2px !important}
+		}
+		</style>
+		<section class="position-relative overflow-hidden pt-6 pb-0">
 			<!-- Curve background -->
 			<span>
-				<svg class="position-absolute bottom-0 start-0 mb-n1 mb-lg-n4" viewBox="0 0 1920 149"
+				<svg class="position-absolute bottom-0 start-0 mb-n1 mb-lg-n4 mt-2" viewBox="0 0 1920 149"
 					style="enable-background:new 0 0 1920 149; z-index: 4" xml:space="preserve">
 					<path class="text-secondary"
 						d="M873.3,37.9C775,19.2,603.7-11.5,433.5,4.4C275.1,19.3,45.1,43.4-12,4.4v121V149l1946-2.6V97.6 c-109.9-35.9-230.6-93.1-468.8-75.4C1260.2,37.3,1089.7,79,873.3,37.9z"
@@ -708,7 +766,7 @@ Hero START -->
 					class="opacity-2 blur-9 h-300px rotate-335" alt="Grad shape">
 			</div>
 
-			<div class="container position-relative pt-0 pb-0 pb-sm-8 pb-xl-9">
+            <div class="container position-relative pt-0 pb-0">
 				<div class="row align-items-center">
 
 					<!-- Left Content -->
@@ -721,35 +779,36 @@ Hero START -->
 
 						<!-- Email Form -->
 
-						<form id="emailForm">
-							<input type="email" id="emailInput" placeholder="Enter your email" required style="
+                        <form id="emailForm">
+                            <input type="email" id="emailInput" placeholder="Enter your email" required style="
               width: 100%;
-              padding: 12px 80px 12px 20px; 
-              border-radius: 50px;
-              border: 2px solid #ccc;
-              font-size: 16px;
+              padding: 10px 68px 10px 16px; 
+              border-radius: 40px;
+              border: 1.5px solid #ccc;
+              font-size: 14px;
               outline: none;
               box-sizing: border-box;
             ">
-							<button type="submit" style="
+                            <button type="submit" style="
               position: absolute;
-              right: 4px;
-              top: 4px;
-              bottom: 4px;
+              right: 2px;
+              top: 2px;
+              bottom: 2px;
               border: none;
               background-color: #007BFF;
               color: white;
-              padding: 0 20px;
-              border-radius: 50px;
-              font-size: 14px;
+              padding: 0 16px;
+              border-radius: 40px;
+              font-size: 13px;
               cursor: pointer;
               display: flex;
               align-items: center;
               justify-content: center;
+              margin-left: 8px;
             ">
-								JOIN
-							</button>
-						</form>
+                                JOIN
+                            </button>
+                        </form>
 
 						<!-- Thank You Message -->
 						<div id="thankYou">Thank you!</div>
@@ -760,9 +819,9 @@ Hero START -->
 
 
 					<!-- Right Image -->
-					<div class="col-sm-9 col-lg-6 col-xxl-5 position-relative mx-auto hero-image-wrapper">
-						<img src="assets/images/hero/hero.png" alt="" class="hero-img">
-						<div class="hero-bottom-curve"></div>
+                    <div class="col-sm-9 col-lg-6 col-xxl-5 position-relative mx-auto hero-image-wrapper">
+                        <img src="assets/images/hero/hero.png" alt="" class="hero-img" style="margin-top:40px; margin-bottom: -100px;">
+                        <div class="hero-bottom-curve"></div>
 					</div>
 
 
@@ -925,7 +984,7 @@ Steps START -->
 								<!-- Testimonials item -->
 								<div class="swiper-slide bg-body">
 									<div class="bg-secondary-grad rounded-4 overflow-hidden p-0 h-100 ">
-										<img src="assets/images/hero/Strategy.png" class="rounded-5" alt="step image"
+										<img src="assets/images/hero/Strategy.png" class="rounded rounded-12" alt="step image"
 											style="width: 85%; height: auto; object-fit: contain; display: block; margin: 0 auto; align-self: flex-end; margin-bottom: -40px;">
 									</div>
 								</div>
@@ -1078,7 +1137,7 @@ Left right feature START -->
 
 					<!-- Image -->
 					<div class="col-md-6 col-lg-5 position-relative ms-auto">
-						<img src="assets/images/mobile-app/01.jpg" class="rounded-4" alt="feature image">
+                        <img src="assets/images/mobile-app/01.jpg" class="rounded-10" alt="feature image">
 						<!-- Rocket image -->
 						<div class="position-absolute start-0 top-0 ms-n6 d-none d-lg-block">
 							<img src="assets/images/elements/rocket-03.png" class="h-150px" alt="rocket image">
@@ -1107,110 +1166,127 @@ Screen gallery and feature START -->
 					</div>
 
 					<!-- Title and content -->
-					<div class="container inner-container-small text-center mb-7">
-						<h2 class="mb-4">Experience Ohless
-						</h2>
-						<p class="mb-4"> Browse the experience that makes managing debt feel simple, organized, and
-							under control.
-						</p>
-						<!-- <div class="d-sm-flex justify-content-center">
-					<a href="#"> <img src="assets/images/elements/google-play.svg" class="btn-transition me-sm-4 mb-2 mb-sm-0" width="180" alt="play store"> </a>
-					<a href="#"> <img src="assets/images/elements/app-store.svg" class="btn-transition" width="180" alt="app-store"> </a>
-				</div> -->
-					</div>
+                    <div class="container inner-container-small text-center mb-7">
+                        <h2 class="mb-2">Experience Ohless
+                        </h2>
+                        <p class="mb-3"> Browse the experience that makes managing debt feel simple, organized, and
+                            under control.
+                        </p>
+                        <div class="d-inline-flex align-items-center gap-3 mb-0" style="margin-bottom:1px;">
+                            <button type="button" class="btn btn-light btn-icon rounded-circle mb-0 swiper-button-prev-exp rtl-flip" aria-label="Previous">
+                                <i class="bi bi-arrow-left"></i>
+                            </button>
+                            <button type="button" class="btn btn-light btn-icon rounded-circle mb-0 swiper-button-next-exp rtl-flip" aria-label="Next">
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
+                        </div>
+                        <!-- <div class="d-sm-flex justify-content-center">
+                        <a href="#"> <img src="assets/images/elements/google-play.svg" class="btn-transition me-sm-4 mb-2 mb-sm-0" width="180" alt="play store"> </a>
+                        <a href="#"> <img src="assets/images/elements/app-store.svg" class="btn-transition" width="180" alt="app-store"> </a>
+                </div> -->
+                    </div>
 
 					<!-- Slider START -->
-					<div class="swiper swiper-outside-n5 pb-6 mx-3 mx-sm-0" data-swiper-options='{
-				"slidesPerView": 1, 
-				"spaceBetween": 50,
-				"autoplay":{
-					"delay": 2000, 
-					"disableOnInteraction": false,
-					"pauseOnMouseEnter": true
-				},
-				"breakpoints": { 
-					"576": {"slidesPerView": 3}, 
-					"992": {"slidesPerView": 5},
-					"1300": {"slidesPerView": 7}
-				},
-				"pagination":{
-					"el":".swiper-pagination",
-					"clickable":"true"
-				}}'>
+                    <div class="swiper swiper-outside-n5 pb-6 mx-3 mx-sm-0" data-swiper-options='{
+                "slidesPerView": 1, 
+                "spaceBetween": 50,
+                "autoplay":{
+                    "delay": 2000, 
+                    "disableOnInteraction": false,
+                    "pauseOnMouseEnter": true
+                },
+                "breakpoints": { 
+                    "576": {"slidesPerView": 3}, 
+                    "992": {"slidesPerView": 5},
+                    "1300": {"slidesPerView": 7}
+                },
+                "pagination":{
+                    "el":".swiper-pagination",
+                    "clickable":"true"
+                },
+                "navigation":{
+                    "nextEl":".swiper-button-next-exp",
+                    "prevEl":".swiper-button-prev-exp"
+                }}'>
 
 						<!-- Slider items -->
-						<div class="swiper-wrapper align-items-center">
+						<div class="swiper-wrapper align-items-center ">
 							<!-- Image -->
 							<div class="swiper-slide">
-								<img src="assets/images/hero/1st.svg" class="rounded-4 border border-secondary border-3"
-									alt="mobile screen">
-							</div>
-
-							<!-- Image -->
-							<div class="swiper-slide">
-								<img src="assets/images/hero/2nd.svg" class="rounded-4 border border-secondary border-3"
-									alt="mobile screen">
-							</div>
-
-							<!-- Image -->
-							<div class="swiper-slide">
-								<img src="assets/images/hero/3rd.svg" class="rounded-4 border border-secondary border-3"
-									alt="mobile screen">
-							</div>
-
-							<!-- Image -->
-							<div class="swiper-slide">
-								<img src="assets/images/hero/4th.svg" class="rounded-4 border border-secondary border-3"
-									alt="mobile screen">
-							</div>
-
-							<!-- Image -->
-							<div class="swiper-slide">
-								<img src="assets/images/hero/5th.svg" class="rounded-4 border border-secondary border-3"
-									alt="mobile screen">
-							</div>
-
-							<!-- Image -->
-							<div class="swiper-slide">
-								<img src="assets/images/hero/6th.svg" class="rounded-4 border border-secondary border-3"
-									alt="mobile screen">
-							</div>
-
-							<!-- Image -->
-							<div class="swiper-slide">
-								<img src="assets/images/hero/7th.svg" class="rounded-4 border border-secondary border-3"
-									alt="mobile screen">
-							</div>
-
-							<!-- Image -->
-							<div class="swiper-slide">
-								<img src="assets/images/hero/8th.svg" class="rounded-4 border border-secondary border-3"
+								<img src="assets/images/swiper/Dashboard.png" class="rounded-4 border border-secondary border-3"
 									alt="mobile screen">
 							</div>
 							<!-- Image -->
 							<div class="swiper-slide">
-								<img src="assets/images/hero/9th.svg" class="rounded-4 border border-secondary border-3"
-									alt="mobile screen">
-							</div>
-							<!-- Image -->
-							<div class="swiper-slide">
-								<img src="assets/images/hero/10th.svg"
+								<img src="assets/images/swiper/Single_Debt.png"
 									class="rounded-4 border border-secondary border-3" alt="mobile screen">
 							</div>
 							<!-- Image -->
 							<div class="swiper-slide">
-								<img src="assets/images/hero/11th.svg"
+								<img src="assets/images/swiper/My_Debts.png" class="rounded-4 border border-secondary border-3"
+									alt="mobile screen">
+							</div>
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/swiper/Strategy.png"
 									class="rounded-4 border border-secondary border-3" alt="mobile screen">
 							</div>
 							<!-- Image -->
 							<div class="swiper-slide">
-								<img src="assets/images/hero/12th.svg"
+								<img src="assets/images/swiper/Debt_Cleared.png" class="rounded-4 border border-secondary border-3"
+									alt="mobile screen">
+							</div>
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/swiper/Achievements.png" class="rounded-4 border border-secondary border-3"
+									alt="mobile screen">
+							</div>
+
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/swiper/Calm_Mode.png" class="rounded-4 border border-secondary border-3"
+									alt="mobile screen">
+							</div>
+
+							
+
+							
+
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/swiper/Export_Data.png" class="rounded-4 border border-secondary border-3"
+									alt="mobile screen">
+							</div>
+
+							
+
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/swiper/New_Debt.png" class="rounded-4 border border-secondary border-3"
+									alt="mobile screen">
+							</div>
+
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/swiper/Notifications_Settings.png" class="rounded-4 border border-secondary border-3"
+									alt="mobile screen">
+							</div>
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/swiper/Profile.png" class="rounded-4 border border-secondary border-3"
+									alt="mobile screen">
+							</div>
+							<!-- Image -->
+							<div class="swiper-slide">
+								<img src="assets/images/swiper/Progress.png"
 									class="rounded-4 border border-secondary border-3" alt="mobile screen">
 							</div>
+							
+							
 						</div>
 
 						<!-- Slider Pagination -->
-						<div class="swiper-pagination swiper-pagination-primary position-absolute bottom-0 mb-4"></div>
+						<div class="swiper-pagination swiper-pagination-primary position-absolute bottom-0 mb-4">....</div>
 					</div>
 					<!-- Slider END	 -->
 				</div>
@@ -1219,173 +1295,21 @@ Screen gallery and feature START -->
 		<!-- =======================
 Screen gallery and feature END -->
 
-		<!-- =======================
-Testimonials START -->
-		<section>
-			<div class="container">
-				<div class="row align-items-center">
-					<!-- Title and slider button -->
-					<div class="col-lg-4 text-center text-lg-start">
-						<h2 class="mb-1 mb-lg-2">Hear from our satisfied users</h2>
-
-					</div>
-
-					<div class="col-lg-8 col-xl-7 ms-auto">
-						<!-- Slider START -->
-						<div class="swiper mt-2 mt-md-4" data-swiper-options='{
-					"spaceBetween": 30,
-					"autoplay":{
-						"delay": 4000, 
-						"disableOnInteraction": false,
-						"pauseOnMouseEnter": true
-					},
-					"navigation":{
-						"nextEl":".swiper-button-next-test",
-						"prevEl":".swiper-button-prev-test"
-					}}'>
-
-							<div class="swiper-wrapper">
-								<!-- Testimonial item -->
-								<div class="swiper-slide">
-									<div class="card bg-secondary bg-opacity-50 rounded-4 overflow-hidden">
-										<div class="row g-0">
-											<div class="col-md-5">
-												<!-- Image -->
-												<img src="assets/images/team/01.jpg" class="rounded-start mb-3 mb-md-0"
-													alt="...">
-											</div>
-											<div class="col-md-7 col-xl-6">
-												<!-- Content -->
-												<div class="card-body d-flex flex-column h-100 p-xl-4">
-													<!-- Rating star -->
-													<ul class="list-inline mb-2">
-														<li class="list-inline-item me-0"><i
-																class="bi bi-star-fill text-primary"></i></li>
-														<li class="list-inline-item me-0"><i
-																class="bi bi-star-fill text-primary"></i></li>
-														<li class="list-inline-item me-0"><i
-																class="bi bi-star-fill text-primary"></i></li>
-														<li class="list-inline-item me-0"><i
-																class="bi bi-star-fill text-primary"></i></li>
-														<li class="list-inline-item me-0"><i
-																class="bi bi-star-half text-primary"></i></li>
-													</ul>
-													<p class="heading-color">I've been using this app for over a year
-														now, and it has made managing my finances so much easier. The
-														user interface is incredibly intuitive.</p>
-
-													<!-- Info -->
-													<div class="mt-auto">
-														<p class="lead heading-color fw-semibold mb-0">Emma Watson</p>
-														<small>UI/UX Designer</small>
-													</div>
-
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Testimonial item -->
-								<div class="swiper-slide">
-									<div class="card bg-secondary bg-opacity-50 rounded-4 overflow-hidden">
-										<div class="row g-0">
-											<div class="col-md-5">
-												<!-- Image -->
-												<img src="assets/images/team/04.jpg" class="rounded-start mb-3 mb-md-0"
-													alt="...">
-											</div>
-											<div class="col-md-7 col-xl-6">
-												<!-- Content -->
-												<div class="card-body d-flex flex-column h-100 p-xl-4">
-													<!-- Rating star -->
-													<ul class="list-inline mb-2">
-														<li class="list-inline-item me-0"><i
-																class="bi bi-star-fill text-primary"></i></li>
-														<li class="list-inline-item me-0"><i
-																class="bi bi-star-fill text-primary"></i></li>
-														<li class="list-inline-item me-0"><i
-																class="bi bi-star-fill text-primary"></i></li>
-														<li class="list-inline-item me-0"><i
-																class="bi bi-star-fill text-primary"></i></li>
-														<li class="list-inline-item me-0"><i
-																class="bi bi-star-half text-primary"></i></li>
-													</ul>
-													<p class="heading-color">The app is fast, reliable, and customer
-														support is always there when I need help. Highly recommended!
-													</p>
-
-													<!-- Info -->
-													<div class="mt-auto">
-														<p class="lead heading-color fw-semibold mb-0">Louis Ferguson
-														</p>
-														<small>Web Developer</small>
-													</div>
-
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- Testimonial item -->
-								<div class="swiper-slide">
-									<div class="card bg-secondary bg-opacity-50 rounded-4 overflow-hidden">
-										<div class="row g-0">
-											<div class="col-md-5">
-												<!-- Image -->
-												<img src="assets/images/team/03.jpg" class="rounded-start mb-3 mb-md-0"
-													alt="...">
-											</div>
-											<div class="col-md-7 col-xl-6">
-												<!-- Content -->
-												<div class="card-body d-flex flex-column h-100 p-xl-4">
-													<!-- Rating star -->
-													<ul class="list-inline mb-2">
-														<li class="list-inline-item me-0"><i
-																class="bi bi-star-fill text-primary"></i></li>
-														<li class="list-inline-item me-0"><i
-																class="bi bi-star-fill text-primary"></i></li>
-														<li class="list-inline-item me-0"><i
-																class="bi bi-star-fill text-primary"></i></li>
-														<li class="list-inline-item me-0"><i
-																class="bi bi-star-fill text-primary"></i></li>
-														<li class="list-inline-item me-0"><i
-																class="bi bi-star-fill text-primary"></i></li>
-													</ul>
-													<p class="heading-color">The budgeting tools in this app have helped
-														me save more and spend wisely.</p>
-
-													<!-- Info -->
-													<div class="mt-auto">
-														<p class="lead heading-color fw-semibold mb-0">Jacqueline Miller
-														</p>
-														<small>Product designer</small>
-													</div>
-
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Slider arrow -->
-							<div
-								class="d-flex justify-content-between position-absolute top-50 start-50 translate-middle w-100 z-index-2">
-								<a href="#"
-									class="btn btn-dark btn-icon btn-lg rounded-circle mb-0 swiper-button-prev-test rtl-flip ms-2"><i
-										class="bi bi-arrow-left"></i></a>
-								<a href="#"
-									class="btn btn-dark btn-icon btn-lg rounded-circle mb-0 swiper-button-next-test rtl-flip me-2"><i
-										class="bi bi-arrow-right"></i></a>
-							</div>
-						</div>
-						<!-- Slider END -->
-					</div>
-				</div> <!-- Row END -->
-			</div>
-		</section>
+        <!-- =======================
+        Survey CTA START -->
+        <section>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 text-center text-lg-start">
+                        <h2 class="mb-2">Help Shape Ohless</h2>
+                        <p class="mb-0 mb-lg-0">We’re inviting interested users to complete a short survey.<br/> Your feedback helps us build a calmer, clearer experience.</p>
+                    </div>
+                    <div class="col-lg-4 text-center text-lg-end mt-3 mt-lg-0">
+                        <a href="https://forms.gle/ohless-survey" target="_blank" rel="noopener" class="btn btn-primary-grad px-4">Take the 2‑minute survey</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
 
@@ -1406,31 +1330,32 @@ CTA START -->
 
 							Join early access and experience what debt clarity really feels like.
 						</p>
-						<form id="emailForm" style="position: relative; width: 300px; margin-bottom: 20px;">
-							<input type="email" id="emailInput" placeholder="Enter your email" required style="
+                        <form id="emailForm" style="position: relative; margin-bottom: 20px;">
+                            <input type="email" id="emailInput" placeholder="Enter your email" required style="
       width: 100%;
-      padding: 12px 80px 12px 20px; 
-      border-radius: 50px;
-      border: 2px solid #ccc;
-      font-size: 16px;
+      padding: 10px 68px 10px 16px; 
+      border-radius: 40px;
+      border: 1.5px solid #ccc;
+      font-size: 14px;
       outline: none;
       box-sizing: border-box;
     ">
-							<button type="submit" style="
+                            <button type="submit" style="
       position: absolute;
-      right: 4px;
-      top: 4px;
-      bottom: 4px;
+      right: 2px;
+      top: 2px;
+      bottom: 2px;
       border: none;
       background-color: #007BFF;
       color: white;
-      padding: 0 20px;
-      border-radius: 50px;
-      font-size: 14px;
+      padding: 0 16px;
+      border-radius: 40px;
+      font-size: 13px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-left: 8px;
     ">
 								SEND →
 							</button>
@@ -1458,7 +1383,7 @@ CTA START -->
 
 					<!-- Image -->
 					<div class="col-sm-9 col-md-6 mx-auto mb-n9">
-						<img src="assets/images/hero/8th.svg" class="aos mb-n5 mb-lg-n9 ms-lg-5 w-75" data-aos="fade-up"
+						<img src="assets/images/hero/8th.svg" class="aos mb-n5 mb-lg-n9 ms-lg-5 w-75 " data-aos="fade-up"
 							data-aos-delay="200" data-aos-duration="500" data-aos-easing="ease-in-out" alt="cta image">
 					</div>
 
