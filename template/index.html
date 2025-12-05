@@ -608,7 +608,10 @@
 		.swiper-button-prev-exp, .swiper-button-next-exp {
 			z-index: 10;
 		}
-		</style>
+					.hero-text-tight h1{margin-bottom:6px !important}
+					.hero-text-tight p{margin-bottom:0 !important}
+					#emailForm{margin-top:2px !important}
+					</style>
 
 
 </head>
@@ -770,16 +773,16 @@
 				<div class="row align-items-center">
 
 					<!-- Left Content -->
-					<div class="col-lg-6 mb-6 mb-lg-0">
-						<h1 class="fw-bold mb-3 mb-md-4">See Every Debt. Clear Every Balance.</h1>
-						<p class="lead mb-3 mb-md-4">
+					<div class="col-lg-6 mb-6 mb-lg-0 hero-text-tight">
+					<h1 class="h2 fw-bold mb-2 mb-md-3">See Every Debt.<br/> Clear Every<br/> Balance.</h1>
+					<p class="mb-4 mb-md-3" style="margin-bottom: 0;">
 							See everything you owe in one clear dashboard and make one unified monthly payment. Every
 							payment, every plan, and every next step is finally in one place.
 						</p>
 
 						<!-- Email Form -->
 
-                        <form id="emailForm">
+					<form id="emailForm" style="position: relative; margin-top: 20px !important;">
                             <input type="email" id="emailInput" placeholder="Enter your email" required style="
               width: 100%;
               padding: 10px 68px 10px 16px; 
@@ -820,7 +823,7 @@
 
 					<!-- Right Image -->
                     <div class="col-sm-9 col-lg-6 col-xxl-5 position-relative mx-auto hero-image-wrapper">
-                        <img src="assets/images/hero/hero.png" alt="" class="hero-img" style="margin-top:40px; margin-bottom: -100px;">
+                        <img src="assets/images/hero/hero.png" alt="" class="hero-img" style="margin-top:40px; margin-bottom: -102px;">
                         <div class="hero-bottom-curve"></div>
 					</div>
 
@@ -1172,22 +1175,15 @@ Screen gallery and feature START -->
                         <p class="mb-3"> Browse the experience that makes managing debt feel simple, organized, and
                             under control.
                         </p>
-                        <div class="d-inline-flex align-items-center gap-3 mb-0" style="margin-bottom:1px;">
-                            <button type="button" class="btn btn-light btn-icon rounded-circle mb-0 swiper-button-prev-exp rtl-flip" aria-label="Previous">
-                                <i class="bi bi-arrow-left"></i>
-                            </button>
-                            <button type="button" class="btn btn-light btn-icon rounded-circle mb-0 swiper-button-next-exp rtl-flip" aria-label="Next">
-                                <i class="bi bi-arrow-right"></i>
-                            </button>
-                        </div>
+                        
                         <!-- <div class="d-sm-flex justify-content-center">
-                        <a href="#"> <img src="assets/images/elements/google-play.svg" class="btn-transition me-sm-4 mb-2 mb-sm-0" width="180" alt="play store"> </a>
-                        <a href="#"> <img src="assets/images/elements/app-store.svg" class="btn-transition" width="180" alt="app-store"> </a>
-                </div> -->
+                            <a href="#"> <img src="assets/images/elements/google-play.svg" class="btn-transition me-sm-4 mb-2 mb-sm-0" width="180" alt="play store"> </a>
+                            <a href="#"> <img src="assets/images/elements/app-store.svg" class="btn-transition" width="180" alt="app-store"> </a>
+                    </div> -->
                     </div>
 
 					<!-- Slider START -->
-                    <div class="swiper swiper-outside-n5 pb-6 mx-3 mx-sm-0" data-swiper-options='{
+                    <div class="swiper swiper-outside-n5 pb-6 mx-3 mx-sm-0" style="position: relative;" data-swiper-options='{
                 "slidesPerView": 1, 
                 "spaceBetween": 50,
                 "autoplay":{
@@ -1283,11 +1279,23 @@ Screen gallery and feature START -->
 							</div>
 							
 							
-						</div>
+                        </div>
 
-						<!-- Slider Pagination -->
-						<div class="swiper-pagination swiper-pagination-primary position-absolute bottom-0 mb-4">....</div>
-					</div>
+                        <!-- Overlay navigation arrows -->
+                        <button type="button" class="btn btn-icon rounded-circle swiper-button-prev-exp rtl-flip"
+                                aria-label="Previous"
+                                style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.15); background-color: transparent; color: #007BFF; border: 1px solid rgba(0,123,255,0.35);">
+                            <i class="bi bi-arrow-left"></i>
+                        </button>
+                        <button type="button" class="btn btn-icon rounded-circle swiper-button-next-exp rtl-flip"
+                                aria-label="Next"
+                                style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); z-index: 10; box-shadow: 0 4px 10px rgba(0,0,0,0.15); background-color: transparent; color: #007BFF; border: 1px solid rgba(0,123,255,0.35);">
+                            <i class="bi bi-arrow-right"></i>
+                        </button>
+
+                        <!-- Slider Pagination -->
+                        <div class="swiper-pagination swiper-pagination-primary position-absolute bottom-0 mb-4">....</div>
+                    </div>
 					<!-- Slider END	 -->
 				</div>
 			</div>
@@ -1323,13 +1331,13 @@ CTA START -->
 				<div class="row g-4 align-items-center">
 					<!-- Content -->
 					<div class="col-md-6">
-						<!-- Title -->
-						<h2 class="mb-4">Find Your Financial Calm</h2>
-						<p class="mb-4">Join early access today and take the first step toward a calmer, more organised
-							financial life.
+					<!-- Title -->
+					<h2 class="mb-4">Find Your Financial <span class="text-primary-grad">Calm</span></h2>
+					<p class="mb-4">Join  early access today and take the first step toward a calmer, more organised
+						financial life.
 
-							Join early access and experience what debt clarity really feels like.
-						</p>
+						Join  early access and experience what debt clarity really feels like.
+					</p>
                         <form id="emailForm" style="position: relative; margin-bottom: 20px;">
                             <input type="email" id="emailInput" placeholder="Enter your email" required style="
       width: 100%;
@@ -1476,18 +1484,17 @@ Footer END -->
 	<div class="back-top"></div>
 
 	<div class="modal fade" id="earlyAccessModal" tabindex="-1" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-dialog modal-dialog-centered" style="max-width: 340px;">
 			<div class="modal-content">
 				<div class="modal-header border-0">
-					<h5 class="modal-title">Join for early access now</h5>
+					<h5 class="modal-title" style="font-size: 1rem;">Join for <span class="text-primary-grad" style="background: linear-gradient(90deg, #543DE7 0%, #7F39F8 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; display: inline-block;">early</span> access now</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
-				<div class="modal-body">
+				<div class="modal-body" style="padding-top: 8px;">
 					<form id="emailModalForm">
-						<div class="input-group">
-							<input type="email" id="emailModalInput" class="form-control" placeholder="Enter your email"
-								required>
-							<button type="submit" class="btn btn-primary-grad">JOIN</button>
+						<div class="input-group" style="width: 280px; margin: 0 auto;">
+							<input type="email" id="emailModalInput" class="form-control" placeholder="Enter your email" required style="font-size: 13px; padding: 8px 12px;">
+							<button type="submit" class="btn btn-primary-grad" style="font-size: 12px; padding: 6px 12px;">JOIN</button>
 						</div>
 					</form>
 				</div>
@@ -1504,8 +1511,8 @@ Footer END -->
 	<script src="assets/vendor/aos/aos.js"></script>
 
 	<!-- Theme Functions -->
-	<script src="assets/js/functions.js"></script>
-	<script>
+    <script src="assets/js/functions.js"></script>
+    <script>
 		document.addEventListener('DOMContentLoaded', function () {
 			var earlyModal = new bootstrap.Modal(document.getElementById('earlyAccessModal'))
 			earlyModal.show()
@@ -1553,7 +1560,28 @@ Footer END -->
 				}
 			}
 		}
-	</script>
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        var swiperEl = document.querySelector('.swiper-outside-n5');
+        var prevBtn = document.querySelector('.swiper-button-prev-exp');
+        var nextBtn = document.querySelector('.swiper-button-next-exp');
+        function init(){
+          if (!swiperEl || !swiperEl.swiper) return false;
+          var swiper = swiperEl.swiper;
+          function update(){
+            if (prevBtn) prevBtn.style.display = swiper.isBeginning ? 'none' : '';
+            if (nextBtn) nextBtn.style.display = swiper.isEnd ? 'none' : '';
+          }
+          swiper.on('slideChange', update);
+          swiper.on('resize', update);
+          swiper.on('update', update);
+          update();
+          return true;
+        }
+        if (!init()) setTimeout(init, 100);
+      });
+    </script>
 
 </body>
 
