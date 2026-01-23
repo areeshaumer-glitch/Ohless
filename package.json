@@ -4,8 +4,8 @@
   "description": "multipurpose bootstrap theme",
   "main": "gulpfile.js",
   "scripts": {
-    "build": "gulp",
-    "start": "gulp",
+    "build": "node api.js && gulp",
+    "start": "node api.js && gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "webestica",
